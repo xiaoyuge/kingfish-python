@@ -1,13 +1,13 @@
 """
 read data
 csv、tsv、txt:pd.read_csv
-excel pd.read_excel
-mysql pd.read_sql
+excel: pd.read_excel
+mysql: pd.read_sql
 @author kingfish
 """
 import pandas as pd
 
-filepath = "/Users/joyce/PycharmProjects/ant-learn-pandas/datas/ml-latest-small/ratings.csv"
+filepath = "./datas/ml-latest-small/ratings.csv"
 
 ratings = pd.read_csv(filepath)
 
