@@ -1,0 +1,4 @@
+max is 99
+min is 41
+sum is 7834
+avg is 47.76829268292683
