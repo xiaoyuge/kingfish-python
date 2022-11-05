@@ -2,7 +2,7 @@
 读取数字，统计最大、最小、总数和平均值
 """
 
-fin = open("/Users/joyce/kingfish-python/kingfish-python/file_test/number.txt")
+fin = open("file_test/number.txt")
 
 max = 0
 min = 10000

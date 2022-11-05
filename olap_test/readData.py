@@ -13,7 +13,7 @@ import pandas as pd
 """
 
 #获取csv文件
-filepath = "~/kingfish-python/kingfish-python/datas/ml-latest-small/ratings.csv"
+filepath = "datas/ml-latest-small/ratings.csv"
 
 #读取csv文件
 ratings = pd.read_csv(filepath)
