@@ -10,7 +10,7 @@ import os
 app = xw.App(visible=True,add_book=False)
 
 #遍历指定目录下的excel文件，并打开他
-filepath = "./excel/datas/"
+filepath = "./excel/open"
 files = os.listdir(filepath)
 print(files)
 
