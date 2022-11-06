@@ -38,5 +38,15 @@ def hi_tpl_dt():
     data = "hi world from data!"
     return render_template("helloworldfromdata.html",data=data)
 
+#路径带参数
+@app.route('/user/<username>')
+def get_user(username):
+    return "hello %s" %username
+
+#同样路径，用post访问
+@app.route('/user/<username>',methods=["POST"])
+def get_user_by_post(username):
+    return "hello %s by post" %username
+
 if __name__ == '__main__':
     app.run()
