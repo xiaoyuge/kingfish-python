@@ -3,7 +3,8 @@
 用falsk开发的web应用
 """
 
-from flask import Flask,render_template
+from flask import Flask,render_template,request
+import json
 
 app = Flask(__name__)
 
@@ -47,6 +48,31 @@ def get_user(username):
 @app.route('/user/<username>',methods=["POST"])
 def get_user_by_post(username):
     return "hello %s by post" %username
+
+#探索一下request获取数据
+@app.route('/data',methods=["POST","GET"])
+def get_request_data():
+    print('-----------------------获取args---------------------')
+    arga = request.args.get('a')
+    argb = request.args.get('b')
+    print("参数a是 %s" %arga + " 参数b是 %s" %argb)
+    print(request.headers.get('User-Agent'))
+    print('-----------------------获取data---------------------')
+    jsonData = request.data
+    jsonData = json.loads(jsonData)
+    print(jsonData)
+    print('-----------------------获取cookies---------------------')
+    print(request.cookies)
+    print(request.cookies.get("token")) 
+    return "Request Successful"
+
+#从表单获取数据
+@app.route('/formData',methods=["POST","GET"])
+def get_form_data():
+    print(request.form)
+    print(request.form.get("username"))
+    print(request.form.get("password"))
+    return "Post form Successful"
 
 if __name__ == '__main__':
     app.run()
