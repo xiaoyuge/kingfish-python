@@ -1,12 +1,12 @@
 """
 @author kingfish
-线程池
+线程池的三种使用方法
 """
 
 import concurrent.futures
 import blog_spider
 
-#craw
+#craw，使用pool.map方法，
 with concurrent.futures.ThreadPoolExecutor() as pool:
     htmls = pool.map(blog_spider.craw,blog_spider.urls)
     htmls = list(zip(blog_spider.urls,htmls))
