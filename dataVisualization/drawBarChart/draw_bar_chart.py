@@ -21,4 +21,4 @@ def draw_bar_chart():
         .set_global_opts(title_opts=opts.TitleOpts(title="商品销量对比图"))
     )
 
-    return bar.render_notebook()
+    return bar.render_embed()

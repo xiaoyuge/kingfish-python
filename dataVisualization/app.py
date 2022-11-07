@@ -9,8 +9,8 @@ app = Flask(__name__)
 
 @app.route("/barchart")
 def bar_chart():
-    html = dbc.draw_bar_chart()
-    return render_template("render.html",data=html)    
+    str = dbc.draw_bar_chart()
+    return str   
 
 if __name__ == "__main__":
     app.run()
