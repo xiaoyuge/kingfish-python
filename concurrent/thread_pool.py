@@ -6,7 +6,7 @@
 import concurrent.futures
 import blog_spider
 
-#craw，使用pool.map方法，
+#craw，使用pool.map方法，用线程池多个线程执行
 with concurrent.futures.ThreadPoolExecutor() as pool:
     htmls = pool.map(blog_spider.craw,blog_spider.urls)
     htmls = list(zip(blog_spider.urls,htmls))
@@ -15,7 +15,7 @@ with concurrent.futures.ThreadPoolExecutor() as pool:
 
 print("craw over")
 
-#parse
+#parse，使用pool.submit方法，用线程池多个线程执行
 with concurrent.futures.ThreadPoolExecutor() as pool:
     futures = {}
     for url,html in htmls:
