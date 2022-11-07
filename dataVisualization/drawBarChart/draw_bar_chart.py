@@ -8,19 +8,17 @@ import pandas as pd
 from pyecharts import options as opts
 from pyecharts.charts import Bar
 
-fpath = "dataVisualization/drawBarChart/商家销售数据.xlsx"
+def draw_bar_chart():
+    fpath = "dataVisualization/drawBarChart/商家销售数据.xlsx"
 
-excel = pd.read_excel(fpath)
+    excel = pd.read_excel(fpath)
 
-print(excel.head)
-print(excel.columns)
+    bar = (
+        Bar()
+        .add_xaxis(excel["商品"].tolist())
+        .add_yaxis("商家A",excel["商家A"].tolist())
+        .add_yaxis("商家B",excel["商家B"].tolist())
+        .set_global_opts(title_opts=opts.TitleOpts(title="商品销量对比图"))
+    )
 
-bar = (
-    Bar()
-    .add_xaxis(excel["商品"].tolist())
-    .add_yaxis("商家A",excel["商家A"].tolist())
-    .add_yaxis("商家B",excel["商家B"].tolist())
-    .set_global_opts(title_opts=opts.TitleOpts(title="商品销量对比图"))
-)
-
-bar.render_notebook()
+    return bar.render_notebook()
