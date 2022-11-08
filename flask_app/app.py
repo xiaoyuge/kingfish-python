@@ -31,13 +31,13 @@ def hi_world():
 #将html片段分离为一个单独的模板文件
 @app.route('/hitpl')
 def hi_tpl():
-    return render_template("helloworld.html")
+    return render_template("hello_world.html")
 
 #传递数据给模板文件
 @app.route('/hitpldt')
 def hi_tpl_dt():
     data = "hi world from data!"
-    return render_template("helloworldfromdata.html",data=data)
+    return render_template("hello_world_from_data.html",data=data)
 
 #路径带参数
 @app.route('/user/<username>')

@@ -5,7 +5,7 @@
 
 from bs4 import BeautifulSoup
 
-with open("crawler/bs4_case/helloworld.html") as fin:
+with open("crawler/bs4_case/hello_world.html") as fin:
     html_doc = fin.read()
     
 soup = BeautifulSoup(html_doc,"html.parser")
