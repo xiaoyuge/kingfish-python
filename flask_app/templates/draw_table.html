@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>北京天气数据2018</title>
+</head>
+<body>
+    <h1>北京天气数据2018</h1>
+    <div>
+        <table border="1px">
+            <tr style="background-color:#ee0000">
+                <th>日期</th>
+                <th>白天气温</th>
+                <th>夜间气温</th>
+                <th>天气</th>
+                <th>风向</th>
+                <th>风力</th>
+                <th>空气指数</th>
+                <th>空气情况</th>
+                <th>空气等级</th>
+            </tr>
+            {%for data in datas%}
+                <tr>
+                    <td>{{data[0]}}</td>
+                    <td>{{data[1]}}</td>
+                    <td>{{data[2]}}</td>
+                    <td>{{data[3]}}</td>
+                    <td>{{data[4]}}</td>
+                    <td>{{data[5]}}</td>
+                    <td>{{data[6]}}</td>
+                    <td>{{data[7]}}</td>
+                    <td>{{data[8]}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div>
+        <img src="/static/python.webp"></img>
+    </div>
+</body>
+</html>
