@@ -1,0 +1,400 @@
+https://www.cnblogs.com/qi66/p/16870180.html	Go操作MySQL	点赞数：0	评论数：0	浏览数：68
+https://www.cnblogs.com/ddzj01/p/16870176.html	Oracle收集统计信息的一些思考	点赞数：0	评论数：0	浏览数：42
+https://www.cnblogs.com/konghuanxi/p/16869998.html	Redisson源码解读-公平锁	点赞数：2	评论数：0	浏览数：82
+https://www.cnblogs.com/myshare/p/16869855.html	SimpleDateFormat线程安全问题排查	点赞数：1	评论数：0	浏览数：102
+https://www.cnblogs.com/pam-sh/p/16869838.html	MPC：百万富翁问题	点赞数：0	评论数：0	浏览数：56
+https://www.cnblogs.com/pengxurui/p/16869812.html	为什么你学不会递归？谈谈我的经验	点赞数：1	评论数：1	浏览数：172
+https://www.cnblogs.com/greyzeng/p/16869568.html	设计模式学习（五）：原型模式	点赞数：0	评论数：0	浏览数：96
+https://www.cnblogs.com/PaperHammer/p/16869534.html	[数据结构-线性表1.2] 链表与 LinkedList<T>（.NET 源码学习）	点赞数：0	评论数：0	浏览数：104
+https://www.cnblogs.com/tree1123/p/16869472.html	从港口煤炭工人，到国企大数据负责人：曾经的网瘾少年是怎么做到的？	点赞数：3	评论数：0	浏览数：307
+https://www.cnblogs.com/Kation/p/16869326.html	要写文档了，emmm，先写个文档工具吧——DocMarkdown	点赞数：2	评论数：0	浏览数：224
+https://www.cnblogs.com/aoximin/p/16868010.html	重新整理 .net core 实践篇 ———— dotnet-dump [外篇]	点赞数：2	评论数：0	浏览数：244
+https://www.cnblogs.com/tboox/p/16869259.html	Xmake v2.7.3 发布，包组件和 C++ 模块增量构建支持	点赞数：1	评论数：0	浏览数：77
+https://www.cnblogs.com/shuofxz/p/16869138.html	【深入浅出 Yarn 架构与实现】1-2 搭建 Hadoop 源码阅读环境	点赞数：0	评论数：0	浏览数：86
+https://www.cnblogs.com/zenor0/p/16868877.html	二叉搜索树 - C++ 实现	点赞数：0	评论数：0	浏览数：102
+https://www.cnblogs.com/jlh-/p/16868604.html	c++ 关于引用变量你不知道的东西	点赞数：1	评论数：2	浏览数：62
+https://www.cnblogs.com/showmeai/p/16869011.html	自动化运维？看看Python怎样完成自动任务调度⛵	点赞数：0	评论数：0	浏览数：153
+https://www.cnblogs.com/liuchenxing/p/16868666.html	解决 net core 3.x 跨域问题	点赞数：2	评论数：0	浏览数：170
+https://www.cnblogs.com/LyShark/p/16868703.html	Flask框架：运用Ajax轮询动态绘图	点赞数：0	评论数：0	浏览数：144
+https://www.cnblogs.com/huaweiyun/p/16868838.html	OpenHarmony移植案例： build lite源码分析之hb命令__entry__.py	点赞数：0	评论数：0	浏览数：51
+https://www.cnblogs.com/anding/p/16852345.html	CSS布局秘籍(2)-6脉神剑	点赞数：2	评论数：0	浏览数：124
+https://www.cnblogs.com/tangyanzhi1111/p/16868020.html	.Net 7里的函数.Ctor和.CCtor是干啥用的呢?你知道吗	点赞数：4	评论数：1	浏览数：332
+https://www.cnblogs.com/ting1/p/16868644.html	关于图计算&图学习的基础知识概览：前置知识点学习（Paddle Graph Learning (PGL)） 	点赞数：0	评论数：0	浏览数：64
+https://www.cnblogs.com/Jcloud/p/16866957.html	京东云开发者｜mysql基于binlake同步ES积压解决方案	点赞数：1	评论数：0	浏览数：125
+https://www.cnblogs.com/InCerry/p/dotnet_week_22_11_1.html	.NET周报【11月第1期 2022-11-07】	点赞数：8	评论数：1	浏览数：490
+https://www.cnblogs.com/jiakecong/p/16050161.html	python进阶（26）collections标准库	点赞数：2	评论数：0	浏览数：146
+https://www.cnblogs.com/wucy/p/16857160.html	关于ASP.NET Core WebSocket实现集群的思考	点赞数：7	评论数：0	浏览数：289
+https://www.cnblogs.com/fatedeity/p/16868497.html	初识设计模式 - 职责链模式	点赞数：0	评论数：0	浏览数：153
+https://www.cnblogs.com/huangxincheng/p/16868486.html	一个超经典 WinForm 卡死问题的再反思	点赞数：11	评论数：5	浏览数：695
+https://www.cnblogs.com/bolingcavalry/p/16868467.html	支持JDK19虚拟线程的web框架，之三：观察运行中的虚拟线程	点赞数：0	评论数：0	浏览数：169
+https://www.cnblogs.com/greyzeng/p/16868456.html	设计模式学习（四）：建造者模式	点赞数：1	评论数：1	浏览数：133
+https://www.cnblogs.com/ITPower/p/16868064.html	【k8s连载系列】k8s介绍	点赞数：1	评论数：0	浏览数：190
+https://www.cnblogs.com/Dotnet9-com/p/16868009.html	【炫丽】从0开始做一个WPF+Blazor对话小程序	点赞数：20	评论数：16	浏览数：837
+https://www.cnblogs.com/spoonb/p/16731658.html	设计模式---装饰器模式	点赞数：0	评论数：0	浏览数：136
+https://www.cnblogs.com/imyalost/p/16867940.html	如何做好线上服务质量保障	点赞数：2	评论数：1	浏览数：153
+https://www.cnblogs.com/atrox493/p/16864951.html	JS数据结构与算法-队列结构 	点赞数：0	评论数：0	浏览数：126
+https://www.cnblogs.com/JulianHuang/p/16867844.html	3min快速掌握Go语言正/反向代理的姿势	点赞数：0	评论数：0	浏览数：123
+https://www.cnblogs.com/greyzeng/p/16867763.html	设计模式学习（三）：工厂模式	点赞数：1	评论数：0	浏览数：104
+https://www.cnblogs.com/geministar/p/Isolation_zone.html	「组合数学」隔离区	点赞数：0	评论数：0	浏览数：130
+https://www.cnblogs.com/flydean/p/16867634.html	网络协议之:redis protocol 详解	点赞数：0	评论数：0	浏览数：79
+https://www.cnblogs.com/process-h/p/16867624.html	jvm双亲委派机制详解	点赞数：0	评论数：0	浏览数：80
+https://www.cnblogs.com/laofo/p/16867626.html	DevOps｜乱谈开源社区、开源项目与企业内部开源	点赞数：0	评论数：1	浏览数：141
+https://www.cnblogs.com/zaking/p/16842600.html	真正“搞”懂HTTP协议03之时间穿梭	点赞数：0	评论数：0	浏览数：90
+https://www.cnblogs.com/xiaoyh/p/16468165.html	Java开发学习(四十)----MyBatisPlus入门案例与简介	点赞数：0	评论数：0	浏览数：95
+https://www.cnblogs.com/ranxi169/p/16867528.html	神经网络与深度学习（二）：前馈神经网络	点赞数：0	评论数：0	浏览数：74
+https://www.cnblogs.com/hackertyper/p/16867332.html	多线程详解	点赞数：2	评论数：0	浏览数：143
+https://www.cnblogs.com/fish4174/p/16867309.html	传送带 方法记录	点赞数：0	评论数：0	浏览数：46
+https://www.cnblogs.com/all-smile/p/16867293.html	Go | 函数（包）的使用	点赞数：0	评论数：0	浏览数：56
+https://www.cnblogs.com/phzmxw/p/16867279.html	如何在CentOS7上搭建自己的GitLab仓库	点赞数：0	评论数：0	浏览数：135
+https://www.cnblogs.com/pglin/p/16656267.html	JavaScript之数组高阶API—reduce()	点赞数：2	评论数：0	浏览数：99
+https://www.cnblogs.com/czzj/p/16866137.html	C# 多线程访问之 SemaphoreSlim（信号量）【进阶篇】	点赞数：5	评论数：2	浏览数：217
+https://www.cnblogs.com/xwwin/p/16866850.html	Uniapp And Taro一些小测评	点赞数：0	评论数：4	浏览数：144
+https://www.cnblogs.com/neo-T/p/onps-3.html	onps栈移植说明（3）——添加网卡	点赞数：0	评论数：0	浏览数：59
+https://www.cnblogs.com/liangxiegame/p/16866702.html	从 QFramework 重新开始	点赞数：2	评论数：1	浏览数：150
+https://www.cnblogs.com/hackxiyu/p/16866683.html	chrome工具调试	点赞数：3	评论数：0	浏览数：199
+https://www.cnblogs.com/itfantasy/p/16866609.html	2流高手速成记（之八）：基于Sentinel实现微服务体系下的限流与熔断	点赞数：0	评论数：0	浏览数：94
+https://www.cnblogs.com/qiuluoyuweiliang/p/16866472.html	基础算法篇——双指针算法	点赞数：0	评论数：0	浏览数：151
+https://www.cnblogs.com/greyzeng/p/16866401.html	设计模式学习（二）：单例模式	点赞数：0	评论数：0	浏览数：99
+https://www.cnblogs.com/DanielYao/p/16866051.html	代码，写的复杂点还是简单点？	点赞数：5	评论数：3	浏览数：464
+https://www.cnblogs.com/vivotech/p/16854108.html	源码级深度理解 Java SPI	点赞数：2	评论数：0	浏览数：163
+https://www.cnblogs.com/konghuanxi/p/16866140.html	Redisson源码解读-分布式锁	点赞数：1	评论数：0	浏览数：154
+https://www.cnblogs.com/angelasp/p/16866105.html	工作十年，入职新公司不到四个月就遇到裁员	点赞数：27	评论数：36	浏览数：3613
+https://www.cnblogs.com/youyacoder/p/16865819.html	Vue3 企业级优雅实战 - 组件库框架 - 1 搭建 pnpm monorepo	点赞数：2	评论数：0	浏览数：335
+https://www.cnblogs.com/Jcloud/p/16865765.html	京东云开发者｜软件架构可视化及C4模型：架构设计不仅仅是UML	点赞数：1	评论数：0	浏览数：173
+https://www.cnblogs.com/javammc/p/16865622.html	记录因Sharding Jdbc批量操作引发的一次fullGC	点赞数：1	评论数：0	浏览数：260
+https://www.cnblogs.com/zichliang/p/16858698.html	docker常用配置以及命令	点赞数：1	评论数：0	浏览数：335
+https://www.cnblogs.com/zhiyiYo/p/16865572.html	如何在 Inno Setup 中关联多种文件格式	点赞数：1	评论数：0	浏览数：80
+https://www.cnblogs.com/VideoCloudTech/p/16865488.html	云栖大会，未来万物皆是计算机？	点赞数：0	评论数：1	浏览数：199
+https://www.cnblogs.com/lasding/p/16865389.html	EasyPoi大数据导入导出百万级实例	点赞数：3	评论数：0	浏览数：438
+https://www.cnblogs.com/yidengjiagou/p/16865368.html	死磕Java面试系列：深拷贝与浅拷贝的实现原理	点赞数：0	评论数：1	浏览数：226
+https://www.cnblogs.com/InCerry/p/Dotnet-Perf-Opt-Serialization-Protocol.html	.NET性能优化-是时候换个序列化协议了	点赞数：38	评论数：35	浏览数：2155
+https://www.cnblogs.com/xiaoniuhululu/p/16865198.html	聊聊GPU与CPU的区别	点赞数：4	评论数：2	浏览数：500
+https://www.cnblogs.com/songyao666/p/16865130.html	使用GitHub Actions实现自动化部署	点赞数：4	评论数：0	浏览数：201
+https://www.cnblogs.com/qiuluoyuweiliang/p/16865116.html	基础算法篇——前缀和与差分	点赞数：1	评论数：0	浏览数：172
+https://www.cnblogs.com/ZhuChangwu/p/16864123.html	系统整理K8S的配置管理实战-建议收藏系列	点赞数：1	评论数：3	浏览数：208
+https://www.cnblogs.com/cmt/p/16865060.html	上周热点回顾（10.31-11.6）	点赞数：2	评论数：0	浏览数：452
+https://www.cnblogs.com/strick/p/16832080.html	HTML躬行记（4）——Web音视频基础	点赞数：1	评论数：0	浏览数：181
+https://www.cnblogs.com/ivictor/p/16864981.html	基于案例分析 MySQL Group Replication 的故障检测流程	点赞数：0	评论数：0	浏览数：74
+https://www.cnblogs.com/anding/p/16852112.html	CSS布局秘籍(1)-任督二脉BFC/IFC	点赞数：2	评论数：0	浏览数：137
+https://www.cnblogs.com/wtzbk/p/16864138.html	Dubbo-聊聊通信模块设计	点赞数：0	评论数：0	浏览数：158
+https://www.cnblogs.com/leesf456/p/16864900.html	华为云 MRS 基于 Apache Hudi 极致查询优化的探索实践	点赞数：0	评论数：0	浏览数：86
+https://www.cnblogs.com/wade-xu/p/16862279.html	云原生之旅 - 9）云原生时代网关的后起之秀Envoy Proxy 和基于Envoy 的 Emissary Ingress	点赞数：1	评论数：0	浏览数：113
+https://www.cnblogs.com/softwarearch/p/16853149.html	手写本地缓存实战1——各个击破，按需应对实际使用场景	点赞数：0	评论数：0	浏览数：205
+https://www.cnblogs.com/xueweihan/p/16864835.html	再来一次，新技术搞定老业务「GitHub 热点速览 v.22.44」	点赞数：4	评论数：0	浏览数：896
+https://www.cnblogs.com/myshowtime/p/16864793.html	基于 .NET 7 的 QUIC 实现 Echo 服务	点赞数：15	评论数：2	浏览数：1053
+https://www.cnblogs.com/renshengdezheli/p/16864749.html	pod(九)：污点taint 与容忍度tolerations	点赞数：0	评论数：1	浏览数：99
+https://www.cnblogs.com/caituotuo/p/16864603.html	接口自动化测试用例如何设计	点赞数：1	评论数：0	浏览数：298
+https://www.cnblogs.com/FatTiger4399/p/16861742.html	第一百零五篇:变量的原始值和引用值	点赞数：0	评论数：0	浏览数：99
+https://www.cnblogs.com/xi12/p/16864419.html	疫情可视化(后续)	点赞数：2	评论数：4	浏览数：500
+https://www.cnblogs.com/functionMC/p/16864376.html	《ASP.NET Core技术内幕与项目实战》精简集-目录	点赞数：5	评论数：1	浏览数：373
+https://www.cnblogs.com/houbbBlogs/p/16864303.html	开源项目在线化 中文繁简体转换/敏感词/拼音/分词/汉字相似度/markdown 目录	点赞数：1	评论数：1	浏览数：229
+https://www.cnblogs.com/aalan/p/16864274.html	Intel GPU Gen 9 架构	点赞数：0	评论数：0	浏览数：146
+https://www.cnblogs.com/yish/p/16864160.html	码农的灵魂拷问之（二）什么是应用软件	点赞数：2	评论数：0	浏览数：207
+https://www.cnblogs.com/echolun/p/16864130.html	你不知道的React Developer Tools，20 分钟带你掌握 9 个 React 组件调试技巧	点赞数：2	评论数：3	浏览数：115
+https://www.cnblogs.com/naitang/p/16864096.html	纯css爱心代码-最近超级火的打火机与公主裙中的爱心代码（简易版）	点赞数：5	评论数：0	浏览数：804
+https://www.cnblogs.com/eajur/p/16863928.html	软件设计模式白话文系列（四）工厂模式	点赞数：1	评论数：0	浏览数：183
+https://www.cnblogs.com/codelogs/p/16863888.html	Optional用法与争议点	点赞数：0	评论数：0	浏览数：197
+https://www.cnblogs.com/shight/p/16863844.html	[AGC057D] Sum Avoidance	点赞数：1	评论数：0	浏览数：49
+https://www.cnblogs.com/xiaowei99/p/16863818.html	MFC 学习笔记	点赞数：3	评论数：1	浏览数：135
+https://www.cnblogs.com/wade-xu/p/16860007.html	云原生之旅 - 8）云原生时代的网关 Ingress Nginx	点赞数：0	评论数：0	浏览数：120
+https://www.cnblogs.com/henjay724/p/16863555.html	《痞子衡嵌入式半月刊》 第 66 期	点赞数：0	评论数：0	浏览数：156
+https://www.cnblogs.com/wjjnzn/p/16853962.html	JAVA的File对象	点赞数：0	评论数：0	浏览数：125
+https://www.cnblogs.com/spoonb/p/16735362.html	设计模式---代理模式	点赞数：0	评论数：0	浏览数：125
+https://www.cnblogs.com/renshengdezheli/p/16863405.html	pod(八)：pod的调度——将 Pod 指派给节点	点赞数：0	评论数：1	浏览数：76
+https://www.cnblogs.com/greyzeng/p/16863345.html	二叉树中查找后继节点问题	点赞数：0	评论数：0	浏览数：72
+https://www.cnblogs.com/zaevn00001/p/16863255.html	JAVA开发搞了一年多的大数据，究竟干了点啥	点赞数：28	评论数：20	浏览数：2947
+https://www.cnblogs.com/cuzzz/p/16862956.html	Mysql InnoDB Redo log	点赞数：0	评论数：0	浏览数：102
+https://www.cnblogs.com/mghio/p/16862929.html	抓包分析 TCP 握手和挥手	点赞数：3	评论数：0	浏览数：254
+https://www.cnblogs.com/printStackTrace/p/16847775.html	说说switch关键字	点赞数：2	评论数：0	浏览数：148
+https://www.cnblogs.com/dandelion-000-blog/p/16862721.html	Vue前端框架基础+Element的使用	点赞数：5	评论数：0	浏览数：330
+https://www.cnblogs.com/feizirui/p/16859043.html	LAPM概述及配置	点赞数：0	评论数：2	浏览数：70
+https://www.cnblogs.com/xuwujing/p/16862451.html	手记系列之二 ----- 关于IDEA的一些使用方法经验	点赞数：2	评论数：2	浏览数：159
+https://www.cnblogs.com/chillsrc/p/16862431.html	 学习ASP.NET Core Blazor编程系列十——路由（上）	点赞数：1	评论数：0	浏览数：155
+https://www.cnblogs.com/lulight/p/16862376.html	【Azure 环境】Azure 云环境对于OpenSSL 3.x 的严重漏洞(CVE-2022-3602 和 CVE-2022-3786)的处理公告	点赞数：1	评论数：0	浏览数：85
+https://www.cnblogs.com/tcjiaan/p/16860878.html	用 VS Code 搞 Qt6：让信号和槽自动建立连接	点赞数：1	评论数：0	浏览数：159
+https://www.cnblogs.com/wade-xu/p/16839827.html	云原生之旅 - 7）部署Terrform基础设施代码的自动化利器 Atlantis	点赞数：0	评论数：0	浏览数：67
+https://www.cnblogs.com/aoximin/p/16861797.html	重新整理 .net core 实践篇 ———— linux上性能排查 [外篇] 	点赞数：2	评论数：0	浏览数：269
+https://www.cnblogs.com/lizhuming/p/16861945.html	【lwip】10-ICMP协议&源码分析	点赞数：1	评论数：0	浏览数：94
+https://www.cnblogs.com/gitBook/p/16861923.html	第2-1-2章 传统方式安装FastDFS-附FastDFS常用命令	点赞数：0	评论数：0	浏览数：98
+https://www.cnblogs.com/noear/p/16861900.html	Java 超新星开源项目 Solon v1.10.10 发布	点赞数：0	评论数：1	浏览数：262
+https://www.cnblogs.com/qiuluoyuweiliang/p/16861876.html	JVM学习笔记——类加载和字节码技术篇	点赞数：0	评论数：0	浏览数：119
+https://www.cnblogs.com/jeremylai7/p/16860884.html	SpringBoot 自动装配原理	点赞数：2	评论数：0	浏览数：221
+https://www.cnblogs.com/hgly1999/p/16861720.html	Java函数式编程：三、流与函数式编程	点赞数：0	评论数：0	浏览数：108
+https://www.cnblogs.com/Fireflycjd/p/16861722.html	表驱动法在STM32中的应用	点赞数：1	评论数：0	浏览数：106
+https://www.cnblogs.com/orion-orion/p/16861602.html	图数据挖掘：幂律分布和无标度网络	点赞数：0	评论数：0	浏览数：92
+https://www.cnblogs.com/itxiaoshen/p/16861499.html	成熟企业级开源监控解决方案Zabbix6.2关键功能实战-上	点赞数：2	评论数：0	浏览数：180
+https://www.cnblogs.com/shanyou/p/16861459.html	在 .NET 7上使用 WASM 和 WASI	点赞数：7	评论数：4	浏览数：1080
+https://www.cnblogs.com/kphang/p/16861448.html	Git在实际生产中的使用	点赞数：1	评论数：0	浏览数：245
+https://www.cnblogs.com/ricklz/p/16861250.html	k8s 中的 ingress 使用细节	点赞数：0	评论数：0	浏览数：108
+https://www.cnblogs.com/chenyanbin/p/16860998.html	ES 客户端 RestHighLevelClient Connection reset by peer 亲测有效 2022-11-05	点赞数：0	评论数：0	浏览数：71
+https://www.cnblogs.com/luisblog/p/16861008.html	Spring Boot 中使用 Swagger	点赞数：2	评论数：0	浏览数：166
+https://www.cnblogs.com/wydilearn/p/16860971.html	OpenCV图像处理与视频分析详解	点赞数：2	评论数：0	浏览数：178
+https://www.cnblogs.com/greyzeng/p/16860946.html	二叉树的最大宽度系列问题	点赞数：0	评论数：0	浏览数：77
+https://www.cnblogs.com/aoximin/p/16839830.html	重新整理 .net core 实践篇 ———— linux上排查问题实用工具 [外篇] 	点赞数：2	评论数：0	浏览数：194
+https://www.cnblogs.com/xiegongzi/p/16849407.html	UML建模语言、设计原则、设计模式	点赞数：5	评论数：0	浏览数：202
+https://www.cnblogs.com/hmscore/p/16860755.html	华为开发者大会2022：HMS Core 3D建模服务再升级，万物皆可驱动	点赞数：0	评论数：0	浏览数：129
+https://www.cnblogs.com/u3ddjw/p/16859825.html	Unreal NetMode&NetRole 解析	点赞数：0	评论数：0	浏览数：58
+https://www.cnblogs.com/renshengdezheli/p/16860674.html	cordon节点，drain驱逐节点，delete 节点	点赞数：0	评论数：1	浏览数：63
+https://www.cnblogs.com/eajur/p/16860554.html	软件设计模式白话文系列（三）原型模式	点赞数：2	评论数：0	浏览数：163
+https://www.cnblogs.com/neo-T/p/onps-2.html	onps栈移植说明（2）——编译器及os适配层移植	点赞数：0	评论数：0	浏览数：48
+https://www.cnblogs.com/fairjm/p/16860466.html	shardingsphere-jdbc 水平分表学习记录	点赞数：0	评论数：0	浏览数：133
+https://www.cnblogs.com/Ylong-blogs/p/16849966.html	2022，一个Java程序猿的装机配置	点赞数：0	评论数：6	浏览数：605
+https://www.cnblogs.com/Fitanium/p/16837685.html	OpenFOAM 编程 | 求解捕食者与被捕食者模型（predator-prey model）问题（ODEs）	点赞数：4	评论数：0	浏览数：439
+https://www.cnblogs.com/frontier/p/16854694.html	CH58X/CH57X/V208的Broadcaster（广播者）例程讲解	点赞数：0	评论数：0	浏览数：62
+https://www.cnblogs.com/qisir/p/16860234.html	给大四毕业生的建议——春招、留学、考公	点赞数：3	评论数：8	浏览数：866
+https://www.cnblogs.com/malongfeistudy/p/16860109.html	我看谁还不懂多线程之间的通信+基础入门+实战教程+详细介绍+附源码	点赞数：0	评论数：0	浏览数：289
+https://www.cnblogs.com/share-gis/p/16860101.html	Java 多线程写zip文件遇到的错误 write beyond end of stream！	点赞数：0	评论数：0	浏览数：91
+https://www.cnblogs.com/pengjiali/p/16860084.html	前端学画原型图（墨刀）	点赞数：0	评论数：0	浏览数：215
+https://www.cnblogs.com/lizhuming/p/16859723.html	【lwip】09-IPv4协议&超全源码实现分析	点赞数：0	评论数：0	浏览数：92
+https://www.cnblogs.com/lihongtaoya/p/16839051.html	详解pyautogui模块	点赞数：0	评论数：0	浏览数：105
+https://www.cnblogs.com/wdy001/p/16859931.html	基于docker和cri-dockerd部署kubernetes v1.25.3	点赞数：0	评论数：0	浏览数：134
+https://www.cnblogs.com/lulight/p/16859848.html	【Azure 环境】把OpenSSL生产的自签名证书导入到Azure Key Vault Certificate中报错	点赞数：1	评论数：0	浏览数：73
+https://www.cnblogs.com/yonghome/p/16859739.html	Spring三级缓存解决循环依赖	点赞数：0	评论数：0	浏览数：197
+https://www.cnblogs.com/qiuluoyuweiliang/p/16859608.html	基本算法篇——二分查找	点赞数：2	评论数：0	浏览数：245
+https://www.cnblogs.com/anliven/p/16859401.html	自动化利器 Ansible - 从了解到应用	点赞数：2	评论数：0	浏览数：329
+https://www.cnblogs.com/shanyou/p/16859425.html	.NET 7 中 LINQ 的疯狂性能提升	点赞数：4	评论数：6	浏览数：1270
+https://www.cnblogs.com/orion-orion/p/16859325.html	图数据挖掘：基于概率的流行病模型	点赞数：1	评论数：0	浏览数：164
+https://www.cnblogs.com/greyzeng/p/16859143.html	最大的观影时间问题	点赞数：0	评论数：0	浏览数：103
+https://www.cnblogs.com/luisblog/p/16858980.html	Maven 聚合工程的创建	点赞数：2	评论数：0	浏览数：188
+https://www.cnblogs.com/czzj/p/16858742.html	.Net Core 3.0 对 MongoDB 的多条件查询（两种）操作	点赞数：2	评论数：0	浏览数：281
+https://www.cnblogs.com/binbincome/p/16858714.html	剑指offer20题表示数值的字符串：这题实在是太优雅了	点赞数：0	评论数：0	浏览数：213
+https://www.cnblogs.com/somebottle/p/conversion_of_number_systems.html	【小记】二八十十六，进制团团转	点赞数：1	评论数：2	浏览数：186
+https://www.cnblogs.com/xiaozhi_5638/p/16857995.html	VideoPipe可视化视频结构化框架新增功能详解（2022-11-4）	点赞数：2	评论数：0	浏览数：317
+https://www.cnblogs.com/virobotics/p/16857905.html	使用LabVIEW实现基于pytorch的DeepLabv3图像语义分割	点赞数：0	评论数：2	浏览数：163
+https://www.cnblogs.com/flydean/p/16857760.html	netty系列之: 在netty中使用 tls 协议请求 DNS 服务器	点赞数：0	评论数：0	浏览数：145
+https://www.cnblogs.com/ladderx/p/16857738.html	Java线程未捕获异常处理 UncaughtExceptionHandler	点赞数：2	评论数：0	浏览数：163
+https://www.cnblogs.com/neo-T/p/onps-1.html	onps栈移植说明（1）——onps栈的配置及裁剪	点赞数：1	评论数：0	浏览数：60
+https://www.cnblogs.com/niumoo/p/16857650.html	Java 19 新功能介绍	点赞数：0	评论数：1	浏览数：402
+https://www.cnblogs.com/pengxurui/p/16857570.html	使用单调队列解决 “滑动窗口最大值” 问题	点赞数：1	评论数：0	浏览数：177
+https://www.cnblogs.com/zaevn00001/p/16857525.html	详细了解JVM运行时内存	点赞数：1	评论数：0	浏览数：226
+https://www.cnblogs.com/askajohnny/p/16857457.html	Elasticsearch Analyzer 内置分词器	点赞数：0	评论数：0	浏览数：182
+https://www.cnblogs.com/javammc/p/16857425.html	我用EasyExcel优化了公司的导出（附踩坑记录）	点赞数：2	评论数：0	浏览数：937
+https://www.cnblogs.com/pocn/p/16857344.html	小白开发程序的一天	点赞数：2	评论数：0	浏览数：523
+https://www.cnblogs.com/powertoolsteam/p/16857250.html	BI系统打包Docker镜像及部署的技术难度和实现	点赞数：1	评论数：0	浏览数：3239
+https://www.cnblogs.com/leayun/p/16851691.html	v-for中key的作用与原理	点赞数：1	评论数：1	浏览数：151
+https://www.cnblogs.com/duichoumian/p/16855107.html	Qt--无边框窗口完美(FrameLess)实现,包含缩放和移动功能重写。	点赞数：2	评论数：4	浏览数：317
+https://www.cnblogs.com/Finley/p/16857008.html	从小白到架构师(4): Feed 流系统实战	点赞数：6	评论数：0	浏览数：903
+https://www.cnblogs.com/InCerry/p/recycle_stringbuilder.html	.NET性能优化-复用StringBuilder	点赞数：12	评论数：10	浏览数：2489
+https://www.cnblogs.com/huaweiyun/p/16856948.html	Istio Ambient Mesh七层服务治理图文详解	点赞数：0	评论数：0	浏览数：114
+https://www.cnblogs.com/yidengjiagou/p/16856912.html	死磕面试系列，Java到底是值传递还是引用传递？	点赞数：1	评论数：0	浏览数：294
+https://www.cnblogs.com/Jcloud/p/16856901.html	京东云开发者｜经典同态加密算法Paillier解读 - 原理、实现和应用	点赞数：0	评论数：0	浏览数：102
+https://www.cnblogs.com/binghe001/p/16856859.html	【JVM】关于JVM，你需要掌握这些 | 一文彻底吃透JVM系列	点赞数：2	评论数：0	浏览数：195
+https://www.cnblogs.com/anding/p/16852042.html	CSS选择器大全48式	点赞数：1	评论数：0	浏览数：278
+https://www.cnblogs.com/youzhibing/p/16853668.html	VirtualBox 下 CentOS7 静态 IP 的配置 → 多次踩坑总结，蚌埠住了！	点赞数：2	评论数：0	浏览数：219
+https://www.cnblogs.com/fatedeity/p/16856567.html	初识设计模式 - 备忘录模式	点赞数：1	评论数：0	浏览数：253
+https://www.cnblogs.com/cicada-smile/p/16856506.html	ElasticSearch这些坑记得避开	点赞数：2	评论数：0	浏览数：463
+https://www.cnblogs.com/xueweihan/p/16856490.html	请收下这 10 个安全相关的开源项目	点赞数：6	评论数：5	浏览数：1207
+https://www.cnblogs.com/mushrain/p/16856321.html	用Nodejs 实现一个简单的 Redis客户端	点赞数：1	评论数：2	浏览数：262
+https://www.cnblogs.com/askajohnny/p/16856306.html	Elasticsearch mapping	点赞数：1	评论数：0	浏览数：134
+https://www.cnblogs.com/DAYceng/p/16856225.html	【Java复健指南09】项目练习全解--房屋出租系统	点赞数：0	评论数：0	浏览数：261
+https://www.cnblogs.com/LoveShare/p/16856070.html	从BeanFactory源码看Bean的生命周期	点赞数：1	评论数：0	浏览数：154
+https://www.cnblogs.com/yizhiamumu/p/16856158.html	设计模式：责任链模式的应用场景及源码应用	点赞数：2	评论数：0	浏览数：219
+https://www.cnblogs.com/orion-orion/p/16856006.html	图数据挖掘：网络中的级联行为	点赞数：0	评论数：0	浏览数：146
+https://www.cnblogs.com/-Donge/p/16855984.html	【Bluetooth|蓝牙开发】二、蓝牙开发入门	点赞数：2	评论数：0	浏览数：281
+https://www.cnblogs.com/4VDP/p/16855983.html	第 45 届国际大学生程序设计竞赛（ICPC）亚洲区域赛（济南）-L Bit Sequence	点赞数：1	评论数：0	浏览数：148
+https://www.cnblogs.com/itfantasy/p/16855963.html	2流高手速成记（之七）：基于Dubbo&Nacos的微服务简要实现	点赞数：1	评论数：0	浏览数：148
+https://www.cnblogs.com/armcvai/p/16855678.html	Docker基础和常用命令	点赞数：0	评论数：0	浏览数：383
+https://www.cnblogs.com/hello-me/p/16855568.html	linux下搭建oh-my-zsh环境	点赞数：0	评论数：0	浏览数：171
+https://www.cnblogs.com/luisblog/p/16855279.html	Spring Boot 应用的热部署配置	点赞数：0	评论数：0	浏览数：346
+https://www.cnblogs.com/jzcn/p/16849855.html	野火 STM32MP157 开发板内核和设备树的编译烧写	点赞数：0	评论数：0	浏览数：157
+https://www.cnblogs.com/kangssssh/p/16855176.html	Python基础之面向对象：3、三大特征-继承与派生	点赞数：0	评论数：0	浏览数：187
+https://www.cnblogs.com/youyacoder/p/16854969.html	开箱即用 yyg-cli（脚手架工具）：快速创建 vue3 组件库和vue3 全家桶项目	点赞数：1	评论数：0	浏览数：303
+https://www.cnblogs.com/czzj/p/16845334.html	C# 9.0 添加和增强的功能【基础篇】	点赞数：14	评论数：9	浏览数：2130
+https://www.cnblogs.com/showmeai/p/16829628.html	TensorFlow？PyTorch？Paddle？AI工具库生态之争：ONNX将一统天下	点赞数：3	评论数：0	浏览数：356
+https://www.cnblogs.com/wzh2010/p/15886803.html	Redis系列9：Geo 类型赋能亿级地图位置计算	点赞数：2	评论数：0	浏览数：389
+https://www.cnblogs.com/ranxi169/p/16854218.html	DiskGenius磁盘分区软件使用教程，磁盘扩容无损备份	点赞数：2	评论数：0	浏览数：404
+https://www.cnblogs.com/ilii/p/16854165.html	微信支付v3接口的 官方 Java SDK 	点赞数：2	评论数：2	浏览数：812
+https://www.cnblogs.com/carvergit/p/16854150.html	Android10 dex2oat实践	点赞数：0	评论数：0	浏览数：91
+https://www.cnblogs.com/SunSpring/p/16850510.html	.net 温故知新：【8】.NET 中的配置从xml转向json	点赞数：8	评论数：0	浏览数：465
+https://www.cnblogs.com/greyzeng/p/16854050.html	拼凑硬币问题	点赞数：1	评论数：0	浏览数：154
+https://www.cnblogs.com/javammc/p/16854029.html	还在用双层for循环吗？太慢了	点赞数：24	评论数：21	浏览数：5167
+https://www.cnblogs.com/orion-orion/p/16854012.html	图数据挖掘：小世界网络模型和分散式搜索	点赞数：0	评论数：0	浏览数：138
+https://www.cnblogs.com/InCerry/p/objectpool_and_cas.html	从ObjectPool到CAS指令	点赞数：11	评论数：0	浏览数：237
+https://www.cnblogs.com/luisblog/p/16853806.html	Spring Boot 项目自定义 banner	点赞数：2	评论数：0	浏览数：289
+https://www.cnblogs.com/Jcloud/p/16853612.html	京东云开发者｜IoT运维 - 如何部署一套高可用K8S集群	点赞数：1	评论数：0	浏览数：316
+https://www.cnblogs.com/coco1s/p/16853591.html	现代 CSS 指南 -- at-rule 规则扫盲	点赞数：9	评论数：0	浏览数：1007
+https://www.cnblogs.com/anding/p/16851884.html	常用CSS样式属性	点赞数：3	评论数：1	浏览数：244
+https://www.cnblogs.com/qing-gee/p/16853466.html	看了同事这10个IDEA神级插件，我也悄悄安装了	点赞数：10	评论数：0	浏览数：2262
+https://www.cnblogs.com/7tiny/p/16833391.html	C# Interlocked 类	点赞数：5	评论数：0	浏览数：590
+https://www.cnblogs.com/LyShark/p/16850992.html	驱动开发：内核封装WSK网络通信接口	点赞数：0	评论数：0	浏览数：135
+https://www.cnblogs.com/wang1221/p/16853260.html	Spark简单介绍，Windows下安装Scala+Hadoop+Spark运行环境，集成到IDEA中	点赞数：1	评论数：0	浏览数：239
+https://www.cnblogs.com/qubernet/p/16853224.html	ElasticSearch之Quick.ElasticSearch.Furion组件的使用	点赞数：11	评论数：4	浏览数：396
+https://www.cnblogs.com/wavesbright/p/16851732.html	20_Vue如何监测数组类型数据发生改变的？	点赞数：2	评论数：0	浏览数：224
+https://www.cnblogs.com/englyf/p/16853129.html	扫地机器人地图与用户终端的同步	点赞数：0	评论数：0	浏览数：93
+https://www.cnblogs.com/Chang-LeHung/p/16853089.html	Pthread 并发编程（一）——深入剖析线程基本元素和状态	点赞数：0	评论数：0	浏览数：190
+https://www.cnblogs.com/Dotnet9-com/p/16853043.html	快速创建软件安装包-ClickOnce	点赞数：17	评论数：8	浏览数：1025
+https://www.cnblogs.com/hgly1999/p/16852995.html	Java函数式编程：二、高阶函数，闭包，函数组合以及柯里化	点赞数：1	评论数：0	浏览数：282
+https://www.cnblogs.com/mengdd/p/iOS-AutoLayout-basics.html	[Android开发学iOS系列] Auto Layout	点赞数：0	评论数：0	浏览数：90
+https://www.cnblogs.com/jianhua1992/p/16852775.html	UBOOT编译--- make xxx_deconfig过程详解(一)	点赞数：0	评论数：1	浏览数：76
+https://www.cnblogs.com/wiseleer/p/16852739.html	springboot项目整合-注册功能模块开发	点赞数：0	评论数：0	浏览数：226
+https://www.cnblogs.com/spoonb/p/16750785.html	设计模式---策略模式	点赞数：2	评论数：0	浏览数：284
+https://www.cnblogs.com/mogebw/p/16852719.html	深入标签模板字面量	点赞数：0	评论数：0	浏览数：60
+https://www.cnblogs.com/Jerry-Jiang/p/FHQ_Treap.html	FHQ Treap 详解	点赞数：0	评论数：0	浏览数：71
+https://www.cnblogs.com/vpandaxjl/p/16852619.html	ysoserial CommonsCollections2 分析	点赞数：0	评论数：0	浏览数：96
+https://www.cnblogs.com/hmy71/p/junit_2.html	【单元测试】Junit 4（二）--eclipse配置Junit+Junit基础注解	点赞数：0	评论数：0	浏览数：80
+https://www.cnblogs.com/pythonista/p/16852441.html	如何免安装使用 Python？推荐 17 个在线的 Python 解释器！	点赞数：0	评论数：0	浏览数：227
+https://www.cnblogs.com/linxiaoxu/p/16852367.html	我的Vue之旅 09 数据数据库表的存储与获取实现 Mysql + Golang	点赞数：0	评论数：0	浏览数：176
+https://www.cnblogs.com/greyzeng/p/16851959.html	经典背包系列问题	点赞数：0	评论数：0	浏览数：276
+https://www.cnblogs.com/xujiecnblogs/p/16843984.html	centos7离线安装PHP7.4.30+nginx1.23	点赞数：0	评论数：0	浏览数：129
+https://www.cnblogs.com/renshengdezheli/p/16851876.html	pod(七)：静态pod	点赞数：0	评论数：1	浏览数：122
+https://www.cnblogs.com/1eon/p/16851750.html	使用VsCode调试UE5的PuerTs	点赞数：1	评论数：0	浏览数：125
+https://www.cnblogs.com/wavesbright/p/16851727.html	19_Vue如何监测到对象类型数据发生改变的？	点赞数：1	评论数：0	浏览数：158
+https://www.cnblogs.com/FatTiger4399/p/16851368.html	前后端分离项目(十一):实现"删"功能(前后端)	点赞数：2	评论数：0	浏览数：307
+https://www.cnblogs.com/charlieroro/p/16851629.html	使用jmx exporter采集kafka指标	点赞数：0	评论数：0	浏览数：102
+https://www.cnblogs.com/anding/p/16851547.html	CSS基础知识筑基	点赞数：3	评论数：0	浏览数：199
+https://www.cnblogs.com/shanyou/p/16851420.html	来啦来啦｜开源 * 安全 * 赋能 - .NET Conf China 2022	点赞数：22	评论数：13	浏览数：1722
+https://www.cnblogs.com/mikechenshare/p/16851342.html	G1 垃圾收集器深入剖析(图文超详解)	点赞数：1	评论数：0	浏览数：207
+https://www.cnblogs.com/spritekuang/p/16851274.html	企业级自定义表单引擎解决方案（十六）--Excel导入导出	点赞数：1	评论数：2	浏览数：396
+https://www.cnblogs.com/showmeai/p/16829191.html	实际应用效果不佳？来看看提升深度神经网络泛化能力的核心技术（附代码）	点赞数：0	评论数：0	浏览数：123
+https://www.cnblogs.com/pengxurui/p/16851233.html	如何使用并查集解决朋友圈问题？	点赞数：0	评论数：0	浏览数：161
+https://www.cnblogs.com/cjsblog/p/16848782.html	分布式事务框架 Seata 入门案例	点赞数：2	评论数：0	浏览数：277
+https://www.cnblogs.com/awan-note/p/16850953.html	线上kafka消息堆积，consumer掉线，怎么办？	点赞数：1	评论数：0	浏览数：333
+https://www.cnblogs.com/yidengjiagou/p/16850934.html	夯实Java基础，一篇文章全解析线程问题	点赞数：0	评论数：0	浏览数：264
+https://www.cnblogs.com/liuyuede123/p/16850908.html	golang中的错误处理	点赞数：0	评论数：0	浏览数：119
+https://www.cnblogs.com/Allerge/p/16850883.html	怎么样子盒子能撑起父盒子？浮动,BFC,边距重叠	点赞数：0	评论数：0	浏览数：144
+https://www.cnblogs.com/virobotics/p/16850725.html	手把手教你使用LabVIEW实现Mask R-CNN图像实例分割	点赞数：1	评论数：0	浏览数：126
+https://www.cnblogs.com/berkerdong/p/16850463.html	Windows 环境搭建 PostgreSQL 物理复制高可用架构数据库服务	点赞数：2	评论数：1	浏览数：274
+https://www.cnblogs.com/upfine/p/16845679.html	vulnhub靶场之CORROSION: 2	点赞数：0	评论数：0	浏览数：84
+https://www.cnblogs.com/orion-orion/p/16850617.html	图数据挖掘（二）：网络的常见度量属性	点赞数：0	评论数：0	浏览数：129
+https://www.cnblogs.com/Bonker/p/16850570.html	Rock18框架之整体框架介绍	点赞数：2	评论数：0	浏览数：233
+https://www.cnblogs.com/renshengdezheli/p/16850563.html	pod(五)：pod hook（pod钩子）和优雅的关闭nginx pod	点赞数：0	评论数：1	浏览数：122
+https://www.cnblogs.com/renshengdezheli/p/16850563.html	pod(五)：pod hook（pod钩子）和优雅的关闭nginx pod	点赞数：0	评论数：1	浏览数：122
+https://www.cnblogs.com/yangleiyu/p/16850474.html	三、Ocelot请求聚合与负载均衡	点赞数：1	评论数：0	浏览数：197
+https://www.cnblogs.com/Jcloud/p/16850261.html	文盘Rust -- 把程序作为守护进程启动	点赞数：0	评论数：0	浏览数：221
+https://www.cnblogs.com/InCerry/p/how_to_automic_create_dump_when_app_crash.html	如何在.NET程序崩溃时自动创建Dump？	点赞数：39	评论数：21	浏览数：2646
+https://www.cnblogs.com/cyjb/p/ParserLR_0.html	C# 语法分析器（二）LR(0) 语法分析	点赞数：2	评论数：1	浏览数：251
+https://www.cnblogs.com/dtux/p/16850113.html	我的 React 最佳实践	点赞数：2	评论数：1	浏览数：288
+https://www.cnblogs.com/zhangguicheng/p/16850060.html	CSS 动画一站式指南	点赞数：1	评论数：1	浏览数：193
+https://www.cnblogs.com/cxuanBlog/p/16850037.html	我深刻反思了一下自己。	点赞数：5	评论数：2	浏览数：585
+https://www.cnblogs.com/M-Anonymous/p/16849391.html	Unity坐标系入门	点赞数：0	评论数：0	浏览数：141
+https://www.cnblogs.com/niumoo/p/16849887.html	使用 StringUtils.split 的坑	点赞数：2	评论数：0	浏览数：288
+https://www.cnblogs.com/lizhuming/p/16845687.html	【lwip】08-ARP协议一图笔记及源码实现	点赞数：2	评论数：0	浏览数：111
+https://www.cnblogs.com/l12138h/p/16849842.html	SIP会话发起协议 - 先知道是什么（一）	点赞数：1	评论数：0	浏览数：131
+https://www.cnblogs.com/qubernet/p/16849818.html	ElasticSearch之Windows中环境安装	点赞数：2	评论数：0	浏览数：240
+https://www.cnblogs.com/huangxincheng/p/16849808.html	聊一聊对一个 C# 商业程序的反反调试	点赞数：22	评论数：12	浏览数：2498
+https://www.cnblogs.com/shanyou/p/16849802.html	.NET Conf 2022 11 月 8 日至 10 日 正式开启	点赞数：8	评论数：0	浏览数：790
+https://www.cnblogs.com/orion-orion/p/16849722.html	图数据挖掘（一）：网络的基本概念和表示方法	点赞数：1	评论数：0	浏览数：178
+https://www.cnblogs.com/FatTiger4399/p/16846718.html	前后端分离项目(十):实现"改"功能(前后端)	点赞数：2	评论数：0	浏览数：404
+https://www.cnblogs.com/AllenMaster/p/16842466.html	Azure DevOps Server 入门实践与安装部署	点赞数：0	评论数：0	浏览数：232
+https://www.cnblogs.com/kspf/p/16849461.html	javascript异步编程之generator(生成器函数)与asnyc/await语法糖	点赞数：0	评论数：0	浏览数：150
+https://www.cnblogs.com/yzsn12138/p/16849298.html	Linux--多线程（三）	点赞数：1	评论数：0	浏览数：169
+https://www.cnblogs.com/alalazy/p/16849272.html	优雅处理Golang中的异常	点赞数：0	评论数：0	浏览数：170
+https://www.cnblogs.com/twilight0402/p/16849129.html	SpringBoot 过滤器和拦截器	点赞数：1	评论数：1	浏览数：345
+https://www.cnblogs.com/echoyya/p/16726543.html	优雅的写好Vue项目代码 — 路由拆分、Vuex模块拆分、element按需加载	点赞数：8	评论数：1	浏览数：337
+https://www.cnblogs.com/BlairGrowing/p/16846443.html	谣言检测(RDCL)——《Towards Robust False Information Detection on Social Networks with Contrastive Learning》	点赞数：0	评论数：0	浏览数：95
+https://www.cnblogs.com/greyzeng/p/16848911.html	纸牌博弈问题	点赞数：2	评论数：0	浏览数：146
+https://www.cnblogs.com/Codewar/p/16848894.html	R数据分析：扫盲贴，什么是多重插补	点赞数：0	评论数：0	浏览数：97
+https://www.cnblogs.com/stars-one/p/16848763.html	Android开发 对接微信分享SDK总结	点赞数：1	评论数：1	浏览数：139
+https://www.cnblogs.com/jevonsflash/p/16848698.html	Abp.Zero 手机号免密登录验证与号码绑定功能的实现（一）：验证码模块	点赞数：4	评论数：0	浏览数：196
+https://www.cnblogs.com/chenyishi/p/16848621.html	CentOS6/7 配置守护进程	点赞数：1	评论数：0	浏览数：198
+https://www.cnblogs.com/ladderx/p/16848561.html	Java Timer使用介绍	点赞数：0	评论数：0	浏览数：127
+https://www.cnblogs.com/rtwo/p/16848374.html	MAUI 初体验 联合 WinForm  让家里废弃的手机当做电脑副品用起来	点赞数：16	评论数：6	浏览数：2219
+https://www.cnblogs.com/deali/p/16848285.html	买条新内存给台式机扩容，没想到出现玄学花屏	点赞数：2	评论数：30	浏览数：1645
+https://www.cnblogs.com/youyacoder/p/16848246.html	一个实用的 vite + vue3 组件库脚手架工具，提升开发效率	点赞数：3	评论数：1	浏览数：452
+https://www.cnblogs.com/hez2010/p/dotnet-zero-abstraction.html	.NET 零开销抽象指南	点赞数：78	评论数：37	浏览数：3474
+https://www.cnblogs.com/jlh-/p/16847819.html	c++ 模板 指针类型偏特化	点赞数：1	评论数：0	浏览数：131
+https://www.cnblogs.com/zxwbky/p/16845005.html	面试心经	点赞数：5	评论数：5	浏览数：729
+https://www.cnblogs.com/printStackTrace/p/16847740.html	Java 编码那些事（二）	点赞数：1	评论数：0	浏览数：229
+https://www.cnblogs.com/softwarearch/p/16834547.html	聊一聊安全且正确使用缓存的那些事 —— 关于缓存可靠性、关乎数据一致性	点赞数：3	评论数：0	浏览数：369
+https://www.cnblogs.com/yangleiyu/p/16847439.html	二、.Net Core搭建Ocelot	点赞数：2	评论数：4	浏览数：587
+https://www.cnblogs.com/upfine/p/16841899.html	vulnhub靶场之NOOB: 1	点赞数：0	评论数：0	浏览数：102
+https://www.cnblogs.com/lizhuming/p/16845412.html	【lwip】07-链路层收发以太网数据帧源码分析	点赞数：1	评论数：0	浏览数：143
+https://www.cnblogs.com/111testing/p/16847206.html	测试开发工程师到底是做什么的？	点赞数：0	评论数：0	浏览数：478
+https://www.cnblogs.com/all-smile/p/16847123.html	MongoDB数据库新手入门	点赞数：0	评论数：0	浏览数：372
+https://www.cnblogs.com/sheng_chao/p/16847072.html	升讯威在线客服系统客服端英文界面的技术实现方法，客户落地巴西圣保罗	点赞数：13	评论数：15	浏览数：1352
+https://www.cnblogs.com/twilight0402/p/16846942.html	SpringBoot 常用注解的原理和使用	点赞数：3	评论数：2	浏览数：442
+https://www.cnblogs.com/seven0007/p/hdpCluster.html	一台虚拟机，基于docker搭建大数据HDP集群	点赞数：0	评论数：0	浏览数：387
+https://www.cnblogs.com/Jcloud/p/16845146.html	京东云开发者｜关于“React 和 Vue 该用哪个”我真的栓Q	点赞数：2	评论数：3	浏览数：600
+https://www.cnblogs.com/vivotech/p/16835096.html	探究Presto SQL引擎(4)-统计计数	点赞数：0	评论数：0	浏览数：156
+https://www.cnblogs.com/luking/p/16005239.html	企业应用架构研究系列十二：网络模型与网络协议	点赞数：0	评论数：1	浏览数：185
+https://www.cnblogs.com/mikechenshare/p/16846722.html	Kafka 架构和原理机制 (图文全面详解)	点赞数：2	评论数：0	浏览数：410
+https://www.cnblogs.com/InCerry/p/how-to-generate-a-dump-file-of-a-dotnet-application.html	创建.NET程序Dump的几种姿势	点赞数：9	评论数：0	浏览数：462
+https://www.cnblogs.com/aobing/p/16846659.html	如果再来一次，你还会选择互联网么？	点赞数：43	评论数：17	浏览数：3128
+https://www.cnblogs.com/yetangjian/p/16818697.html	JMETER与它的组件们	点赞数：0	评论数：0	浏览数：205
+https://www.cnblogs.com/hyxiao97/p/16846595.html	并发编程之 ThreadLocal	点赞数：0	评论数：0	浏览数：256
+https://www.cnblogs.com/hanmk/p/16832147.html	在微信小程序上做一个「博客园年度总结」：解决前端获取接口数据太慢的一种思路	点赞数：3	评论数：4	浏览数：463
+https://www.cnblogs.com/cicada-smile/p/16841111.html	聊一聊责任链模式	点赞数：2	评论数：0	浏览数：278
+https://www.cnblogs.com/melojun/p/mysql-mvcc.html	「MySQL高级篇」MySQL之MVCC实现原理&&事务隔离级别的实现	点赞数：1	评论数：0	浏览数：241
+https://www.cnblogs.com/bolingcavalry/p/16846504.html	支持JDK19虚拟线程的web框架，之二：完整开发一个支持虚拟线程的quarkus应用	点赞数：0	评论数：1	浏览数：263
+https://www.cnblogs.com/qiuluoyuweiliang/p/16846500.html	瑞吉外卖实战项目全攻略——总结篇	点赞数：1	评论数：0	浏览数：394
+https://www.cnblogs.com/xiangwang1111/p/16846002.html	Java多线程（7）：JUC（上）	点赞数：1	评论数：2	浏览数：193
+https://www.cnblogs.com/chuckQu/p/16846334.html	有用的内置Node.js APIs	点赞数：1	评论数：0	浏览数：177
+https://www.cnblogs.com/javammc/p/16846245.html	Flink集群部署	点赞数：0	评论数：0	浏览数：184
+https://www.cnblogs.com/cuzzz/p/16846237.html	mysql  InnoDB事务	点赞数：0	评论数：0	浏览数：147
+https://www.cnblogs.com/1996-Chinese-Chen/p/16846218.html	【单片机入门】(四)应用层软件开发的单片机学习之路-----ESP32开发板PWM控制电机以及中断的使用	点赞数：0	评论数：0	浏览数：162
+https://www.cnblogs.com/mycodingworld/p/9073441.html	ThreadPoolExecutor BlockingQueue讲解	点赞数：0	评论数：0	浏览数：109
+https://www.cnblogs.com/dongxb/p/16846094.html	如何解读Linux Kernel OOPS信息	点赞数：0	评论数：0	浏览数：94
+https://www.cnblogs.com/zjutlitao/p/16846050.html	[Pyhton] SimPy 离散事件模拟框架详解 —— 以一个简单的汽车充电排队模拟为例	点赞数：0	评论数：0	浏览数：170
+https://www.cnblogs.com/longronglang/p/16846018.html	Selenium4+Python3系列（六） - Selenium的三种等待，强制等待、隐式等待、显式等待	点赞数：1	评论数：0	浏览数：148
+https://www.cnblogs.com/operationhome/p/16845836.html	一次 Java log4j2 漏洞导致的生产问题	点赞数：2	评论数：0	浏览数：222
+https://www.cnblogs.com/x3d/p/apijson-lowcode.html	apijson 初探	点赞数：1	评论数：2	浏览数：113
+https://www.cnblogs.com/timlly/p/16844127.html	剖析虚幻渲染体系（18）- 操作系统	点赞数：6	评论数：3	浏览数：954
+https://www.cnblogs.com/flydean/p/16845236.html	flutter 系列之:flutter 中的幽灵offstage	点赞数：0	评论数：0	浏览数：139
+https://www.cnblogs.com/wuhuacong/p/16844606.html	基于SqlSugar的开发框架循序渐进介绍（20）-- 在基于UniApp+Vue的移动端实现多条件查询的处理	点赞数：5	评论数：0	浏览数：484
+https://www.cnblogs.com/LyShark/p/16832244.html	驱动开发：内核层InlineHook挂钩函数	点赞数：0	评论数：1	浏览数：172
+https://www.cnblogs.com/hmy71/p/lodrunner_2.html	【性能测试】Loadrunner12.55（二）-飞机订票系统-脚本录制	点赞数：3	评论数：0	浏览数：265
+https://www.cnblogs.com/oscar2960/p/16844771.html	精简docker的导出镜像	点赞数：0	评论数：0	浏览数：300
+https://www.cnblogs.com/showmeai/p/16829609.html	只能用于文本与图像数据？No！看TabTransformer对结构化业务数据精准建模	点赞数：0	评论数：1	浏览数：136
+https://www.cnblogs.com/all-smile/p/16844556.html	单据架构—实现页面可配置化	点赞数：1	评论数：0	浏览数：304
+https://www.cnblogs.com/Zhang-Xiang/p/16844450.html	webRTC demo	点赞数：1	评论数：0	浏览数：291
+https://www.cnblogs.com/ting1/p/16844420.html	基线提升至96.45%：2022 司法杯犯罪事实实体识别+数据蒸馏+主动学习	点赞数：1	评论数：0	浏览数：197
+https://www.cnblogs.com/wzh2010/p/15886801.html	Redis系列8：Bitmap实现亿万级数据计算	点赞数：2	评论数：0	浏览数：444
+https://www.cnblogs.com/pengjiali/p/16844280.html	低代码 系列 —— 可视化编辑器2	点赞数：2	评论数：0	浏览数：459
+https://www.cnblogs.com/wyj-java/p/16844028.html	Java获取/resources目录下的资源文件方法	点赞数：0	评论数：0	浏览数：354
+https://www.cnblogs.com/virobotics/p/16843957.html	【YOLOv5】手把手教你使用LabVIEW ONNX Runtime部署 TensorRT加速，实现YOLOv5实时物体识别（含源码）	点赞数：1	评论数：0	浏览数：215
+https://www.cnblogs.com/thisiswhy/p/16843917.html	这个面试题居然从11年前就开始讨论了，而官方今年才表态。	点赞数：15	评论数：6	浏览数：2074
+https://www.cnblogs.com/czzj/p/16832990.html	C# 8.0 添加和增强的功能【基础篇】	点赞数：7	评论数：2	浏览数：903
+https://www.cnblogs.com/deali/p/16843720.html	在FreeSQL中实现「触发器」和软删除功能	点赞数：4	评论数：0	浏览数：335
+https://www.cnblogs.com/fulongyuanjushi/p/16843513.html	万字泣血解析割韭菜内情，程序员别老想着做副业	点赞数：142	评论数：73	浏览数：9399
+https://www.cnblogs.com/Jcloud/p/16843623.html	京东云开发者｜ElasticSearch降本增效常见的方法	点赞数：0	评论数：0	浏览数：378
+https://www.cnblogs.com/LyShark/p/16832307.html	驱动开发：内核LDE64引擎计算汇编长度	点赞数：0	评论数：0	浏览数：112
+https://www.cnblogs.com/vivotech/p/16835075.html	从 Wepy 到 UniApp 变形记	点赞数：1	评论数：1	浏览数：302
+https://www.cnblogs.com/cmt/p/16843474.html	上周热点回顾（10.24-10.30）	点赞数：0	评论数：2	浏览数：586
+https://www.cnblogs.com/Alandre/p/16843409.html	5 why 分析法，一种用于归纳抽象出解决方案的好方法	点赞数：2	评论数：0	浏览数：185
+https://www.cnblogs.com/songyao666/p/16843402.html	为什么CSS中的calc函数可能会不生效？	点赞数：0	评论数：0	浏览数：157
+https://www.cnblogs.com/jeremylai7/p/16843403.html	Spring Cloud 整合 nacos 实现动态配置中心	点赞数：0	评论数：0	浏览数：236
+https://www.cnblogs.com/milton/p/16843376.html	沁恒CH32V003(二): Ubuntu20.04 MRS和Makefile开发环境配置	点赞数：0	评论数：0	浏览数：101
+https://www.cnblogs.com/yidengjiagou/p/16843379.html	深度剖析Java的volatile实现原理，再也不怕面试官问了	点赞数：1	评论数：0	浏览数：212
+https://www.cnblogs.com/strick/p/16812888.html	HTML躬行记（3）——WebRTC视频通话	点赞数：1	评论数：0	浏览数：231
+https://www.cnblogs.com/mikechenshare/p/16843296.html	Java 动态代理原理图解 (附：2种实现方式详细对比)	点赞数：1	评论数：0	浏览数：176
+https://www.cnblogs.com/InCerry/p/net-performance-series-2-newtonsoft-vs-system-text-json-2bf43e037db0.html	.NET性能系列文章二：Newtonsoft.Json vs. System.Text.Json	点赞数：13	评论数：16	浏览数：1811
+https://www.cnblogs.com/wade-xu/p/16839829.html	云原生之旅 - 6）不能错过的一款 Kubernetes 应用编排管理神器 Kustomize	点赞数：0	评论数：1	浏览数：202
+https://www.cnblogs.com/melojun/p/mysql-lock.html	「MySQL高级篇」MySQL锁机制 && 事务 -- 临键锁与幻读	点赞数：2	评论数：0	浏览数：329
+https://www.cnblogs.com/xueweihan/p/16843114.html	下一代工具链「GitHub 热点速览 v.22.43」	点赞数：3	评论数：0	浏览数：1228
+https://www.cnblogs.com/allworldg/p/ruoyi-form-build.html	Ruoyi表单构建	点赞数：1	评论数：0	浏览数：311
+https://www.cnblogs.com/xiangwang1111/p/16842277.html	Java多线程（6）：锁与AQS（下）	点赞数：1	评论数：0	浏览数：193
+https://www.cnblogs.com/englyf/p/16842927.html	QML 怎么调用 C++ 中的内容？	点赞数：2	评论数：0	浏览数：140
+https://www.cnblogs.com/itfantasy/p/16842900.html	2流高手速成记（之六）：从SpringBoot到SpringCloudAlibaba	点赞数：1	评论数：0	浏览数：230
+https://www.cnblogs.com/zaking/p/16834979.html	真正“搞”懂HTTP协议02之空间穿梭	点赞数：2	评论数：0	浏览数：204
+https://www.cnblogs.com/S1mpleBug/p/16793438.html	C++11绑定器bind及function机制	点赞数：3	评论数：0	浏览数：192
+https://www.cnblogs.com/echolun/p/16842557.html	你所不知道的 vscode，汇集历史版本中你可能不知道的新特性	点赞数：7	评论数：4	浏览数：392
+https://www.cnblogs.com/xiaoyh/p/16468159.html	Java开发学习(三十九)----SpringBoot整合mybatis	点赞数：0	评论数：0	浏览数：146
+https://www.cnblogs.com/zhangchenxin/p/16842521.html	并查集总结	点赞数：0	评论数：0	浏览数：100
+https://www.cnblogs.com/xj-excellent/p/16842398.html	Web自动化---解决登录页面随机验证码问题	点赞数：2	评论数：0	浏览数：420
+https://www.cnblogs.com/greyzeng/p/16842365.html	Bob 的生存概率问题	点赞数：0	评论数：0	浏览数：83
+https://www.cnblogs.com/BlankYang/p/16842270.html	Codeforces Round #831 (Div. 1 + Div. 2) A-E	点赞数：0	评论数：0	浏览数：146
+https://www.cnblogs.com/zhupengfei/p/16842256.html	关于网页实现串口或者TCP通讯的说明	点赞数：0	评论数：0	浏览数：323
+https://www.cnblogs.com/bmilk/p/16842249.html	JavaSPI详解	点赞数：0	评论数：0	浏览数：116
+https://www.cnblogs.com/god23bin/p/shallow-in-java-with-hashmap.html	浅入浅出 1.7和1.8的 HashMap	点赞数：1	评论数：1	浏览数：183
+https://www.cnblogs.com/huan1993/p/16842127.html	记录在linux上单机elasticsearch8和kibana8	点赞数：1	评论数：0	浏览数：113
+https://www.cnblogs.com/VincentLau-blog/p/meta_encodec.html	高保真神经网络音频编码器	点赞数：0	评论数：0	浏览数：115
+https://www.cnblogs.com/longronglang/p/16842063.html	Selenium4+Python3系列（五） - 多窗口处理之句柄切换	点赞数：0	评论数：0	浏览数：142
+https://www.cnblogs.com/binbincome/p/16842035.html	我的博客之路	点赞数：3	评论数：4	浏览数：253
+https://www.cnblogs.com/kingstacker/p/16842012.html	Windows下自动云备份思源笔记到Gitee	点赞数：2	评论数：0	浏览数：192
+https://www.cnblogs.com/feffery/p/16841979.html	（数据科学学习手札146）geopandas中拓扑非法问题的发现、诊断与修复	点赞数：0	评论数：0	浏览数：66
+https://www.cnblogs.com/Gao-yubo/p/16841958.html	Nacos基本学习	点赞数：0	评论数：0	浏览数：244
+https://www.cnblogs.com/chopper-poet/p/16841908.html	恭喜磊哥喜提n+1	点赞数：3	评论数：0	浏览数：481
+https://www.cnblogs.com/renshengdezheli/p/16841875.html	Istio(十三)：Istio项目实际案例——Online Boutique	点赞数：0	评论数：1	浏览数：119
+https://www.cnblogs.com/showmeai/p/16829572.html	你给文字描述，AI艺术作画，精美无比！附源码，快来试试！	点赞数：0	评论数：2	浏览数：238
+https://www.cnblogs.com/smartloli/p/16841799.html	Ignite实战	点赞数：1	评论数：0	浏览数：132
+https://www.cnblogs.com/lyd-code/p/16841789.html	【日志系统】Loki日志监控 - 入门初体验	点赞数：2	评论数：0	浏览数：243
+https://www.cnblogs.com/xiaoqigui/p/16841694.html	SpringCloud(四) - 微信获取用户信息	点赞数：1	评论数：2	浏览数：166
+https://www.cnblogs.com/cuzzz/p/16841645.html	Mysql InnoDB Buffer Pool	点赞数：0	评论数：0	浏览数：111
+https://www.cnblogs.com/xuwujing/p/16841577.html	手记系列之一 ----- 关于微信公众号和小程序的开发流程	点赞数：2	评论数：0	浏览数：196
+https://www.cnblogs.com/caituotuo/p/16841454.html	Python3.11正式版，它来了！	点赞数：2	评论数：1	浏览数：1391
+https://www.cnblogs.com/XFlyMan/p/16482674.html	JWT中token的理解	点赞数：0	评论数：1	浏览数：455
+https://www.cnblogs.com/jionsoft/p/16841319.html	.net core Blazor+自定义日志提供器实现实时日志查看器	点赞数：4	评论数：4	浏览数：725
+https://www.cnblogs.com/wade-xu/p/16839834.html	云原生之旅 - 5）Kubernetes时代的包管理工具 Helm	点赞数：0	评论数：0	浏览数：155
+https://www.cnblogs.com/czy8388/p/16841060.html	stm32h750移植lvgl	点赞数：0	评论数：0	浏览数：77
+https://www.cnblogs.com/gogoSandy/p/16841145.html	小样本利器4. 正则化+数据增强 Mixup Family代码实现	点赞数：0	评论数：0	浏览数：107
+https://www.cnblogs.com/Chang-LeHung/p/16841109.html	OpenMP 入门	点赞数：0	评论数：0	浏览数：101
