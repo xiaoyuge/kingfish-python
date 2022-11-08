@@ -16,6 +16,7 @@ if r.status_code != 200:
 soup = BeautifulSoup(r.text,"html.parser")
 
 #查找所有名字是h2且class属性是entry-title的节点
+#h2s = soup.find_all(name="h2",class_="entry-title")
 h2s = soup.find_all(name="h2",attrs={"class":"entry-title"})
 
 #定义一个集合存放所有解析到的链接和标题
