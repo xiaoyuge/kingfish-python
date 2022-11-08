@@ -1,0 +1,318 @@
+http://www.crazyant.net/2965.html	Django开发常见问题解答
+http://www.crazyant.net/2942.html	Python环境安装常见问题
+http://www.crazyant.net/2930.html	Python画一个冰墩墩
+http://www.crazyant.net/2922.html	Mac苹果电脑怎样安装Python
+http://www.crazyant.net/2908.html	Python 常用 150 个英语单词
+http://www.crazyant.net/2898.html	腾讯课堂-下载课件的方法
+http://www.crazyant.net/2884.html	Xlwings实现Excel的Sheet的Autofit
+http://www.crazyant.net/2879.html	炒股软件
+http://www.crazyant.net/2877.html	用于计算股价的技术分析指标的Python库TA-Lib
+http://www.crazyant.net/2875.html	怎样在Shell中运行Python的多行代码
+http://www.crazyant.net/2873.html	股票数据的来源
+http://www.crazyant.net/2871.html	Python一个量化指标库和回测工具
+http://www.crazyant.net/2867.html	Python对日期转换的处理
+http://www.crazyant.net/2864.html	量化投资的书籍列表
+http://www.crazyant.net/2861.html	Pandas的apply函数返回多列结果
+http://www.crazyant.net/2857.html	程序员健身-4分钟-HIIT
+http://www.crazyant.net/2854.html	Python一个量化分析思路 – 相关性选股
+http://www.crazyant.net/2851.html	喝咖啡的危害
+http://www.crazyant.net/2846.html	Premiere去除图片的绿幕背景
+http://www.crazyant.net/2841.html	Python操作Excel的所有的Package的对比
+http://www.crazyant.net/2839.html	Pandas和Excel的对比
+http://www.crazyant.net/2836.html	Pandas绘图库Plotly
+http://www.crazyant.net/2832.html	中国最常见的50个人名
+http://www.crazyant.net/2828.html	怎样提取百度网盘某一个网页的文件列表
+http://www.crazyant.net/2825.html	做抖音视频的废话大全
+http://www.crazyant.net/2823.html	用Python根据模板批量生成含指定数据的word文档（使用docxtpl）
+http://www.crazyant.net/2821.html	就像漫威宇宙一样，打造自己的内容创作宇宙
+http://www.crazyant.net/2817.html	Python可以低维度辅助的行业或者方向
+http://www.crazyant.net/2815.html	【xlwings问题】如果首行存在合并单元格，则读取的数据不全
+http://www.crazyant.net/2812.html	【录屏技巧】真人摄像，并且隐藏背景的拍摄录屏方式
+http://www.crazyant.net/2810.html	Pandas常用脚本配置设置
+http://www.crazyant.net/2805.html	Python处理Excel信息收集
+http://www.crazyant.net/2803.html	成熟的人，都会闭上嘴巴
+http://www.crazyant.net/2800.html	只讲Python语法的价值不大，结合各行各业的真实案例才有价值
+http://www.crazyant.net/2793.html	程序员-室内健身
+http://www.crazyant.net/2785.html	做产品的思路，你要把最痛的痛点想清楚
+http://www.crazyant.net/2782.html	Python使用 positive lookahead 实现用户密码的校验
+http://www.crazyant.net/2780.html	知识自媒体的文案来源
+http://www.crazyant.net/2768.html	制作一个教学视频的心得
+http://www.crazyant.net/2766.html	我应该学习IOS开发APP
+http://www.crazyant.net/2763.html	绿色的frog教我的做抖音的知识
+http://www.crazyant.net/2746.html	产品想法 – 高频英语单词本
+http://www.crazyant.net/2728.html	使用 waitress 部署 Flask 服务，并且增加打印日志到文件
+http://www.crazyant.net/2723.html	Flask  后端服务重启，为什么前端用户不需要重新登录？
+http://www.crazyant.net/2714.html	国外的Python视频网站
+http://www.crazyant.net/2712.html	Python 使用 jsonpath-ng 以字符串的方式解析 Json
+http://www.crazyant.net/2706.html	Flask支持Local Cache的两种方法
+http://www.crazyant.net/2693.html	Python GIL 全局解释器锁 的 相关资料
+http://www.crazyant.net/2676.html	Python爬取分析拉勾网职位数据
+http://www.crazyant.net/2667.html	Python爬虫的常见依赖库大全
+http://www.crazyant.net/2661.html	Python网络爬虫付费代理IP推荐
+http://www.crazyant.net/2646.html	Python使用Faiss库实现ANN近邻搜索
+http://www.crazyant.net/2629.html	自律使我自由
+http://www.crazyant.net/2623.html	文章写的好，但是没人看，原来标题可以这么写
+http://www.crazyant.net/2615.html	推荐系统实现相似推荐的流程和资源
+http://www.crazyant.net/2604.html	Pandas怎样对每个分组应用apply函数?
+http://www.crazyant.net/2602.html	怎样使用Pandas的map和apply函数？
+http://www.crazyant.net/2598.html	Pandas的分层索引MultiIndex怎样用？
+http://www.crazyant.net/2594.html	Pandas怎样实现对数据的分组统计？
+http://www.crazyant.net/2591.html	怎样使用Pandas批量拆分与合并Excel文件？
+http://www.crazyant.net/2585.html	Tensorflow怎样接收变长列表特征
+http://www.crazyant.net/2583.html	Pandas实现数据的合并concat
+http://www.crazyant.net/2574.html	Pandas的Index索引有什么用途？
+http://www.crazyant.net/2564.html	机器学习常用数据集大全
+http://www.crazyant.net/2561.html	一个数据科学家的修炼路径
+http://www.crazyant.net/2546.html	Pandas的axis参数怎么理解？
+http://www.crazyant.net/2541.html	Pandas怎样处理字符串？
+http://www.crazyant.net/2536.html	Pandas怎样对数据进行排序？
+http://www.crazyant.net/2534.html	CTR预估：(标签-权重)列表类特征怎么输入到模型？
+http://www.crazyant.net/2532.html	Pandas对缺失值的处理
+http://www.crazyant.net/2528.html	Pandas的SettingWithCopyWarning报警怎么回事？
+http://www.crazyant.net/2525.html	3分钟Python爬取9000张表情包图片
+http://www.crazyant.net/2523.html	Pandas系列 – 怎样新增数据列？
+http://www.crazyant.net/2521.html	Pandas系列 – 数据统计函数
+http://www.crazyant.net/2517.html	Pandas怎样根据码表更新ID对应的名称？
+http://www.crazyant.net/2515.html	Pandas怎样按条件删除行？
+http://www.crazyant.net/2506.html	Pandas系列-查询数据的5种方法
+http://www.crazyant.net/2502.html	Pandas系列-DataFrame和Series数据结构
+http://www.crazyant.net/2499.html	Pandas系列-读取csv/excel/mysql数据
+http://www.crazyant.net/2469.html	Spark使用Java开发遇到的那些类型错误
+http://www.crazyant.net/2454.html	推荐系统：实现文章相似推荐的简单实例
+http://www.crazyant.net/2447.html	Spark使用word2vec训练item2vec实现内容相关推荐
+http://www.crazyant.net/2434.html	Pandas中对轴axis=0和axis=1的理解
+http://www.crazyant.net/2419.html	Flask使用Pyecharts在单个页面展示多个图表
+http://www.crazyant.net/2404.html	听樊登的《非暴力沟通》
+http://www.crazyant.net/2367.html	Java和Python使用Grpc访问Tensorflow的Serving代码
+http://www.crazyant.net/2351.html	推荐系统：怎样实现内容相似推荐
+http://www.crazyant.net/2343.html	Flask怎样从其他Python文件导入app.route视图函数
+http://www.crazyant.net/2336.html	我为什么从工程转了算法？
+http://www.crazyant.net/2324.html	推荐系统：爱奇艺知识推荐系统架构
+http://www.crazyant.net/2303.html	Spark使用JAVA编写自定义函数修改DataFrame
+http://www.crazyant.net/2301.html	tensorflow怎样输入具有多个值的特征
+http://www.crazyant.net/2283.html	Python3用scan和delete命令批量清理redis数据
+http://www.crazyant.net/2273.html	CentOS自己编译安装Python3的命令
+http://www.crazyant.net/2261.html	PyCharm开发PySpark程序的配置和实例
+http://www.crazyant.net/2231.html	Spark数据倾斜解决方法
+http://www.crazyant.net/2194.html	读书笔记 – 数据驱动从方法到实践
+http://www.crazyant.net/2177.html	使用PaddlePaddle搭建卷积网络做文本数据分类
+http://www.crazyant.net/2167.html	使用Kmeans对Word2vec的输出做聚类
+http://www.crazyant.net/2160.html	Hive实现返回MAP的UDF
+http://www.crazyant.net/2150.html	Python高级编程技巧
+http://www.crazyant.net/2145.html	快速找到Tomcat中最耗CPU的线程
+http://www.crazyant.net/2124.html	Java线程池ThreadPoolExecutor详解
+http://www.crazyant.net/2120.html	Zookeeper并不保证读取的是最新数据
+http://www.crazyant.net/2089.html	Mybatis源码解读-初始化过程详解
+http://www.crazyant.net/2076.html	怎样借助Python爬虫给宝宝起个好名字
+http://www.crazyant.net/2022.html	Mybatis源码解读-设计模式总结
+http://www.crazyant.net/2012.html	打工者心态、主人公意识、个人公司品牌
+http://www.crazyant.net/1980.html	Tomcat内存分析相关方法(jmap和mat)
+http://www.crazyant.net/1973.html	如此重要但是经常被忽视的代码架构！
+http://www.crazyant.net/1964.html	Stay hungry, Stay foolish
+http://www.crazyant.net/1961.html	MAC挂载NTFS移动硬盘进行读写操作
+http://www.crazyant.net/1957.html	工程师的月亮和六便士
+http://www.crazyant.net/1946.html	MAC环境堪比Visio的画图神器
+http://www.crazyant.net/1931.html	Log4j将不同Package的日志输出到不同的文件的方法
+http://www.crazyant.net/1922.html	数据处理中提升性能的方法-引入并发但是避免同步
+http://www.crazyant.net/1901.html	MySQL导入导出数据时遇到Tab符号和换行符号怎么办？
+http://www.crazyant.net/1898.html	使用PHPUnit编写PHP单元测试的方法
+http://www.crazyant.net/1895.html	Bash Shell怎样检查文件是否存在？
+http://www.crazyant.net/1890.html	Python使用unittest实现简单的单元测试实例
+http://www.crazyant.net/1886.html	将Maven工程打包成可执行JAR包的方法
+http://www.crazyant.net/1861.html	Java线程死亡的几种情况
+http://www.crazyant.net/1858.html	通过JVM堆栈分析出现大量线程的原因
+http://www.crazyant.net/1835.html	想要加悲观锁可是数据行还不存在怎么办？
+http://www.crazyant.net/1810.html	Java堆溢出OutOfMemoryError之代码实例和原因分析
+http://www.crazyant.net/1789.html	Python中文转拼音代码(支持全拼和首字母缩写)
+http://www.crazyant.net/1784.html	使用javap命令或者eclipse的Bytecode visualizer插件阅读java字节码文件
+http://www.crazyant.net/1782.html	Java怎样单测void类型的方法？
+http://www.crazyant.net/1777.html	《解忧杂货店》- 解答心中已经有结论的疑问
+http://www.crazyant.net/1763.html	有了事务为什么还需要乐观锁和悲观锁
+http://www.crazyant.net/1741.html	数据库并发控制机制的理解
+http://www.crazyant.net/1735.html	读书破万卷，代码如有神
+http://www.crazyant.net/1722.html	《Spring in action》3rd中SpringPizza项目的运行方法
+http://www.crazyant.net/1712.html	做设计就像创世界
+http://www.crazyant.net/1707.html	Python使用list字段模式或者dict字段模式读取文件的方法
+http://www.crazyant.net/1703.html	Java怎样创建两个KEY（key-pair）的MAP
+http://www.crazyant.net/1697.html	《超体》中的哲学
+http://www.crazyant.net/1689.html	Java枚举类型代码的二逼写法和艺术写法
+http://www.crazyant.net/1664.html	Python操作MySQL视频教程
+http://www.crazyant.net/1625.html	Hive开发经验问答式总结
+http://www.crazyant.net/1607.html	将普通Maven Spring项目转换成Web项目的方法
+http://www.crazyant.net/1600.html	Hive取非Group by字段数据的方法
+http://www.crazyant.net/1587.html	MySQL执行Select语句将结果导出到文件的方法
+http://www.crazyant.net/1470.html	Hive的left join、left outer join和left semi join三者的区别
+http://www.crazyant.net/1465.html	将网站的创意变成钱的过程
+http://www.crazyant.net/1459.html	从产品和技术的对比想到的
+http://www.crazyant.net/1456.html	Hive中Order by和Sort by的区别是什么?
+http://www.crazyant.net/1451.html	向Hive程序传递变量的三种方法
+http://www.crazyant.net/1440.html	把HIVE程序优化30倍的经验
+http://www.crazyant.net/1437.html	Hive使用TRANSFORM运行Python脚本总结
+http://www.crazyant.net/1428.html	MySQL 查看数据库中每个表占用的空间大小
+http://www.crazyant.net/1426.html	Java使用lombok自动生成getter和setter方法
+http://www.crazyant.net/1423.html	MapReduce文件切分个数计算方法
+http://www.crazyant.net/1413.html	《大数据时代》是一部科幻小说
+http://www.crazyant.net/1409.html	[转]Hive中对group结果分组取limit N值的实现
+http://www.crazyant.net/1404.html	HIVE的几个使用技巧
+http://www.crazyant.net/1397.html	Python批量重命名文件的方法
+http://www.crazyant.net/1390.html	Python内置函数map、reduce、filter在文本处理中的应用
+http://www.crazyant.net/1372.html	chrome自动刷新网页插件：Auto Refresh Plus
+http://www.crazyant.net/1355.html	MySQL数据导入导出实例教程手册
+http://www.crazyant.net/1345.html	MySQL一条语句更新多个表的方法
+http://www.crazyant.net/1337.html	mysql根据A表更新B表的方法
+http://www.crazyant.net/1326.html	[织梦DEDE迁移]读取织梦MySQL生成所有文章链接
+http://www.crazyant.net/1321.html	Python访问MySQL封装的常用类
+http://www.crazyant.net/1319.html	python执行shell的两种方法
+http://www.crazyant.net/1309.html	Python封装的常用日期函数
+http://www.crazyant.net/1303.html	python子类调用父类的方法
+http://www.crazyant.net/1297.html	wordpress按层级方式显示分类链接的方法
+http://www.crazyant.net/1292.html	Firefox数据采集插件大全
+http://www.crazyant.net/1216.html	Python生成文件md5校验值函数
+http://www.crazyant.net/1214.html	网站从织梦DEDECMS迁移到WordPress过程以及URL重定向方法
+http://www.crazyant.net/1209.html	shell/hadoop/hive一些有用命令收集
+http://www.crazyant.net/1203.html	Hive开发中使用变量的两种方法
+http://www.crazyant.net/1197.html	hive从查询中获取数据插入到表或动态分区
+http://www.crazyant.net/1193.html	Hive元数据存于mysql中文乱码解决
+http://www.crazyant.net/1185.html	为eclipse安装python、shell开发环境和SVN插件
+http://www.crazyant.net/1144.html	hadoop第一个程序WordCount.java的编译运行过程
+http://www.crazyant.net/1129.html	MYSQL向数据表插入默认字段值的方法
+http://www.crazyant.net/1122.html	Hadoop-Streaming实战经验及问题解决方法总结
+http://www.crazyant.net/1112.html	Hadoop之使用python实现数据集合间join操作
+http://www.crazyant.net/1094.html	Rational Rose根据Java代码自动生成类图（教程和错误解决）
+http://www.crazyant.net/1088.html	MathType(数学公式编辑器) 汉化绿色版V6.7下载
+http://www.crazyant.net/1072.html	JSP使用JNA调用DLL函数遇到的几个问题
+http://www.crazyant.net/1066.html	读《疯狂的站长》- 回顾反思我的个人站长路
+http://www.crazyant.net/1064.html	给计算机专业求职的同学推荐几本书
+http://www.crazyant.net/1061.html	MySQL数据库存储过程教程
+http://www.crazyant.net/1057.html	Magento获取指定分类下的所有子分类信息
+http://www.crazyant.net/1055.html	WIN7使用VisualSVN建立SVN服务器
+http://www.crazyant.net/1044.html	织梦DEDECMS简洁蓝色模板免费下载（资讯文章类）
+http://www.crazyant.net/1036.html	Django基本命令最全收集
+http://www.crazyant.net/1030.html	2012年百度、腾讯、微软、奇虎360、人人、去哪网找工作经历总结
+http://www.crazyant.net/1022.html	PHP对数组的高级遍历和操作处理方法
+http://www.crazyant.net/1014.html	使用PHP连接、操纵Memcached的原理和教程
+http://www.crazyant.net/1005.html	Django关于站点管理Admin Site的常见问题解决方法
+http://www.crazyant.net/1001.html	对Django框架架构和Request/Response处理流程的分析
+http://www.crazyant.net/970.html	PHP开发者最好的学习资源收集
+http://www.crazyant.net/955.html	Ubuntu10.10 Server+Nginx+Django+Postgresql安装步骤
+http://www.crazyant.net/930.html	PHP和MySQL处理树状、分级、无限分类、分层数据的方法
+http://www.crazyant.net/920.html	PHP创建和解析JSON数据的方法
+http://www.crazyant.net/914.html	程序员做开发，前台、后台、测试哪个累？
+http://www.crazyant.net/912.html	PHP的验证码实现（w3schools推荐）
+http://www.crazyant.net/897.html	国外10个非常有趣的PHP博客
+http://www.crazyant.net/886.html	PHP读写Word文件的最佳类库收集
+http://www.crazyant.net/874.html	2012年度读写Excel文件的最佳PHP类库收集
+http://www.crazyant.net/855.html	使用Google搭建自己的SVN或Git或Mercurial代码服务器之完美教程
+http://www.crazyant.net/821.html	PHP远程操纵WordPress的方法(流程剖析）
+http://www.crazyant.net/818.html	Python模拟登陆新浪微博并实现投票功能
+http://www.crazyant.net/814.html	Django中定制自己的User和Group管理模块（类似对admin的二次开发）
+http://www.crazyant.net/811.html	django1.4设置模板路径和CSS,JS,image等路径的方法
+http://www.crazyant.net/808.html	珠玑：在仔细研究数据的基础上得出程序的结构
+http://www.crazyant.net/796.html	Python使用cookielib和urllib2模拟登陆新浪微博并抓取数据
+http://www.crazyant.net/790.html	《SEO实战密码》高清电子版PDF下载地址（SEO学习必备）
+http://www.crazyant.net/781.html	重装Win7后恢复和找回Ubuntu启动项
+http://www.crazyant.net/756.html	putty连接linux出现中文乱码的解决方法
+http://www.crazyant.net/754.html	Ubuntu 安装 PostgreSQL 和 python-psycopg2基础教程（以及错误解决）
+http://www.crazyant.net/749.html	eclipse远程发布代码的方法（SSH自动同步）
+http://www.crazyant.net/747.html	python在linux下安装方法（解决旧版本冲突）
+http://www.crazyant.net/740.html	2012年度PHP最佳类库收集
+http://www.crazyant.net/734.html	php判断远程文件或网站是否能打开
+http://www.crazyant.net/731.html	PHP数据采集之使用CURL、DOMDocument和DOMXPath
+http://www.crazyant.net/724.html	Python关于apply的知识
+http://www.crazyant.net/722.html	Python知识之什么是*args和**kwargs？
+http://www.crazyant.net/717.html	PHP魔法方法之__sleep()方法和__wakeup()方法
+http://www.crazyant.net/712.html	Python中的操作符重载
+http://www.crazyant.net/707.html	数据采集简单示例：采集爱帮网电话号码
+http://www.crazyant.net/700.html	数据采集技术之在Python中Libxml模块安装与使用XPath
+http://www.crazyant.net/686.html	Python操作Mysql实例代码教程（查询手册）
+http://www.crazyant.net/678.html	MySQL-python Windows下EXE安装文件下载
+http://www.crazyant.net/675.html	数据采集必备知识-php计划任务的实现
+http://www.crazyant.net/658.html	个人博客SEO第一步-提交自己的网站
+http://www.crazyant.net/655.html	情理之中又意料之外的超强减肥方法
+http://www.crazyant.net/647.html	新浪微博的mid转换成base62格式的PHP函数
+http://www.crazyant.net/639.html	windows下PHP环境（apache,PHP,Mysql）详细配置方法
+http://www.crazyant.net/636.html	PHP100视频教程2012版解压密码
+http://www.crazyant.net/629.html	Redis+Mysql模式和内存+硬盘模式的异同
+http://www.crazyant.net/611.html	Redis详细完整教程-windows下的安装、测试(php+redis+mysql)
+http://www.crazyant.net/604.html	Windows Live Writer快捷方式（打开服务器文档等）
+http://www.crazyant.net/600.html	PHP字符串函数、知识要点总结
+http://www.crazyant.net/591.html	PHP数组使用、特性、函数的总结
+http://www.crazyant.net/581.html	PHP对文件的操作总结
+http://www.crazyant.net/576.html	PHP操作符可变变量测试变量等总结
+http://www.crazyant.net/548.html	有句话说的非常好
+http://www.crazyant.net/545.html	[C++]数据结构之堆-上滤下滤以及用于排序
+http://www.crazyant.net/540.html	C++拆分字符串代码（实现split）
+http://www.crazyant.net/515.html	看完这20部电影相当于学了经济学（投资理财必看电影）
+http://www.crazyant.net/512.html	Adobe Dreamweaver CS6官方简体中文版安装+破解过程
+http://www.crazyant.net/505.html	win7系统笔记本设置成虚拟WiFi热点（即“无线路由器”）
+http://www.crazyant.net/502.html	按大小拆分超大文件的方法（本文测试了一个62G的文件）
+http://www.crazyant.net/499.html	Dedecms备份还原网站有效方法
+http://www.crazyant.net/495.html	WIN7下硬盘安装Ubuntu 11.10系统成功
+http://www.crazyant.net/491.html	程序员找工作网啊站-计算机专业学生必看
+http://www.crazyant.net/485.html	被深深鄙视的2012找暑期实习，哥很伤心
+http://www.crazyant.net/483.html	phpmyadmin远程连接mysql数据库的方法
+http://www.crazyant.net/480.html	mysql用命令行链接远程主机的方法
+http://www.crazyant.net/478.html	c/c++批量向mysql插入数据
+http://www.crazyant.net/471.html	[站长]推荐一个网页分享按钮条插件JiaThis
+http://www.crazyant.net/466.html	[网址]在线转换编码-BASE64_URLENCODE等
+http://www.crazyant.net/454.html	[PHP]发送邮件方法介绍和代码示例
+http://www.crazyant.net/449.html	[C++]win32输出当前系统时间函数，可用以程序计时
+http://www.crazyant.net/444.html	[转]office – word2010每次打开弹出配置框解决方法
+http://www.crazyant.net/414.html	Linux下GCC和Makefile实例（从GCC的编译到Makefile的引入）
+http://www.crazyant.net/410.html	让QT支持中文的方法
+http://www.crazyant.net/408.html	QT-creater一个非常棒的教程
+http://www.crazyant.net/402.html	玩大灾变出现“igxprd32显示驱动程序已经停止正常工作”解决方法
+http://www.crazyant.net/391.html	在GATE工具中使用自己的XSD模式进行语义标注
+http://www.crazyant.net/381.html	C++ Primer 4th：第九章 《顺序容器》学习心得
+http://www.crazyant.net/259.html	win7下快速硬盘安装ghost xp的方法
+http://www.crazyant.net/254.html	C++实现字符串与数字的连接
+http://www.crazyant.net/251.html	c++字符集之间转换(UTF-8,UNICODE,Gb2312)
+http://www.crazyant.net/245.html	数据采集利器-PHP用DOM方式处理HTML之《Simple HTML DOM》
+http://www.crazyant.net/236.html	C++数组类型学习笔记
+http://www.crazyant.net/234.html	C++标准库string类型学习笔记
+http://www.crazyant.net/224.html	9个高质量图标的最佳搜索引擎
+http://www.crazyant.net/219.html	navicat-MySQL前台管理工具利器
+http://www.crazyant.net/215.html	17个非常有用的PHP类和库
+http://www.crazyant.net/210.html	使用DEDE的全国地区分类导入到其它CMS
+http://www.crazyant.net/206.html	对自己将来的一些思考
+http://www.crazyant.net/204.html	推荐一个可以用u盘安装fedora,ubuntu等Linux的工具
+http://www.crazyant.net/198.html	ubuntu官方live cd和dvd下载地址
+http://www.crazyant.net/195.html	非常好用的一款磁盘管理工具Acronis Disk Director Suite
+http://www.crazyant.net/191.html	jQuery圆角工具jQuery Corner
+http://www.crazyant.net/179.html	筛选出来的常用jQuery幻灯片插件
+http://www.crazyant.net/161.html	PHP-浏览器参数防注入检测函数
+http://www.crazyant.net/159.html	PHP从checkbox取值
+http://www.crazyant.net/157.html	毕业设计出现的一个严重错误—-文件不能相互引用
+http://www.crazyant.net/155.html	php函数-计算两个日期相差多少天
+http://www.crazyant.net/153.html	Apache禁止目录访问方法介绍
+http://www.crazyant.net/151.html	PHP操作EXCEL相关
+http://www.crazyant.net/149.html	phpexcel-自己写的几个非常好用的函数
+http://www.crazyant.net/146.html	Fckeditor-动态增减按钮的方法
+http://www.crazyant.net/144.html	PHP验证码-类
+http://www.crazyant.net/142.html	mysql-修改root密码的方法
+http://www.crazyant.net/138.html	获取服务器传来的数据-必须用JS去空格
+http://www.crazyant.net/136.html	php实现当前用户在线人数
+http://www.crazyant.net/134.html	网上选课系统-进度
+http://www.crazyant.net/132.html	屏幕取色工具
+http://www.crazyant.net/130.html	PHP-非常好用的文件操作类
+http://www.crazyant.net/128.html	PHP删除无限分类并同时删除它下面的所有子分类的方法
+http://www.crazyant.net/126.html	PHP获取IP的多种方式解析
+http://www.crazyant.net/124.html	Javascript trim()函数实现
+http://www.crazyant.net/122.html	PHP只下载不打开文件
+http://www.crazyant.net/119.html	日期选择控件-date_input
+http://www.crazyant.net/117.html	项目经历2-电子台账系统
+http://www.crazyant.net/115.html	删除记录之前-切记要检查是不是存在该记录
+http://www.crazyant.net/113.html	phpmyadmin无法加载mcrypt的解决方法
+http://www.crazyant.net/111.html	AJAX中文乱码PHP完美解决(IE和Firefox兼容)
+http://www.crazyant.net/109.html	java环境变量配置
+http://www.crazyant.net/107.html	PHP输出Excel实例代码
+http://www.crazyant.net/105.html	PHP安全笔记
+http://www.crazyant.net/103.html	文件下载代码-来自PBDigg
+http://www.crazyant.net/99.html	PHP中文乱码解决
+http://www.crazyant.net/97.html	PHP IE下载时提示”无法复制 无法读取源文件或磁盘”的解决办法
+http://www.crazyant.net/94.html	搜索关键词高亮显示
+http://www.crazyant.net/91.html	vi编辑器命令
+http://www.crazyant.net/87.html	硬盘分区表丢失、修复大事记–分区表修复利器testdisk
+http://www.crazyant.net/85.html	linux下禁止机箱蜂鸣方法
+http://www.crazyant.net/83.html	当用header方法输出内容时出现“Cannot modify header information – headers already sent by”的解决方法
+http://www.crazyant.net/78.html	JavaScript对Select的子元素Option的操作

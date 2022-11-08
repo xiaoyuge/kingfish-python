@@ -2,6 +2,7 @@
 @author kingfish
 爬虫的url管理器
 """
+from __init__ import *
 
 class UrlManager():
     
@@ -16,6 +17,7 @@ class UrlManager():
         if url in self.new_urls or url in self.old_urls:
             return
         self.new_urls.add(url)
+        return True
     
     #批量新增url
     def add_new_urls(self,urls):
