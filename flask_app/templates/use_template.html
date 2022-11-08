@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>kingfish's flask web app</title>
+</head>
+<body>
+    <h1 style="color:#e00;">{{title}}</h1>
+    {% for data in datas%}
+        {%if data[0]!= 2 %}
+            <h2>
+                {{data[0]}} - {{data[1]}}
+            </h2>
+        {% endif %}
+    {% endfor %}
+</body>
+</html>

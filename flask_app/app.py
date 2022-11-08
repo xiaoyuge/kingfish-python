@@ -69,10 +69,20 @@ def get_request_data():
 #从表单获取数据
 @app.route('/formData',methods=["POST","GET"])
 def get_form_data():
-    print(request.form)
-    print(request.form.get("username"))
-    print(request.form.get("password"))
+    form = request.form
+    print(form)
+    username = form.get("username")
+    print(username)
+    password = form.get("password")
+    print(password)
     return "Post form Successful"
+
+#使用模版
+@app.route('/user_template')
+def use_template():
+    datas = [(1,"name1"),(2,"name2"),(3,"name3")]
+    title = "学生信息"
+    return render_template("use_template.html",datas = datas,title = title)
 
 if __name__ == '__main__':
     app.run()
