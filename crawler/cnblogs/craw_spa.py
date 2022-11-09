@@ -35,7 +35,7 @@ headers = {
 }
 
 #遍历postDatas，请求url
-with open("spider/cnblogs/cnBlogArticles.txt","w") as fout:
+with open("crawler/cnblogs/cnBlogArticles.txt","w") as fout:
     for data in postDatas:
         r = requests.post(craw_url,data=json.dumps(data),headers=headers,timeout=3)
         if r.status_code != 200:

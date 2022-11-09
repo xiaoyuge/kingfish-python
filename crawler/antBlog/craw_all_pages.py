@@ -15,7 +15,7 @@ pattern = r'^http://www.crazyant.net/\d+.html$'
 #先加入入口Url,然后开始遍历爬取
 um = url_manager.UrlManager()
 um.add_new_url(entry_url)
-with open("spider/antBlog/antBlogArticles.txt","w") as fou:
+with open("crawler/antBlog/antBlogArticles.txt","w") as fou:
     while um.has_new_url():
         url = um.get_url()
         #爬取其url内容
