@@ -1,3 +1,12 @@
+"""
+@author kingfish
+asyncio.run() 是 Python3.7+ 才引入的，相当于老版本的以下语句
+loop = asyncio.get_event_loop()
+try:
+    loop.run_until_complete(coro)
+finally:
+    loop.close()
+"""
 
 import asyncio
 import aiohttp
