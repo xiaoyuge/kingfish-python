@@ -1,6 +1,9 @@
 """
 @author kingfish
-多线程爬虫
+单线程爬虫vs多线程爬虫性能对比
+我的mac本双核cpu，某次结果数据如下：
+single_thread_craw cost:  8.96970796585083 seconds
+multi_thread_craw cost:  0.8749051094055176 seconds
 """
 
 import blog_spider
