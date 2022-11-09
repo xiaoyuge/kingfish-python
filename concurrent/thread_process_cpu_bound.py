@@ -5,6 +5,8 @@
 single_thread cost : 62.778594970703125 seconds
 multi_thread cost : 63.94747805595398 seconds
 multi_process cost : 35.869956254959106 seconds
+也即，因为GIL，多线程相比单线程在CPU密集场景下，性能不升反降，因为多线程多了线程上下文切换的开销
+而多进程因为能利用多核真正做到并行，所以性能更好，我的机器是双核，可以看到正好差不多提升2倍
 """
 
 import math
