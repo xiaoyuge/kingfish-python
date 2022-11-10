@@ -3,7 +3,7 @@
 之前我们用单线程和多线程分别实现了爬虫
 这个例子用协程实现爬虫，和之前对比一下性能
 注意：
-之前的多线程编程中，我们使用的是 requests 库，单这里用的是 aiohttp 库
+之前的多线程编程中，我们使用的是 requests 库，但这里用的是 aiohttp 库
 原因就是 requests 库并不兼容 Asyncio，但是 aiohttp 库兼容
 """
 import asyncio
