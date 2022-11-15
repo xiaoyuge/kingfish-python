@@ -1,10 +1,12 @@
 """
 @author kingfish
 这个代码来源于真实的需求，见/data/joyce/需求文档.md
+该实现使用标准循环来遍历pandas的DataFrame
 """
 
 import pandas as pd
 import xlwings as xw
+import time
 
 #要处理的文件路径
 fpath = "datas/joyce/DS_format_bak.xlsm"
@@ -14,14 +16,18 @@ fpath = "datas/joyce/DS_format_bak.xlsm"
 cp_df = pd.read_excel(fpath,sheet_name="CP",header=[0])
 ds_df = pd.read_excel(fpath,sheet_name="DS",header=[0,1])
 
-
+clear_start = time.time()
 #先清空DS表的Delta和LOI列的值
 for i in range(0,len(ds_df)):
     if ds_df.loc[i,('Total','Capabity.1')] == "Delta":
         ds_df.loc[i,('Current week','BOH')] = 0
     if ds_df.loc[i,('Total','Capabity.1')] == "LOI":
         ds_df.loc[i,('Current week','BOH')] = 0
+clear_end = time.time()
+print(f"清空DS表的Delta和LOI列的值 time cost is :{clear_end-clear_start} seconds")
 
+#开始delta和loi的计算
+cal_delta_loi_start = time.time()
 
 delta_item_group_site_set = set()
 loi_item_group_site_set = set()
@@ -40,11 +46,7 @@ for i in range(0,len(cp_df)):
         ds_item_group = ds_df.loc[j,('Total','Capabity')]
         
         if ds_item_group != "" and cp_item_group == ds_item_group :
-            is_Delta_ok = False
-            is_LOI_ok = False
             for k in range(j,j+5):
-                if is_Delta_ok and is_LOI_ok:
-                    break
                 ds_total_capabity1 = ds_df.loc[k,('Total','Capabity.1')]
                 #计算DS表的Delta值
                 if ds_total_capabity1 == 'Delta':
@@ -52,7 +54,6 @@ for i in range(0,len(cp_df)):
                     if (key in delta_item_group_site_set) == False:
                         delta_item_group_site_set.add(key)
                         ds_df.loc[k,('Current week','BOH')] = float(ds_df.loc[k,('Current week','BOH')]) + float(cp_df.loc[i,'MRP (LOI)']) + float(cp_df.loc[i,'MRP (OOI)'])
-                        is_Delta_ok = True
                         #print(f"item_group={ds_item_group}-Delta")
                 #计算DS表的LOI值
                 if ds_total_capabity1 == 'LOI':
@@ -60,7 +61,6 @@ for i in range(0,len(cp_df)):
                     if (key in loi_item_group_site_set) == False:
                         loi_item_group_site_set.add(key)
                         ds_df.loc[k,('Current week','BOH')] = float(ds_df.loc[k,('Current week','BOH')]) + float(cp_df.loc[i,'MRP (LOI)']) 
-                        is_LOI_ok = True
                         #print(f"item_group={ds_item_group}-LOI")
                 
 
@@ -68,6 +68,12 @@ for i in range(0,len(cp_df)):
 #释放数据
 delta_item_group_site_set.clear()
 loi_item_group_site_set.clear()
+
+cal_delta_loi_end = time.time()
+print(f"计算DS表的Delta和LOI的值 time cost is :{cal_delta_loi_end-cal_delta_loi_start} seconds")
+print(f"DS表的Delta和LOI的清空和计算总共 time cost is :{cal_delta_loi_end-clear_start} seconds")
+
+clear_demand_supply_start = time.time()
 
 #先清空Demand和Supply对应日期的值
 for i in range(54,len(cp_df.columns)):
@@ -85,9 +91,14 @@ for i in range(54,len(cp_df.columns)):
                 ds_datatime = ds_df.columns.get_level_values(1)[k]
                 if cp_datatime == ds_datatime:
                     ds_df.loc[j,(f'{ds_month}',f'{ds_datatime}')] = 0
-                    print(f"DS表第{j}行的日期{ds_datatime}清空")
+                    #print(f"DS表第{j}行的日期{ds_datatime}清空")
                 
-                
+
+clear_demand_supply_end = time.time()
+print(f"清空DS表的Demand和Supply的值 time cost is :{clear_demand_supply_end-clear_demand_supply_start} seconds")
+
+
+cal_demand_supply_start = time.time()
 #开始按日期计算Demand和Supply的值
 for j in range(len(cp_df)):
     
@@ -111,7 +122,7 @@ for j in range(len(cp_df)):
                                  ds_month = ds_df.columns.get_level_values(0)[m]
                                  if cp_datatime == ds_datatime:
                                      ds_df.loc[q,(f'{ds_month}',f'{ds_datatime}')] =  ds_df.loc[q,(f'{ds_month}',f'{ds_datatime}')] + cp_df.loc[j,f'{cp_datatime}']
-                                     print(f"{cp_item_group}-Demard:{ ds_df.loc[q,(f'{ds_month}',f'{ds_datatime}')]}")
+                                     #print(f"{cp_item_group}-Demard:{ ds_df.loc[q,(f'{ds_month}',f'{ds_datatime}')]}")
     
     if cp_measure == "Total Commit" or cp_measure == "Total Risk Commit":
         for i in range(len(ds_df)):
@@ -126,10 +137,15 @@ for j in range(len(cp_df)):
                                  ds_month = ds_df.columns.get_level_values(0)[m]
                                  if cp_datatime == ds_datatime:
                                      ds_df.loc[q,(f'{ds_month}',f'{ds_datatime}')] =  ds_df.loc[q,(f'{ds_month}',f'{ds_datatime}')] + cp_df.loc[j,f'{cp_datatime}']    
-                                     print(f"{cp_item_group}-Supply:{ ds_df.loc[q,(f'{ds_month}',f'{ds_datatime}')]}")
+                                     #print(f"{cp_item_group}-Supply:{ ds_df.loc[q,(f'{ds_month}',f'{ds_datatime}')]}")
 
 
-#保存结果       
+cal_demand_supply_end = time.time()
+print(f"计算DS表的Demand和Supply的值 time cost is :{cal_demand_supply_end-cal_demand_supply_start} seconds")
+print(f"DS表的Demand和Supply的清空和计算总共 time cost is :{cal_demand_supply_end-clear_demand_supply_start} seconds")
+print(f"ds_format python 脚本总共 time cost is :{cal_demand_supply_end-clear_start} seconds")
+
+#保存结果到excel       
 app = xw.App(visible=False,add_book=False)
 
 ds_format_workbook = app.books.open(fpath)

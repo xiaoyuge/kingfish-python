@@ -1,6 +1,7 @@
 """
 @author kingfish
 这个代码来源于真实的需求，见/data/joyce/需求文档.md
+该实现使用Pandas的函数apply()来遍历DataFrame
 """
 
 import pandas as pd

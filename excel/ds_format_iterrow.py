@@ -1,6 +1,7 @@
 """
 @author kingfish
 这个代码来源于真实的需求，见/data/joyce/需求文档.md
+该实现使用Pandas内置函数iterrows()来遍历DataFrame
 """
 
 import pandas as pd
@@ -24,7 +25,6 @@ for index,row in ds_df.iterrows():
     if row[('Total','Capabity.1')] == 'LOI':
         row[('Current week','BOH')] = 0
 end = time.time()
-
 print(f"清空DS表的Delta和LOI列的值 time cost is :{end-start} seconds")
 
 
