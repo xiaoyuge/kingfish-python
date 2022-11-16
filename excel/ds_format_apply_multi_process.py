@@ -6,15 +6,19 @@
 
 import math
 import time
-from multiprocessing import Manager, Process,Semaphore
+from multiprocessing import Manager, Process, Semaphore
 
 import pandas as pd
 import xlwings as xw
 
-df_dict = Manager().dict()
 
 #要处理的文件路径
 fpath = "datas/joyce/DS_format_bak.xlsm"
+delta_item_group_site_set = set()
+loi_item_group_site_set = set()
+
+manager = Manager()
+df_dict = manager.dict()
 
 def read_excel():
     #要处理的文件路径
@@ -49,8 +53,7 @@ def handle_nan(data):
     return data
 
 #############################################Delta和Loi计算####################################################
-delta_item_group_site_set = set()
-loi_item_group_site_set = set()
+
 
 
 def iner_Iter_From_Cal_loi_Iter_In_Ds(ds_row_k):
@@ -319,7 +322,7 @@ def p_clear_and_cal_supply(s):
     
 ######################################################Demand和Supply计算################################################ 
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     
     app_start = time.time()
     #读取excel数据到内存
