@@ -46,19 +46,19 @@ def multi_process():
 
 #实际运行一下，看看各自花费的时间
 if __name__ == "__main__":
-    start = time.time();
+    start = time.time()
     single_thread()
-    end = time.time();
+    end = time.time()
     print("single_thread cost :",end - start,"seconds")
     
-    start = time.time();
+    start = time.time()
     multi_thread()
-    end = time.time();
+    end = time.time()
     print("multi_thread cost :",end - start,"seconds")
     
-    start = time.time();
+    start = time.time()
     multi_process()
-    end = time.time();
+    end = time.time()
     print("multi_process cost :",end - start,"seconds")
 
         
