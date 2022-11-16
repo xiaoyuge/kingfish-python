@@ -7,6 +7,7 @@
 import pandas as pd
 import xlwings as xw
 import time
+import math
 
 #要处理的文件路径
 fpath = "datas/joyce/DS_format_bak.xlsm"
@@ -30,8 +31,8 @@ for index,row in ds_df.iterrows():
 clear_delta_loi_end = time.time()
 print(f"清空DS表的Delta和LOI列的值 time cost is :{clear_delta_loi_end - clear_delta_loi_start} seconds")
 
-def handle_none(data):
-    if data is None or data == "" or type(data) == None.__class__:
+def handle_nan(data):
+    if math.isnan(data):
         return 0
     return data
 
@@ -65,14 +66,14 @@ for index_i,cp_row in cp_df.iterrows():
                     #相同的item_group+siteid是否计算过
                     if (key in delta_item_group_site_set) == False:
                         delta_item_group_site_set.add(key)
-                        ds_row_k[('Current week','BOH')] = handle_none(pd.to_numeric(ds_row_k[('Current week','BOH')],errors='coerce')) + handle_none(pd.to_numeric(cp_row['MRP (LOI)'],errors='coerce')) + handle_none(pd.to_numeric(cp_row['MRP (OOI)'],errors='coerce'))                       
+                        ds_row_k[('Current week','BOH')] = handle_nan(pd.to_numeric(ds_row_k[('Current week','BOH')],errors='coerce')) + handle_nan(pd.to_numeric(cp_row['MRP (LOI)'],errors='coerce')) + handle_nan(pd.to_numeric(cp_row['MRP (OOI)'],errors='coerce'))                       
                         #print(f"item_group={ds_item_group}-Delta:{ ds_row_k[('Current week','BOH')]}")
                 #计算DS表的LOI值
                 if ds_total_capabity1 == 'LOI':
                     #相同的item_group+siteid是否计算过
                     if (key in loi_item_group_site_set) == False:
                         loi_item_group_site_set.add(key)
-                        ds_row_k[('Current week','BOH')] = handle_none(pd.to_numeric(ds_row_k[('Current week','BOH')],errors='coerce')) + handle_none(pd.to_numeric(cp_row['MRP (LOI)'],errors='coerce'))
+                        ds_row_k[('Current week','BOH')] = handle_nan(pd.to_numeric(ds_row_k[('Current week','BOH')],errors='coerce')) + handle_nan(pd.to_numeric(cp_row['MRP (LOI)'],errors='coerce'))
                         #print(f"item_group={ds_item_group}-LOI:{ ds_row_k[('Current week','BOH')]}")
                 
 
@@ -134,7 +135,7 @@ for index_j,cp_row in cp_df.iterrows():
                                  ds_datetime = ds_df.columns.get_level_values(1)[m]
                                  ds_month = ds_df.columns.get_level_values(0)[m]
                                  if cp_datetime == ds_datetime:
-                                     iner_iter_df_row[(f'{ds_month}',f'{ds_datetime}')] =  handle_none(pd.to_numeric(iner_iter_df_row[(f'{ds_month}',f'{ds_datetime}')],errors='coerce')) + handle_none(pd.to_numeric(cp_row[f'{cp_datetime}'],errors='coerce'))
+                                     iner_iter_df_row[(f'{ds_month}',f'{ds_datetime}')] =  handle_nan(pd.to_numeric(iner_iter_df_row[(f'{ds_month}',f'{ds_datetime}')],errors='coerce')) + handle_nan(pd.to_numeric(cp_row[f'{cp_datetime}'],errors='coerce'))
                                      
     if cp_measure == "Total Commit" or cp_measure == "Total Risk Commit":
         for index_i,ds_row in ds_df.iterrows():
@@ -152,7 +153,7 @@ for index_j,cp_row in cp_df.iterrows():
                                  ds_datetime = ds_df.columns.get_level_values(1)[m]
                                  ds_month = ds_df.columns.get_level_values(0)[m]
                                  if cp_datetime == ds_datetime:
-                                     iner_iter_df_row[(f'{ds_month}',f'{ds_datetime}')] =  handle_none(pd.to_numeric(iner_iter_df_row[(f'{ds_month}',f'{ds_datetime}')],errors='coerce')) + handle_none(pd.to_numeric(cp_row[f'{cp_datetime}'],errors='coerce'))
+                                     iner_iter_df_row[(f'{ds_month}',f'{ds_datetime}')] =  handle_nan(pd.to_numeric(iner_iter_df_row[(f'{ds_month}',f'{ds_datetime}')],errors='coerce')) + handle_nan(pd.to_numeric(cp_row[f'{cp_datetime}'],errors='coerce'))
 
 cal_demand_supply_end = time.time()
 print(f"计算DS表的Demand和Supply的值 time cost is :{cal_demand_supply_end - cal_demand_supply_start} seconds")
