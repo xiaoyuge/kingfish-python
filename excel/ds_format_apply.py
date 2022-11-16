@@ -11,18 +11,18 @@ import time
 #要处理的文件路径
 fpath = "datas/joyce/DS_format_bak.xlsm"
 
+read_excel_start = time.time()
 #把CP和DS两个sheet的数据分别读入pandas的dataframe
 #cp_df = ds_format_workbook.sheets["CP"].range("A1").options(pd.DataFrame,expand='table',index=False,numbers=float).value
 cp_df = pd.read_excel(fpath,sheet_name="CP",header=[0])
 ds_df = pd.read_excel(fpath,sheet_name="DS",header=[0,1])
+read_excel_end = time.time()
+print(f"读取excel文件 time cost is :{read_excel_end - read_excel_start} seconds")
 
 start = time.time()
 #先清空DS表的Delta和LOI列的值
 
-def handle_none(data):
-    if data is None or data == "" or type(data) == None.__class__:
-        return 0
-    return data
+
 
 def clear_Delta_Loi(row):
     if row[('Total','Capabity.1')] == 'Delta':
@@ -40,6 +40,11 @@ start = time.time()
 
 delta_item_group_site_set = set()
 loi_item_group_site_set = set()
+
+def handle_none(data):
+    if data is None or data == "" or type(data) == None.__class__:
+        return 0
+    return data
 
 def iner_iter_fuc(ds_row_k):
                   

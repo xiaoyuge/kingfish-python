@@ -10,11 +10,13 @@ import time
 
 #要处理的文件路径
 fpath = "datas/joyce/DS_format_bak.xlsm"
-
+read_excel_start = time.time()
 #把CP和DS两个sheet的数据分别读入pandas的dataframe
 #cp_df = ds_format_workbook.sheets["CP"].range("A1").options(pd.DataFrame,expand='table',index=False,numbers=float).value
 cp_df = pd.read_excel(fpath,sheet_name="CP",header=[0])
 ds_df = pd.read_excel(fpath,sheet_name="DS",header=[0,1])
+read_excel_end = time.time()
+print(f"读取excel文件 time cost is :{read_excel_end - read_excel_start} seconds")
 
 clear_start = time.time()
 #先清空DS表的Delta和LOI列的值
@@ -143,8 +145,9 @@ for j in range(len(cp_df)):
 cal_demand_supply_end = time.time()
 print(f"计算DS表的Demand和Supply的值 time cost is :{cal_demand_supply_end-cal_demand_supply_start} seconds")
 print(f"DS表的Demand和Supply的清空和计算总共 time cost is :{cal_demand_supply_end-clear_demand_supply_start} seconds")
-print(f"ds_format python 脚本总共 time cost is :{cal_demand_supply_end-clear_start} seconds")
+print(f"ds_format python 脚本（使用普通循环）内存计算总共 time cost is :{cal_demand_supply_end-clear_start} seconds")
 
+save_excel_start = time.time()
 #保存结果到excel       
 app = xw.App(visible=False,add_book=False)
 
@@ -154,6 +157,8 @@ ds_format_workbook.sheets["DS"].range("A3").expand().options(index=False).value 
 ds_format_workbook.save()
 ds_format_workbook.close()
 app.quit()
-    
+save_excel_end = time.time()
+print(f"保存结果到excel time cost is :{save_excel_end - save_excel_start} seconds") 
+print(f"ds_format python 脚本（使用普通循环）总共 time cost is :{save_excel_end - read_excel_start} seconds")       
             
             
