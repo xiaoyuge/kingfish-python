@@ -2,23 +2,21 @@
 @author kingfish
 这个代码来源于真实的需求，见/data/joyce/需求文档.md
 该实现使用Pandas的函数apply()来遍历DataFrame，并且开启多进程来加速计算
+但结果性能并没有如期加速，分析原因在于manager的dict的性能非常慢
+刚开始怀疑是semaphore需要进程获取锁资源导致，但是我改成并发两个进程的方案后并没有改观，见脚本ds_format_apply_two_process.py
+PS:使用Manager，注意在Python3.7版本以上会报freeze_support相关问题
 """
 
 import math
 import time
-from multiprocessing import Manager, Process, Semaphore
+from multiprocessing import Process,Manager,Semaphore
 
 import pandas as pd
 import xlwings as xw
 
-
 #要处理的文件路径
 fpath = "datas/joyce/DS_format_bak.xlsm"
-delta_item_group_site_set = set()
-loi_item_group_site_set = set()
-
-manager = Manager()
-df_dict = manager.dict()
+df_dict = Manager().dict()
 
 def read_excel():
     #要处理的文件路径
@@ -31,6 +29,10 @@ def read_excel():
     df_dict['cp_df'] = cp_df
     read_excel_end = time.time()
     print(f"读取excel文件 time cost is :{read_excel_end - read_excel_start} seconds")
+
+
+delta_item_group_site_set = set()
+loi_item_group_site_set = set()
 
     
 def save_excel():
@@ -324,10 +326,13 @@ def p_clear_and_cal_supply(s):
 
 if __name__ == '__main__':
     
+    print(f"Process-{os.getpid()} is running...")
+    
     app_start = time.time()
-    #读取excel数据到内存
+    
+    #读取excel数据到内存 
     read_excel()
-
+    
     #因为我的Mac本cpu是双核的，所以控制一次并发两个进程
     con_num = 2
     s = Semaphore(con_num)
@@ -337,7 +342,6 @@ if __name__ == '__main__':
     p_cal_loi = Process(target=p_clear_and_cal_loi,args=(s,))
     p_cal_demand = Process(target=p_clear_and_cal_demand,args=(s,))
     p_cal_supply = Process(target=p_clear_and_cal_supply,args=(s,))
-    
     
     p_cal_delta.start()
     p_cal_loi.start()

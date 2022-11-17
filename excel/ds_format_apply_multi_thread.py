@@ -1,7 +1,8 @@
 """
 @author kingfish
 这个代码来源于真实的需求，见/data/joyce/需求文档.md
-该实现使用Pandas的函数apply()来遍历DataFrame，并且开启多进程来加速计算
+该实现使用Pandas的函数apply()来遍历DataFrame，并且开启多线程来加速计算
+但是该场景是一个CPU密集型场景，python多线程因为GIL的原因，并不能利用到多核加速
 """
 
 import pandas as pd
@@ -59,7 +60,7 @@ def iner_Iter_From_Cal_loi_Iter_In_Ds(ds_row_k):
             LOI_value = handle_nan(ds_row_k[('Current week','BOH')])
             MRP_LOI_value = handle_nan(cal_loi_cp_row['MRP (LOI)'])
             ds_row_k[('Current week','BOH')] = pd.to_numeric(LOI_value,errors='coerce')+ pd.to_numeric(MRP_LOI_value,errors='coerce')
-            print(f"item_group={cal_loi_ds_item_group}的LOI={ ds_row_k[('Current week','BOH')]}")
+            #print(f"item_group={cal_loi_ds_item_group}的LOI={ ds_row_k[('Current week','BOH')]}")
 
 def Cal_Loi_Iter_In_Ds(ds_row):
      #获取DS表的Item_group值
@@ -96,7 +97,7 @@ def iner_Iter_From_Cal_Delta_Iter_In_Ds(ds_row_k):
             MRP_LOI_value = handle_nan((cal_delta_cp_row['MRP (LOI)']))
             MRP_OOI_value = handle_nan(cal_delta_cp_row['MRP (OOI)'])
             ds_row_k[('Current week','BOH')] = pd.to_numeric(delta_value,errors='coerce') + pd.to_numeric(MRP_LOI_value,errors='coerce') + pd.to_numeric(MRP_OOI_value,errors='coerce')                        
-            print(f"item_group={cal_delta_ds_item_group}的Delta={ ds_row_k[('Current week','BOH')]}")
+            #print(f"item_group={cal_delta_ds_item_group}的Delta={ ds_row_k[('Current week','BOH')]}")
     
 
 def cal_Delta_Iter_In_Ds(ds_row):
@@ -124,12 +125,12 @@ def cal_delta_iter_in_cp(cp_row):
 def clear_Delta(row):
     if row[('Total','Capabity.1')] == 'Delta':
         row[('Current week','BOH')] = 0
-        print(f"清除{row[('Total','Capabity')]}的{row[('Total','Capabity.1')]}的值")
+        #print(f"清除{row[('Total','Capabity')]}的{row[('Total','Capabity.1')]}的值")
 
 def clear_Loi(row):
     if row[('Total','Capabity.1')] == 'LOI':
         row[('Current week','BOH')] = 0
-        print(f"清除{row[('Total','Capabity')]}的{row[('Total','Capabity.1')]}的值")
+        #print(f"清除{row[('Total','Capabity')]}的{row[('Total','Capabity.1')]}的值")
 
 
 #单独进程清除和计算delta的函数
@@ -181,7 +182,7 @@ def clear_Demand_Iter_In_Ds(ds_row):
             ds_datetime = ds_df.columns.get_level_values(1)[k]
             if clear_demand_cp_datetime == ds_datetime:
                 ds_row[(f'{ds_month}',f'{ds_datetime}')] = 0
-                print(f"清除{ds_row[('Total','Capabity')]}的{ds_total_capabity1}的日期{ds_datetime}的值")
+                #print(f"清除{ds_row[('Total','Capabity')]}的{ds_total_capabity1}的日期{ds_datetime}的值")
 
 def clear_demand():
     for i in range(54,len(cp_df.columns)): 
@@ -202,7 +203,7 @@ def clear_Supply_Iter_In_Ds(ds_row):
             ds_datetime = ds_df.columns.get_level_values(1)[k]
             if clear_supply_cp_datetime == ds_datetime:
                 ds_row[(f'{ds_month}',f'{ds_datetime}')] = 0
-                print(f"清除{ds_row[('Total','Capabity')]}的{ds_total_capabity1}的日期{ds_datetime}的值")
+                #print(f"清除{ds_row[('Total','Capabity')]}的{ds_total_capabity1}的日期{ds_datetime}的值")
     
 
 def clear_supply():
@@ -235,7 +236,7 @@ def cal_demand_Inner_Iter_Ds(inner_iter_ds_row):
                 ds_month = ds_df.columns.get_level_values(0)[m]
                 if cp_datetime == ds_datetime:
                     inner_iter_ds_row[(f'{ds_month}',f'{ds_datetime}')] =  handle_nan(pd.to_numeric(inner_iter_ds_row[(f'{ds_month}',f'{ds_datetime}')],errors='coerce')) + handle_nan(pd.to_numeric(cal_demand_cp_row[f'{cp_datetime}'],errors='coerce'))
-                    print(f"{cal_demand_cp_item_group}的{inner_iter_ds_row[('Total','Capabity.1')]}的值={inner_iter_ds_row[(f'{ds_month}',f'{ds_datetime}')]}")
+                    #print(f"{cal_demand_cp_item_group}的{inner_iter_ds_row[('Total','Capabity.1')]}的值={inner_iter_ds_row[(f'{ds_month}',f'{ds_datetime}')]}")
 
 def cal_Demand_Iter_Ds(ds_row):
     #如果cp和ds的item_group值相同
@@ -268,7 +269,7 @@ def cal_supply_Inner_Iter_Ds(inner_iter_ds_row):
                 ds_month = ds_df.columns.get_level_values(0)[m]
                 if cp_datetime == ds_datetime:
                     inner_iter_ds_row[(f'{ds_month}',f'{ds_datetime}')] =  handle_nan(pd.to_numeric(inner_iter_ds_row[(f'{ds_month}',f'{ds_datetime}')],errors='coerce')) + handle_nan(pd.to_numeric(cal_supply_cp_row[f'{cp_datetime}'],errors='coerce'))
-                    print(f"{cal_supply_cp_item_group}的{inner_iter_ds_row[('Total','Capabity.1')]}的值={inner_iter_ds_row[(f'{ds_month}',f'{ds_datetime}')]}")
+                    #print(f"{cal_supply_cp_item_group}的{inner_iter_ds_row[('Total','Capabity.1')]}的值={inner_iter_ds_row[(f'{ds_month}',f'{ds_datetime}')]}")
             
 def cal_Supply_Iter_Ds(ds_row):
     #如果cp和ds的item_group值相同
