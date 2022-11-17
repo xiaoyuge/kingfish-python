@@ -23,9 +23,9 @@ def read_excel():
     read_excel_start = time.time()
     #把CP和DS两个sheet的数据分别读入pandas的dataframe
     global cp_df 
-    cp_df = pd.read_excel(fpath,sheet_name="CP",header=[0])
+    cp_df = pd.read_excel(fpath,sheet_name="CP",header=[0],engine='openpyxl')
     global ds_df 
-    ds_df = pd.read_excel(fpath,sheet_name="DS",header=[0,1])
+    ds_df = pd.read_excel(fpath,sheet_name="DS",header=[0,1],engine='openpyxl')
     read_excel_end = time.time()
     print(f"读取excel文件 time cost is :{read_excel_end - read_excel_start} seconds")
 
@@ -352,10 +352,13 @@ if __name__ == '__main__':
     cal_end = time.time()
     print(f"ds_format python 脚本（使用多进程apply）内存计算总共 time cost is :{cal_end - cal_start} seconds") 
     
+    #四个进程分别处理完后，拿到这四个进程的处理结果
     ds_df_delta = dict['ds_delta']
     ds_df_loi = dict['ds_loi']
     ds_df_demand = dict['ds_demand']
     ds_df_supply = dict['ds_supply']
+    
+    #Todo：接下来要干的事儿，就是在内存合并结果，然后输出到excel
     
     print(ds_df_delta.head())
     print(ds_df_loi.head())
