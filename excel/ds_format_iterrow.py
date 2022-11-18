@@ -2,6 +2,7 @@
 @author kingfish
 这个代码来源于真实的需求，见/data/joyce/需求文档.md
 该实现使用Pandas内置函数iterrows()来遍历DataFrame
+PS；新发现一个问题，pandas的iterrows不能修改数据。。。
 """
 
 import pandas as pd
@@ -40,7 +41,7 @@ cal_delta_loi_start = time.time()
 delta_item_group_site_set = set()
 loi_item_group_site_set = set()
 
-#根据CP和DS表的Item_group值做lookup，计算DS表的Delta值
+#根据CP和DS表的Item_group值做lookup，计算DS表的Delta和LOI值
 for index_i,cp_row in cp_df.iterrows():
     
     #获取CP表的Item_group和siteid值
@@ -60,6 +61,9 @@ for index_i,cp_row in cp_df.iterrows():
             for index_k,ds_row_k in iner_iter_df.iterrows():
                 
                 ds_total_capabity1 = ds_row_k[('Total','Capabity.1')]
+                
+                #因为合并单元格的原因，item_group值可能为""或Nan，不管是何值都赋值为原item_group值
+                ds_row_k[('Total','Capabity')] = ds_item_group
         
                 #计算DS表的Delta值
                 if ds_total_capabity1 == 'Delta':
@@ -75,8 +79,6 @@ for index_i,cp_row in cp_df.iterrows():
                         loi_item_group_site_set.add(key)
                         ds_row_k[('Current week','BOH')] = handle_nan(pd.to_numeric(ds_row_k[('Current week','BOH')],errors='coerce')) + handle_nan(pd.to_numeric(cp_row['MRP (LOI)'],errors='coerce'))
                         #print(f"item_group={ds_item_group}-LOI:{ ds_row_k[('Current week','BOH')]}")
-                
-
 
 #释放数据
 delta_item_group_site_set.clear()
@@ -126,7 +128,12 @@ for index_j,cp_row in cp_df.iterrows():
             if cp_item_group == ds_item_group:
                 #从ds该行往下取4行作为一个slice进行处理
                 iner_iter_df = ds_df.loc[index_j:index_j+4]
+                
                 for iner_iter_index_q,iner_iter_df_row in iner_iter_df.iterrows():
+                    
+                    #因为合并单元格的原因，item_group值可能为""或Nan，不管是何值都赋值为本应该的原值item_group
+                    iner_iter_df_row[('Total','Capabity')] = ds_item_group
+                    
                     if iner_iter_df_row[('Total','Capabity.1')] == "Demand":
                         for k in range(54,len(cp_df.columns)):
                             for m in range(5,len(ds_df.columns)):
@@ -144,7 +151,12 @@ for index_j,cp_row in cp_df.iterrows():
             if cp_item_group == ds_item_group:
                 #从ds该行往下取4行作为一个slice进行处理
                 iner_iter_df = ds_df.loc[index_j:index_j+4]
+                
                 for iner_iter_index_q,iner_iter_df_row in iner_iter_df.iterrows():
+                    
+                    #因为合并单元格的原因，item_group值可能为""或Nan，不管是何值都赋值为本应该的原值item_group
+                    iner_iter_df_row[('Total','Capabity')] = ds_item_group
+                    
                     if iner_iter_df_row[('Total','Capabity.1')] == "Supply":
                         for k in range(54,len(cp_df.columns)):
                             for m in range(5,len(ds_df.columns)):

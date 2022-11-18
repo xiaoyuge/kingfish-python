@@ -27,20 +27,20 @@ def read_excel():
     global ds_df 
     ds_df = pd.read_excel(fpath,sheet_name="DS",header=[0,1],engine='openpyxl')
     read_excel_end = time.time()
-    print(f"读取excel文件 time cost is :{read_excel_end - read_excel_start} seconds")
+    print(f"进程-{os.getpid}读取excel文件 time cost is :{read_excel_end - read_excel_start} seconds")
 
 
 delta_item_group_site_set = set()
 loi_item_group_site_set = set()
 
     
-def save_excel():
+def save_excel(result_df):
     save_excel_start = time.time()
     #保存结果到excel       
     app = xw.App(visible=False,add_book=False)
 
     ds_format_workbook = app.books.open(fpath)
-    ds_format_workbook.sheets["DS"].range("A3").expand().options(index=False).value = dict['ds_total'] 
+    ds_format_workbook.sheets["DS"].range("A3").expand().options(index=False).value = result_df
 
     ds_format_workbook.save()
     ds_format_workbook.close()
@@ -92,7 +92,13 @@ def Cal_Loi_Iter_In_Cp(cp_row):
     
 
 def iner_Iter_From_Cal_Delta_Iter_In_Ds(ds_row_k):
+    
     ds_total_capabity1 = ds_row_k[('Total','Capabity.1')]
+    ds_total_capabity = ds_row_k[('Total','Capabity')]
+    
+    #因为合并单元格的原因，只有第一行有值，其他行为Nan，为方便后续处理，将Nan的行都填充值
+    if ds_total_capabity == "":
+        ds_row_k[('Total','Capabity')] = cal_delta_ds_item_group
         
     #计算DS表的Delta值
     if ds_total_capabity1 == 'Delta':
@@ -146,13 +152,13 @@ def p_clear_and_cal_delta():
     clear_delta_start = time.time()
     ds_df.apply(clear_Delta,axis=1)
     clear_delta_end = time.time()
-    print("清除Delta的值 time cost :",clear_delta_end - clear_delta_start)
+    print(f"进程-{os.getpid}清除Delta的值 time cost :",clear_delta_end - clear_delta_start)
     #开始计算Delta值
     cal_delta_start = time.time()
     cp_df.apply(cal_delta_iter_in_cp,axis=1)
     cal_delta_end = time.time()
-    print("计算Delta的值 time cost :",cal_delta_end - cal_delta_start)
-    print("清除和计算Delta的值 time cost :",cal_delta_end - clear_delta_start)
+    print(f"进程-{os.getpgid}计算Delta的值 time cost :",cal_delta_end - cal_delta_start)
+    print(f"进程-{os.getpid}清除和计算Delta的值 time cost :",cal_delta_end - clear_delta_start)
     #释放数据
     delta_item_group_site_set.clear()
     #保存数据
@@ -164,13 +170,13 @@ def p_clear_and_cal_loi():
     clear_loi_start = time.time()
     ds_df.apply(clear_Loi,axis=1)
     clear_loi_end = time.time()
-    print("清除Loi的值 time cost :",clear_loi_end - clear_loi_start)
+    print(f"进程-{os.getpid}清除Loi的值 time cost :",clear_loi_end - clear_loi_start)
     #开始计算loi
     cal_loi_start = time.time()
     cp_df.apply(Cal_Loi_Iter_In_Cp,axis=1)
     cal_loi_end = time.time()
-    print("计算Loi的值 time cost :",cal_loi_end - cal_loi_start)
-    print("清除和计算Loi的值 time cost :",cal_loi_end - clear_loi_start)
+    print(f"进程-{os.getpid}计算Loi的值 time cost :",cal_loi_end - cal_loi_start)
+    print(f"进程-{os.getpid}清除和计算Loi的值 time cost :",cal_loi_end - clear_loi_start)
     #释放数据
     loi_item_group_site_set.clear()
     #保存数据
@@ -298,12 +304,12 @@ def p_clear_and_cal_demand():
     clear_demand_start = time.time()
     clear_demand()
     clear_demand_end = time.time()
-    print(f"DS表Demand的清空总共 time cost is :{clear_demand_end - clear_demand_start} seconds")
+    print(f"进程-{os.getpid}清空DS表Demand总共 time cost is :{clear_demand_end - clear_demand_start} seconds")
     #计算Demand各个日期的值
     cal_demand_start = time.time()
     cal_demand()
     cal_demand_end = time.time()
-    print(f"计算DS表的Demand的值 time cost is :{cal_demand_end - cal_demand_start} seconds")
+    print(f"进程-{os.getpid}计算DS表Demand值 time cost is :{cal_demand_end - cal_demand_start} seconds")
     #保存数据
     dict['ds_demand'] = ds_df
 
@@ -315,25 +321,40 @@ def p_clear_and_cal_supply():
     clear_supply_start = time.time()
     clear_supply()
     clear_supply_end = time.time()
-    print(f"DS表Supply的清空总共 time cost is :{clear_supply_end - clear_supply_start} seconds")
+    print(f"进程-{os.getpid}清空DS表Supply总共 time cost is :{clear_supply_end - clear_supply_start} seconds")
     #计算Supply各个日期的值
     cal_supply_start = time.time()
     cal_supply()
     cal_supply_end = time.time()
-    print(f"计算DS表的Supply的值 time cost is :{cal_supply_end - cal_supply_start} seconds")
+    print(f"进程{os.getpid}计算DS表Supply的值 time cost is :{cal_supply_end - cal_supply_start} seconds")
     #保存数据
     dict['ds_supply'] = ds_df
     
     
 ######################################################Demand和Supply计算################################################ 
 
+######################################################结果合并################################################ 
+
+def iter_in_ds_df_delta(ds_df_supply,ds_df_delta_row):
+    
+    pass
+
+def p_delta_merge_result(ds_df_delta,ds_df_supply):
+    ds_df_delta.apply(iter_in_ds_df_delta,axis=1,args=ds_df_supply)
+
+def p_loi_merge_result(ds_df_loi,ds_df_supply):
+    pass
+
+def p_demand_merge_result(ds_df_demand,ds_df_supply):
+    pass
+
+######################################################结果合并################################################ 
 if __name__ == '__main__':
+
+    print(f"主进程-{os.getpid()} is running...")
     
-    print(f"Process-{os.getpid()} is running...")
-    
-    app_start = time.time()
-   
     cal_start = time.time()
+    #起四个进程，同时计算delta、loi、demand和supply
     p_cal_delta = Process(target=p_clear_and_cal_delta,args=())
     p_cal_loi = Process(target=p_clear_and_cal_loi,args=())
     p_cal_demand = Process(target=p_clear_and_cal_demand,args=())
@@ -358,17 +379,28 @@ if __name__ == '__main__':
     ds_df_demand = dict['ds_demand']
     ds_df_supply = dict['ds_supply']
     
-    #Todo：接下来要干的事儿，就是在内存合并结果，然后输出到excel
+    #起三个进程，分别将ds_df_delta、ds_df_loi和ds_df_demand合并到ds_df_supply
+    merge_start = time.time()
+    p_delta_merge = Process(target=p_delta_merge_result,args=(ds_df_delta,ds_df_supply))
+    p_loi_merge = Process(target=p_loi_merge_result,args=(ds_df_loi,ds_df_supply))
+    p_demand_merge = Process(target=p_demand_merge_result,args=(ds_df_demand,ds_df_supply))
     
-    print(ds_df_delta.head())
-    print(ds_df_loi.head())
-    print(ds_df_demand.head())
-    print(ds_df_supply.head())
+    p_delta_merge.start()
+    p_loi_merge.start()
+    p_demand_merge.start()
     
-    #Todo:concat and  merge 四个dataframe，然后将结果输出到excel
+    p_delta_merge.join()
+    p_loi_merge.join()()
+    p_demand_merge.join()
+    merge_end = time.time()
+    print(f"将内存计算结果进行合并time cost is :{merge_end - merge_start} seconds")
     
-    app_end = time.time()
-    print(f"ds_format python 脚本（使用多进程apply）总共 time cost is :{app_end - app_start} seconds")
+    #将内存计算结果保存到excel
+    save_start = time.time()
+    save_excel(ds_df_supply)
+    save_end = time.time()
+    print(f"将内存结果保存到excel总共 time cost is :{save_end - save_start} seconds")
+    print(f"ds_format python 脚本（使用多进程apply）总共 time cost is :{save_end - cal_start} seconds")
 
 
    
