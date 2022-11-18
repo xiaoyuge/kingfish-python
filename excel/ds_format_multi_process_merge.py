@@ -147,7 +147,10 @@ def clear_Loi(row):
 
 #单独进程清除和计算delta的函数
 def p_clear_and_cal_delta():
+    #读取excel数据到内存
     read_excel()
+    #先处理一下item_group的nan值
+    handle_nan_item_group()
     #先清除Delta的值   
     clear_delta_start = time.time()
     ds_df.apply(clear_Delta,axis=1)
@@ -349,6 +352,21 @@ def p_demand_merge_result(ds_df_demand,ds_df_supply):
     pass
 
 ######################################################结果合并################################################ 
+
+
+#先处理一下DS的item_group值，将Nan填充为真实的item_group值
+real_ds_item_group = {'key':''}
+def handle_nan_item_group_by_row(ds_df_row):
+    cur_ds_item_group = ds_df_row[('Total','Capabity')]
+    if type(cur_ds_item_group) == str and cur_ds_item_group != "" :
+        real_ds_item_group['key'] = cur_ds_item_group
+    else:
+        ds_df_row[('Total','Capabity')] = real_ds_item_group['key']
+        
+def handle_nan_item_group():
+    ds_df.apply(handle_nan_item_group_by_row,axis=1)
+    
+
 if __name__ == '__main__':
 
     print(f"主进程-{os.getpid()} is running...")

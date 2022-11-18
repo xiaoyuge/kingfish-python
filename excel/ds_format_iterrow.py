@@ -1,8 +1,8 @@
 """
 @author kingfish
 这个代码来源于真实的需求，见/data/joyce/需求文档.md
-该实现使用Pandas内置函数iterrows()来遍历DataFrame
-PS；新发现一个问题，pandas的iterrows不能修改数据。。。
+该实现使用Pandas内置函数iterrows()来遍历DataFrame，但是是一个错误的使用示范
+因为pandas的iterrows只能遍历和查询数据，并不能修改数据
 """
 
 import pandas as pd
