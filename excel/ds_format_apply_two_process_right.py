@@ -2,7 +2,7 @@
 @author kingfish
 这个代码来源于真实的需求，见/data/joyce/需求文档.md
 该实现使用Pandas的函数apply()来遍历DataFrame，并且开启多进程来加速计算
-结果性能并没有如期加速，分析原因在于manager的dict的性能非常慢
+结果性能并没有如期加速，反而非常缓慢，分析原因在于manager的dict的性能非常慢
 使用shared_memory性能会比dict快10倍，但shared_memory只在Python3.8版本以上支持，且只支持有限的数据类型
 我要共享DataFrame行不通
 PS:使用Manager，注意在Python3.7版本以上会报freeze_support相关问题
@@ -42,7 +42,7 @@ def save_excel():
     app = xw.App(visible=False,add_book=False)
 
     ds_format_workbook = app.books.open(fpath)
-    ds_format_workbook.sheets["DS"].range("A3").expand().options(index=False).value = df_dict['ds_df']  
+    ds_format_workbook.sheets["DS"].range("A1").expand().options(index=False).value = df_dict['ds_df']  
 
     ds_format_workbook.save()
     ds_format_workbook.close()
