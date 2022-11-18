@@ -1,3 +1,10 @@
+"""
+@author kingfish
+这个代码来源于真实的需求，见/data/joyce/需求文档.md
+该实现使用Pandas的函数apply()来遍历DataFrame，并且开启多进程来加速计算
+本方案不用多进程间通信的方式，改为多个进程分开计算，然后内存直接合并，再输出到文件的方式
+"""
+
 import math
 import time
 from multiprocessing import Process,Manager
@@ -9,6 +16,7 @@ import os
 #要处理的文件路径
 fpath = "datas/joyce/DS_format_bak.xlsm"
 
+#用于多个进程共享
 dict = Manager().dict()
 
 def read_excel():
@@ -28,18 +36,15 @@ loi_item_group_site_set = set()
 
     
 def save_excel(result_df):
-    save_excel_start = time.time()
     #保存结果到excel       
     app = xw.App(visible=False,add_book=False)
 
     ds_format_workbook = app.books.open(fpath)
-    ds_format_workbook.sheets["DS"].range("A3").expand().options(index=False).value = result_df
+    ds_format_workbook.sheets["DS"].range("A1").expand().options(index=False).value = result_df
 
     ds_format_workbook.save()
     ds_format_workbook.close()
     app.quit()
-    save_excel_end = time.time()
-    print(f"保存结果到excel time cost is :{save_excel_end - save_excel_start} seconds") 
 
 def handle_nan(data):
     if math.isnan(data):
@@ -56,8 +61,9 @@ def handle_nan_item_group_by_row(ds_df_row):
         real_ds_item_group['key'] = cur_ds_item_group
         return cur_ds_item_group
     elif capabity_1 != 'DOI':
-    #else:
         return real_ds_item_group['key']
+    else:
+        return ''
 
 def handle_nan_item_group():
     ds_df[('Total','Capabity')] = ds_df.apply(handle_nan_item_group_by_row,axis=1)
@@ -93,7 +99,7 @@ def Cal_Delta_Loi_Iter_In_Ds(ds_row):
                 MRP_LOI_value = handle_nan((cp_df_row['MRP (LOI)']))
                 MRP_OOI_value = handle_nan(cp_df_row['MRP (OOI)'])
                 return_delta_val = return_delta_val + pd.to_numeric(MRP_LOI_value,errors='coerce') + pd.to_numeric(MRP_OOI_value,errors='coerce') 
-                print(f"item_group={ds_item_group}的Delta={ return_delta_val}")
+                #print(f"item_group={ds_item_group}的Delta={ return_delta_val}")
         return return_delta_val
         
     if ds_total_capabity1 == 'LOI':
@@ -106,7 +112,7 @@ def Cal_Delta_Loi_Iter_In_Ds(ds_row):
                 LOI_value = handle_nan(ds_row[('Current week','BOH')])
                 MRP_LOI_value = handle_nan(cp_df_row['MRP (LOI)'])
                 return_LOI_val = return_LOI_val + pd.to_numeric(LOI_value,errors='coerce')+ pd.to_numeric(MRP_LOI_value,errors='coerce')
-                print(f"item_group={ds_item_group}的LOI={ return_LOI_val}")
+                #print(f"item_group={ds_item_group}的LOI={ return_LOI_val}")
         return return_LOI_val
 
 
@@ -136,7 +142,7 @@ def clear_demand_supply(ds_row,ds_datetime):
     ds_item_group = ds_row[('Total','Capabity')]
     Capabity_1 = ds_row[('Total','Capabity.1')]
     if Capabity_1 == 'Demand' or Capabity_1 == 'Supply':
-        print(f'清空{ds_item_group}的{Capabity_1}的日期{ds_datetime}的值')
+        #print(f'清空{ds_item_group}的{Capabity_1}的日期{ds_datetime}的值')
         return 0
 
 def cal_demand_supply_by_datetime(ds_row,ds_datetime):
@@ -147,14 +153,14 @@ def cal_demand_supply_by_datetime(ds_row,ds_datetime):
         return_damand_val = 0
         for index_cp_df,cp_df_row in selected_cp_df.iterrows():
             return_damand_val = return_damand_val + cp_df_row[ds_datetime]
-        print(f"item_group={ds_item_group}的{Capabity_1}的日期为{ds_datetime}的值={return_damand_val}")
+        #print(f"item_group={ds_item_group}的{Capabity_1}的日期为{ds_datetime}的值={return_damand_val}")
         return return_damand_val
     if Capabity_1 == 'Supply':
         selected_cp_df = cp_df.loc[(cp_df['Item Group']==ds_item_group) & ((cp_df['Measure']=='Total Commit') | (cp_df['Measure']=='Total Risk Commit')),:]
         return_supply_val = 0
         for index_cp_df,cp_df_row in selected_cp_df.iterrows():
             return_supply_val = return_supply_val + cp_df_row[ds_datetime]
-        print(f"item_group={ds_item_group}的{Capabity_1}的日期为{ds_datetime}的值={return_supply_val}")
+        #print(f"item_group={ds_item_group}的{Capabity_1}的日期为{ds_datetime}的值={return_supply_val}")
         return return_supply_val
 
 def p_clear_and_cal_demand_supply():
@@ -184,16 +190,19 @@ def p_clear_and_cal_demand_supply():
     print(f"计算DS表的Demand和Supply的值 time cost is :{cal_demand_supply_end - cal_demand_supply_start} seconds")
     print(f"DS表的Demand和Supply的清空和计算总共 time cost is :{cal_demand_supply_end - clear_demand_supply_start} seconds")
 
-def merge_delta_loi_in_ds(ds_df_demand_supply_row,ds_df_delta_loi):
+def merge_delta_loi_to_demand_supply_apply(ds_df_demand_supply_row,ds_df_delta_loi):
     item_group = ds_df_demand_supply_row[('Total','Capabity')]
     capabity_1 = ds_df_demand_supply_row[('Total','Capabity.1')]
     if capabity_1 == 'Delta' or capabity_1 == 'LOI': 
         selected_rows = ds_df_delta_loi.loc[(ds_df_delta_loi[('Total','Capabity')]==item_group) & (ds_df_delta_loi[('Total','Capabity.1')]==capabity_1),:]
-        #应该只有一行
-        return selected_rows[('Current week','BOH')]
+        for index_selected_row,selected_row in selected_rows.iterrows():
+            #应该只有一行
+            return selected_row[('Current week','BOH')]
+        
+        
 
-def merge_delta_loi_demand_supply(ds_df_delta_loi,ds_df_demand_supply):
-    ds_df_demand_supply[('Current week','BOH')] = ds_df_demand_supply.apply(merge_delta_loi_in_ds,axis=1,args=(ds_df_delta_loi,))
+def merge_delta_loi_to_demand_supply(ds_df_delta_loi,ds_df_demand_supply):
+    ds_df_demand_supply[('Current week','BOH')] = ds_df_demand_supply.apply(merge_delta_loi_to_demand_supply_apply,axis=1,args=(ds_df_delta_loi,))
 
 
 if __name__ == '__main__':
@@ -220,7 +229,7 @@ if __name__ == '__main__':
     
     #将ds_delta_loi合并到ds_demand_supply
     merge_start = time.time()
-    merge_delta_loi_demand_supply(ds_df_delta_loi,ds_df_demand_supply)
+    merge_delta_loi_to_demand_supply(ds_df_delta_loi,ds_df_demand_supply)
     merge_end = time.time()
     print(f"将内存计算结果进行合并time cost is :{merge_end - merge_start} seconds")
     

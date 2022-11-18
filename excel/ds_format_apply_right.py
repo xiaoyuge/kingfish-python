@@ -30,9 +30,10 @@ def handle_nan_item_group_by_row(ds_df_row):
     if type(cur_ds_item_group) == str and cur_ds_item_group != "" :
         real_ds_item_group['key'] = cur_ds_item_group
         return cur_ds_item_group
-    #elif capabity_1 != 'DOI':
-    else:
+    elif capabity_1 != 'DOI':
         return real_ds_item_group['key']
+    else:
+        return ''
         
 ds_df[('Total','Capabity')] = ds_df.apply(handle_nan_item_group_by_row,axis=1)
 
@@ -81,7 +82,7 @@ def Cal_Delta_Loi_Iter_In_Ds(ds_row):
                 MRP_LOI_value = handle_nan((cp_df_row['MRP (LOI)']))
                 MRP_OOI_value = handle_nan(cp_df_row['MRP (OOI)'])
                 return_delta_val = return_delta_val + pd.to_numeric(MRP_LOI_value,errors='coerce') + pd.to_numeric(MRP_OOI_value,errors='coerce') 
-                print(f"item_group={ds_item_group}的Delta={ return_delta_val}")
+                #print(f"item_group={ds_item_group}的Delta={ return_delta_val}")
         return return_delta_val
         
     if ds_total_capabity1 == 'LOI':
@@ -94,7 +95,7 @@ def Cal_Delta_Loi_Iter_In_Ds(ds_row):
                 LOI_value = handle_nan(ds_row[('Current week','BOH')])
                 MRP_LOI_value = handle_nan(cp_df_row['MRP (LOI)'])
                 return_LOI_val = return_LOI_val + pd.to_numeric(LOI_value,errors='coerce')+ pd.to_numeric(MRP_LOI_value,errors='coerce')
-                print(f"item_group={ds_item_group}的LOI={ return_LOI_val}")
+                #print(f"item_group={ds_item_group}的LOI={ return_LOI_val}")
         return return_LOI_val
 
 #计算Dela和LOI的值
@@ -113,7 +114,7 @@ def clear_demand_supply(ds_row,ds_datetime):
     ds_item_group = ds_row[('Total','Capabity')]
     Capabity_1 = ds_row[('Total','Capabity.1')]
     if Capabity_1 == 'Demand' or Capabity_1 == 'Supply':
-        print(f'清空{ds_item_group}的{Capabity_1}的日期{ds_datetime}的值')
+        #print(f'清空{ds_item_group}的{Capabity_1}的日期{ds_datetime}的值')
         return 0
 
 #清除DS表Demand和Supply各个日期的值
@@ -137,14 +138,14 @@ def cal_demand_supply_by_datetime(ds_row,ds_datetime):
         return_damand_val = 0
         for index_cp_df,cp_df_row in selected_cp_df.iterrows():
             return_damand_val = return_damand_val + cp_df_row[ds_datetime]
-        print(f"item_group={ds_item_group}的{Capabity_1}的日期为{ds_datetime}的值={return_damand_val}")
+        #print(f"item_group={ds_item_group}的{Capabity_1}的日期为{ds_datetime}的值={return_damand_val}")
         return return_damand_val
     if Capabity_1 == 'Supply':
         selected_cp_df = cp_df.loc[(cp_df['Item Group']==ds_item_group) & ((cp_df['Measure']=='Total Commit') | (cp_df['Measure']=='Total Risk Commit')),:]
         return_supply_val = 0
         for index_cp_df,cp_df_row in selected_cp_df.iterrows():
             return_supply_val = return_supply_val + cp_df_row[ds_datetime]
-        print(f"item_group={ds_item_group}的{Capabity_1}的日期为{ds_datetime}的值={return_supply_val}")
+        #print(f"item_group={ds_item_group}的{Capabity_1}的日期为{ds_datetime}的值={return_supply_val}")
         return return_supply_val
 
 #根据DS和CP相同的日期，计算Demand和Supply值
@@ -165,7 +166,7 @@ save_excel_start = time.time()
 app = xw.App(visible=False,add_book=False)
 
 ds_format_workbook = app.books.open(fpath)
-ds_format_workbook.sheets["DS"].range("A3").expand().options(index=False).value = ds_df 
+ds_format_workbook.sheets["DS"].range("A1").expand().options(index=False).value = ds_df 
 
 ds_format_workbook.save()
 ds_format_workbook.close()
