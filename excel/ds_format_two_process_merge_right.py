@@ -3,11 +3,12 @@
 这个代码来源于真实的需求，见/data/joyce/需求文档.md
 该实现使用Pandas的函数apply()来遍历DataFrame，并且开启多进程来加速计算
 本方案不用多进程间通信的方式，改为多个进程分开计算，然后内存直接合并，再输出到文件的方式
+PS：注意python3.7版本以上执行有问题
 """
 
 import math
 import time
-from multiprocessing import Process,Manager
+from multiprocessing import Process,Manager,freeze_support
 
 import pandas as pd
 import xlwings as xw
@@ -206,7 +207,7 @@ def merge_delta_loi_to_demand_supply(ds_df_delta_loi,ds_df_demand_supply):
 
 
 if __name__ == '__main__':
-
+    freeze_support()
     print(f"主进程-{os.getpid()} is running...")
     
     cal_start = time.time()
