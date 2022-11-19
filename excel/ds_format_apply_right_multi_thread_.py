@@ -53,26 +53,26 @@ loi_item_group_site_set = set()
 
 def clear_Delta(row):
     if row[('Total','Capabity.1')] == 'Delta':
-        print(f"线程-{threading.current_thread().getName()}清除{row[('Total','Capabity')]}的{row[('Total','Capabity.1')]}的值")
+        #print(f"线程-{threading.current_thread().getName()}清除{row[('Total','Capabity')]}的{row[('Total','Capabity.1')]}的值")
         return 0
     
 def clear_Loi(row):
     if row[('Total','Capabity.1')] == 'LOI':
-        print(f"线程-{threading.current_thread().getName()}清除{row[('Total','Capabity')]}的{row[('Total','Capabity.1')]}的值")
+        #print(f"线程-{threading.current_thread().getName()}清除{row[('Total','Capabity')]}的{row[('Total','Capabity.1')]}的值")
         return 0
     
 def clear_Demand(ds_row,ds_datetime):
     ds_item_group = ds_row[('Total','Capabity')]
     Capabity_1 = ds_row[('Total','Capabity.1')]
     if Capabity_1 == 'Demand':
-        print(f'线程{threading.current_thread().getName()}清空{ds_item_group}的{Capabity_1}的日期{ds_datetime}的值')
+        #print(f'线程{threading.current_thread().getName()}清空{ds_item_group}的{Capabity_1}的日期{ds_datetime}的值')
         return 0
     
 def clear_supply(ds_row,ds_datetime):
     ds_item_group = ds_row[('Total','Capabity')]
     Capabity_1 = ds_row[('Total','Capabity.1')]
     if Capabity_1 == 'Supply':
-        print(f'线程{threading.current_thread().getName()}清空{ds_item_group}的{Capabity_1}的日期{ds_datetime}的值')
+        #print(f'线程{threading.current_thread().getName()}清空{ds_item_group}的{Capabity_1}的日期{ds_datetime}的值')
         return 0
 
 def Cal_Delta_Iter_In_Ds(ds_row):
@@ -92,7 +92,7 @@ def Cal_Delta_Iter_In_Ds(ds_row):
                 MRP_LOI_value = handle_nan((cp_df_row['MRP (LOI)']))
                 MRP_OOI_value = handle_nan(cp_df_row['MRP (OOI)'])
                 return_delta_val = return_delta_val + pd.to_numeric(MRP_LOI_value,errors='coerce') + pd.to_numeric(MRP_OOI_value,errors='coerce') 
-                print(f"线程{threading.current_thread().getName()}:item_group={ds_item_group}的Delta={ return_delta_val}")
+                #print(f"线程{threading.current_thread().getName()}:item_group={ds_item_group}的Delta={ return_delta_val}")
         return return_delta_val
 
 def Cal_Loi_Iter_In_Ds(ds_row):
@@ -111,7 +111,7 @@ def Cal_Loi_Iter_In_Ds(ds_row):
                 LOI_value = handle_nan(ds_row[('Current week','BOH')])
                 MRP_LOI_value = handle_nan(cp_df_row['MRP (LOI)'])
                 return_LOI_val = return_LOI_val + pd.to_numeric(LOI_value,errors='coerce')+ pd.to_numeric(MRP_LOI_value,errors='coerce')
-                print(f"线程{threading.current_thread().getName()}:item_group={ds_item_group}的LOI={ return_LOI_val}")
+                #print(f"线程{threading.current_thread().getName()}:item_group={ds_item_group}的LOI={ return_LOI_val}")
         return return_LOI_val
 
 def cal_demand_by_datetime(ds_row,ds_datetime):
@@ -122,7 +122,7 @@ def cal_demand_by_datetime(ds_row,ds_datetime):
         return_damand_val = 0
         for index_cp_df,cp_df_row in selected_cp_df.iterrows():
             return_damand_val = return_damand_val + cp_df_row[ds_datetime]
-        print(f"线程{threading.current_thread().getName()}:item_group={ds_item_group}的{Capabity_1}的日期为{ds_datetime}的值={return_damand_val}")
+        #print(f"线程{threading.current_thread().getName()}:item_group={ds_item_group}的{Capabity_1}的日期为{ds_datetime}的值={return_damand_val}")
         return return_damand_val
 
 def cal_supply_by_datetime(ds_row,ds_datetime):
@@ -133,7 +133,7 @@ def cal_supply_by_datetime(ds_row,ds_datetime):
         return_supply_val = 0
         for index_cp_df,cp_df_row in selected_cp_df.iterrows():
             return_supply_val = return_supply_val + cp_df_row[ds_datetime]
-        print(f"线程{threading.current_thread().getName()}:item_group={ds_item_group}的{Capabity_1}的日期为{ds_datetime}的值={return_supply_val}")
+        #print(f"线程{threading.current_thread().getName()}:item_group={ds_item_group}的{Capabity_1}的日期为{ds_datetime}的值={return_supply_val}")
         return return_supply_val
 
 def p_clear_and_cal_delta():
@@ -231,4 +231,4 @@ if __name__ == "__main__":
     save_excel()
     
     app_end = time.time()
-    print(f"ds_format python 脚本（使用多进程apply）总共 time cost is :{app_end - app_start} seconds")
+    print(f"ds_format python 脚本（使用多线程apply）总共 time cost is :{app_end - app_start} seconds")
