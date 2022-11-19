@@ -4,6 +4,8 @@
 该实现使用Pandas的函数apply()来遍历DataFrame，并且开启多进程来加速计算
 本方案不用多进程间通信的方式，改为多个进程分开计算，然后内存直接合并，再输出到文件的方式
 同样的代码在macos上执行没问题，在win上执行报错，因此不用manager来管理同步，改用queue
+使用queue需要注意，queue.put调用一次后，需要get后才能再次put，而且如果不是在process.join之前调用get，
+那么会一直阻塞
 """
 
 import math
@@ -129,7 +131,7 @@ def p_clear_and_cal_delta_loi(q):
     cal_delta_loi_start = time.time()
     #计算Dela和LOI的值
     ds_df[('Current week','BOH')] = ds_df.apply(Cal_Delta_Loi_Iter_In_Ds,axis=1)
-    q.put({'ds_delta_loi':ds_df})
+    q.put(ds_df)
     #dict['ds_delta_loi'] = ds_df
     #释放数据
     delta_item_group_site_set.clear()
@@ -186,7 +188,7 @@ def p_clear_and_cal_demand_supply(q):
         if type(ds_datetime) == str and ds_datetime != "" and (ds_datetime in cp_df.columns):
             ds_df[(f'{ds_month}',f'{ds_datetime}')] = ds_df.apply(cal_demand_supply_by_datetime,axis=1,args=(ds_datetime,))
     cal_demand_supply_end = time.time()
-    q.put({'ds_demand_supply':ds_df})
+    q.put(ds_df)
     #dict['ds_demand_supply'] = ds_df
     print(f"计算DS表的Demand和Supply的值 time cost is :{cal_demand_supply_end - cal_demand_supply_start} seconds")
     print(f"DS表的Demand和Supply的清空和计算总共 time cost is :{cal_demand_supply_end - clear_demand_supply_start} seconds")
@@ -211,28 +213,30 @@ if __name__ == '__main__':
     print(f"主进程-{os.getpid()} is running...")
     
     cal_start = time.time()
-    q = Queue()
+
+    delta_loi_q = Queue()
+    demand_supply_q = Queue()
+    result_ds = []
     #因为我的本CPU只有双核，这里起两个进程，一个计算Delta和LOI，一个计算Demand和Supply
-    p_cal_delta_loi = Process(target=p_clear_and_cal_delta_loi,args=(q,))
-    p_cal_demand_supply = Process(target=p_clear_and_cal_demand_supply,args=(q,))
+    p_cal_delta_loi = Process(target=p_clear_and_cal_delta_loi,args=(delta_loi_q,))
+    p_cal_demand_supply = Process(target=p_clear_and_cal_demand_supply,args=(demand_supply_q,))
     
     p_cal_delta_loi.start()
     p_cal_demand_supply.start()
-    
+
+    ds_df_delta_loi = delta_loi_q.get()
     p_cal_delta_loi.join()
+   
+    ds_df_demand_supply = demand_supply_q.get()
     p_cal_demand_supply.join()
-      
+    
     cal_end = time.time()
     print(f"ds_format python 脚本（使用多进程apply）内存计算总共 time cost is :{cal_end - cal_start} seconds") 
     
     #两个进程分别处理完后，拿到这两个进程的处理结果
     #ds_df_delta_loi = dict['ds_delta_loi']
     #ds_df_demand_supply = dict['ds_demand_supply']
-    for result in q:
-        if 'ds_delta_loi' in result:
-            ds_df_delta_loi = result['ds_delta_loi']
-        if 'ds_demand_supply' in result:
-            ds_df_demand_supply = result['ds_demand_supply']
+
     
     #将ds_delta_loi合并到ds_demand_supply
     merge_start = time.time()
