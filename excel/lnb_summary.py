@@ -7,10 +7,9 @@ import pandas as pd
 import xlwings as xw
 import time
 import math
-import datetime
 
 #要处理的文件路径
-fpath = "datas/joyce/LNB_summary_format_bak.xlsm"
+fpath = "datas/joyce/LNB_summary_format.xlsm"
 
 read_excel_start = time.time()
 #把LNB_summary_format的Summary、SD和OBsheet数据读入内存
@@ -35,8 +34,8 @@ def handle_nan_item_group_by_row(ds_df_row):
         return ''
         
 summary_df[('Total','Capabity')] = summary_df.apply(handle_nan_item_group_by_row,axis=1)
-sd_df[('Total','Capabity')] = summary_df.apply(handle_nan_item_group_by_row,axis=1)
-ob_df[('Total','Capabity')] = summary_df.apply(handle_nan_item_group_by_row,axis=1)
+sd_df[('Total','Capabity')] = sd_df.apply(handle_nan_item_group_by_row,axis=1)
+ob_df[('Total','Capabity')] = ob_df.apply(handle_nan_item_group_by_row,axis=1)
 
 
 clear_summary_delta_loi_start = time.time()
@@ -69,9 +68,10 @@ def handle_nan(data):
 def Cal_C_Delta_Loi_Iter_In_Row(sum_row,sd_df,ob_df):
 
     sum_item_group = sum_row[('Total','Capabity')]
-    sum_c_value = sum_row[('Total','Capabity.1')]
+    sum_b_value = sum_row[('Total','Capabity.1')]
+    sum_c_value = sum_row[('Current week','BOH')]
 
-    if sum_c_value == 'Delta':
+    if sum_b_value == 'Delta':
         sd_delta = 0
         selected_sd_rows = sd_df.loc[(sd_df[('Total','Capabity')] == sum_item_group) & (sd_df[('Total','Capabity.1')] == 'Delta'),:]
         for index_row,selected_sd_row in selected_sd_rows.iterrows():
@@ -83,7 +83,7 @@ def Cal_C_Delta_Loi_Iter_In_Row(sum_row,sd_df,ob_df):
             ob_delta = selected_ob_row[('Current week','BOH')]
         return handle_nan(sd_delta) + handle_nan(ob_delta)
 
-    if sum_c_value == 'LOI':
+    if sum_b_value == 'LOI':
         sd_loi = 0
         selected_sd_rows = sd_df.loc[(sd_df[('Total','Capabity')] == sum_item_group) & (sd_df[('Total','Capabity.1')] == 'LOI'),:]
         for index_row,selected_sd_row in selected_sd_rows.iterrows():
@@ -95,12 +95,15 @@ def Cal_C_Delta_Loi_Iter_In_Row(sum_row,sd_df,ob_df):
             ob_loi = selected_ob_row[('Current week','BOH')]
 
         return handle_nan(sd_loi) + handle_nan(ob_loi)
+    
+    return sum_c_value
 
 def Cal_D_Delta_Iter_In_Row(sum_row,sd_df,ob_df):
     sum_item_group = sum_row[('Total','Capabity')]
-    sum_c_value = sum_row[('Total','Capabity.1')]
+    sum_b_value = sum_row[('Total','Capabity.1')]
+    sum_c_value = sum_row[('Current week','BOH')]
 
-    if sum_c_value == 'Delta':
+    if sum_b_value == 'Delta':
         sd_delta = 0
         selected_sd_rows = sd_df.loc[(sd_df[('Total','Capabity')] == sum_item_group) & (sd_df[('Total','Capabity.1')] == 'Delta')]
         for index_row,selected_sd_row in selected_sd_rows.iterrows():
@@ -111,6 +114,8 @@ def Cal_D_Delta_Iter_In_Row(sum_row,sd_df,ob_df):
         for index_row,selected_ob_row in selected_ob_rows.iterrows():
             ob_delta = selected_ob_row[('Sep end ','Rolling')]
         return handle_nan(sd_delta) + handle_nan(ob_delta)
+    
+    return sum_c_value
 
 #计算C列的Dela和LOI的值
 cal_c_delta_loi_start = time.time()
@@ -147,6 +152,8 @@ cal_summary_datetime_start = time.time()
 def cal_summary_by_datetime(ds_row,ds_month,ds_datetime):
     ds_item_group = ds_row[('Total','Capabity')]
     Capabity_1 = ds_row[('Total','Capabity.1')]
+    datetime_value = ds_row[(ds_month,ds_datetime)]
+
     if Capabity_1 != 'DOI':
 
         sd_value = 0
@@ -158,10 +165,12 @@ def cal_summary_by_datetime(ds_row,ds_month,ds_datetime):
         selected_ob_df_rows = ob_df.loc[(ob_df[('Total','Capabity')]==ds_item_group) & (ob_df[('Total','Capabity.1')]==Capabity_1),:]
         for index_selected_row,selected_ob_df_row in selected_ob_df_rows.iterrows():
             ob_value = selected_ob_df_row[(ds_month,ds_datetime)]
-            
+
         return_val = handle_nan(sd_value)+handle_nan(ob_value)
         print(f"item_group={ds_item_group}的{Capabity_1}的日期为{ds_datetime}的值={return_val}")
         return return_val
+        
+    return datetime_value
 
 #根据SD和OB相同的日期，计算Summary的值
 for i in range(5,38):

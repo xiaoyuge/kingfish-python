@@ -18,7 +18,6 @@ import os
 
 #要处理的文件路径
 fpath = "datas/joyce/DS_format_bak.xlsm"
-#dict = Manager().dict()
 
 def read_excel():
     #要处理的文件路径
@@ -308,9 +307,6 @@ if __name__ == '__main__':
     ds_df_supply = supply_q.get()
     p_cal_supply.join()
 
-    cal_end = time.time()
-    print(f"ds_format python 脚本（使用多进程apply）内存计算总共 time cost is :{cal_end - cal_start} seconds") 
-
     """
     Todo：未完成
     #将ds_delta_loi合并到ds_demand_supply
@@ -319,6 +315,8 @@ if __name__ == '__main__':
     merge_end = time.time()
     print(f"将内存计算结果进行合并time cost is :{merge_end - merge_start} seconds")
     """
+    cal_end = time.time()
+    print(f"ds_format python 脚本（使用多进程apply）内存计算总共 time cost is :{cal_end - cal_start} seconds") 
 
     #将内存计算结果保存到excel
     save_start = time.time()
