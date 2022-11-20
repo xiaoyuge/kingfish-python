@@ -9,8 +9,8 @@ import time
 import math
 
 #要处理的文件路径
-#fpath = "datas/joyce/LNB_summary_format.xlsm"
-fpath = ".s/LNB_summary_format.xlsm"#打包的文件路径
+fpath = "datas/joyce/LNB_summary_format.xlsm"
+#fpath = "./LNB_summary_format.xlsm"#打包的文件路径
 
 
 read_excel_start = time.time()
