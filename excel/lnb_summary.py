@@ -1,15 +1,19 @@
 """
 @author kingfish
 这个代码来源于真实的需求，见/data/joyce/需求文档.md
+用pyinstaller打包成exe碰到各种问题，这个文章总结的很好：
+https://blog.csdn.net/u012219045/article/details/115397646
 """
 
 import pandas as pd
 import xlwings as xw
 import time
 import math
+import openpyxl
 
 #要处理的文件路径
 fpath = "datas/joyce/LNB_summary_format.xlsm"
+#fpath = "LNB_summary_format.xlsm"#打包exe的时候改成该路径
 
 read_excel_start = time.time()
 #把LNB_summary_format的Summary、SD和OBsheet数据读入内存
@@ -169,7 +173,7 @@ def cal_summary_by_datetime(ds_row,ds_month,ds_datetime):
         return_val = handle_nan(sd_value)+handle_nan(ob_value)
         print(f"item_group={ds_item_group}的{Capabity_1}的日期为{ds_datetime}的值={return_val}")
         return return_val
-        
+
     return datetime_value
 
 #根据SD和OB相同的日期，计算Summary的值
