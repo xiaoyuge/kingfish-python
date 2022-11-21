@@ -45,7 +45,7 @@ with open("crawler/cnblogs/cnBlogArticles.txt","w") as fout:
         content = r.text
         soup = BeautifulSoup(content,"html.parser")
         #先找到article节点
-        article_nodes = soup.find_all("article",class_="post-item")
+        article_nodes = soup.find_all("article"   ,class_="post-item")
         for article_node in article_nodes:
             #拿到文章标题和url
             article_a = article_node.find("a",class_="post-item-title",recursive=True)
