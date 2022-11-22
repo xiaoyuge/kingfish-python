@@ -1,6 +1,5 @@
 """
-@author kingfish
-读取excel数据，画柱状图
+读取excel数据，分析数据并生成图表
 """
 
 import pandas as pd
