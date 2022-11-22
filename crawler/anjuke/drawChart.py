@@ -19,5 +19,7 @@ def draw_bar_chart():
         .add_yaxis("商家B",excel["商家B"].tolist())
         .set_global_opts(title_opts=opts.TitleOpts(title="商品销量对比图"))
     )
+    
+def draw_
 
     return bar.render_embed()
