@@ -8,6 +8,7 @@ from pyecharts.charts import Bar,Pie,Scatter,WordCloud,Map
 import numpy as np
 import jieba
 import jieba.analyse
+from pyecharts.commons.utils import JsCode
     
 def cal_square_district(row):
     if row['面积'] <= 60:
@@ -36,6 +37,23 @@ def order_layout_ascending(row):
     if row['室'] == '6室':
         return 5
 
+layout_color_function = """
+        function (params) {
+            if (params.value > 19000 && params.value < 19900) {
+                return 'red';
+            } else if (params.value > 19900 && params.value < 20000) {
+                return 'blue';
+            }else if (params.value > 20000 && params.value < 21000){
+                return 'green'
+            }else if (params.value > 21000 && params.value < 23265){
+                return 'purple'
+            }else if (params.value > 23265 && params.value < 24000){
+                return 'black'
+            }
+            return 'brown';
+        }
+        """
+
 def unit_price_analysis_by_layout(df,isembed):
     #增加一列[面积区间]
     df['面积区间'] = df.apply(cal_square_district,args=(),axis=1)
@@ -53,7 +71,7 @@ def unit_price_analysis_by_layout(df,isembed):
     bar = (
         Bar()
         .add_xaxis(group_df['室'].tolist())
-        .add_yaxis("单价均价",group_df["均价"].tolist())
+        .add_yaxis("单价均价",group_df["均价"].tolist(),itemstyle_opts=opts.ItemStyleOpts(color=JsCode(layout_color_function)))
         .set_global_opts(title_opts=opts.TitleOpts(title="苏州二手房按户型的房屋单价"),
                          legend_opts=opts.LegendOpts(is_show=False))
     )
@@ -77,6 +95,21 @@ def order_square_ascending(row):
     if row['面积区间'] == '[150,-]':
         return 4
 
+square_color_function = """
+        function (params) {
+            if (params.value > 18000 && params.value < 19000) {
+                return 'red';
+            } else if (params.value > 19000 && params.value < 20000) {
+                return 'blue';
+            }else if (params.value > 20000 && params.value < 20900){
+                return 'green'
+            }else if (params.value > 20900 && params.value < 29000){
+                return 'purple'
+            }
+            return 'brown';
+        }
+        """
+
 def unit_price_analysis_by_square(df,isembed):
     #增加一列[面积区间]
     df['面积区间'] = df.apply(cal_square_district,args=(),axis=1)
@@ -94,7 +127,7 @@ def unit_price_analysis_by_square(df,isembed):
     bar = (
         Bar()
         .add_xaxis(group_df['面积区间'].tolist())
-        .add_yaxis("单价均价",group_df["均价"].tolist())
+        .add_yaxis("单价均价",group_df["均价"].tolist(),itemstyle_opts=opts.ItemStyleOpts(color=JsCode(square_color_function)))
         .set_global_opts(
             title_opts=opts.TitleOpts(title="苏州二手房按面积区间的房屋单价"),
             legend_opts=opts.LegendOpts(is_show=False))
@@ -105,6 +138,31 @@ def unit_price_analysis_by_square(df,isembed):
         return bar.render_embed()
     else:
         return bar
+
+top10_color_function = """
+        function (params) {
+            if (params.value > 58000 && params.value < 59000) {
+                return 'red';
+            } else if (params.value > 59000 && params.value < 60000) {
+                return 'blue';
+            }else if (params.value > 60000 && params.value < 61000){
+                return 'green'
+            }else if (params.value > 61000 && params.value < 61800){
+                return 'purple'
+            }else if (params.value > 61800 && params.value < 70000){
+                return 'brown'
+            }else if (params.value > 70000 && params.value < 73000){
+                return 'gray'
+            }else if (params.value > 73000 && params.value < 79000){
+                return 'orange'
+            }else if (params.value > 79000 && params.value < 85000){
+                return 'pink'
+            }else if (params.value > 85000 && params.value < 100000){
+                return 'navy'
+            }
+            return 'gold';
+        }
+        """
 
 def unit_price_analysis_by_estate(df,isembed):
     #获取要分析的数据列
@@ -124,7 +182,7 @@ def unit_price_analysis_by_estate(df,isembed):
     bar = (
         Bar(init_opts=opts.InitOpts(width="1500px"))
         .add_xaxis(top10_df['小区名称'].tolist())
-        .add_yaxis("房价单价",top10_df['均价'].tolist())
+        .add_yaxis("房价单价",top10_df['均价'].tolist(),itemstyle_opts=opts.ItemStyleOpts(color=JsCode(top10_color_function)))
         .reversal_axis()
         .set_series_opts(label_opts=opts.LabelOpts(position="right"))
         .set_global_opts(title_opts=opts.TitleOpts(title="苏州各小区二手房房价TOP10"),
