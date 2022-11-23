@@ -246,9 +246,10 @@ def hot_word_analysis_by_wordcloud(df,isembed):
     if isembed:
         return word_cloud.render_embed()
     else:
-        png_name = 'hot_word_analysis_by_wordcloud.png'
-        make_snapshot(snapshot, word_cloud.render(), f"crawler/anjuke/static/{png_name}")
-        return png_name
+        #png_name = 'hot_word_analysis_by_wordcloud.png'
+        #make_snapshot(snapshot, word_cloud.render(), f"crawler/anjuke/static/{png_name}")
+        #return png_name
+        return word_cloud
     
     
 def transform_name(row):
@@ -289,6 +290,7 @@ def unit_price_analysis_by_map(df,isembed):
     if isembed:
         return map.render_embed()
     else:
-        png_name = 'unit_price_analysis_by_map.png'
-        make_snapshot(snapshot, map.render(), f"crawler/anjuke/static/{png_name}")
-        return png_name
+        #png_name = 'unit_price_analysis_by_map.png'
+        #make_snapshot(snapshot, map.render(), f"crawler/anjuke/static/{png_name}")
+        #return png_name
+        return map

@@ -77,9 +77,11 @@ def show_all_analysis_chart():
     #苏州二手房面积-单价关系图
     unit_price_analysis_by_scatter = dbc.unit_price_analysis_by_scatter(df,False)
     #苏州二手房销售热度词
-    hot_word_analysis_by_wordcloud_png_name = dbc.hot_word_analysis_by_wordcloud(df,False)
+    #hot_word_analysis_by_wordcloud_png_name = dbc.hot_word_analysis_by_wordcloud(df,False)
+    hot_word_analysis_by_wordcloud = dbc.hot_word_analysis_by_wordcloud(df,False)
     #苏州各区域二手房房价
-    unit_price_analysis_by_map_png_name = dbc.unit_price_analysis_by_map(df,False)
+    #unit_price_analysis_by_map_png_name = dbc.unit_price_analysis_by_map(df,False)
+    unit_price_analysis_by_map = dbc.unit_price_analysis_by_map(df,False)
     
     
     return render_template("show_analysis_chart.html",
@@ -89,8 +91,8 @@ def show_all_analysis_chart():
                             unit_price_analysis_by_histogram_option = unit_price_analysis_by_histogram.dump_options(),
                             total_price_analysis_by_histogram_option = total_price_analysis_by_histogram.dump_options(),
                             unit_price_analysis_by_scatter_option = unit_price_analysis_by_scatter.dump_options(),
-                            hot_word_analysis_by_wordcloud_png = hot_word_analysis_by_wordcloud_png_name,
-                            unit_price_analysis_by_map_png = unit_price_analysis_by_map_png_name
+                            hot_word_analysis_by_wordcloud_option = hot_word_analysis_by_wordcloud.dump_options(),
+                            unit_price_analysis_by_map_option = unit_price_analysis_by_map.dump_options()
                            )
 
 if __name__ == "__main__":
