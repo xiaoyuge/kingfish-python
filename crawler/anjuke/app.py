@@ -6,15 +6,16 @@ import drawChart as dbc
 import pandas as pd
 
 app = Flask(__name__)
+
 #读取要分析的数据
 fpath = 'crawler/anjuke/data/suzhouSecondHouse-2022-11-22-200页.xlsx'
 df = pd.read_excel(fpath,sheet_name="Sheet1",header=[0],engine='openpyxl')
 df.drop_duplicates(keep='first',inplace=True) 
 
-@app.route("/total_price_analysis_by_suqare")
-def bar_total_price_analysis_by_square():
-    str = dbc.total_price_analysis_by_square(df)
-    return str
+@app.route("/unit_price_analysis_by_layout")
+def bar_unit_price_analysis_by_layout():
+    result = dbc.unit_price_analysis_by_layout(df,True)
+    return  result
 
 @app.route("/unit_price_analysis_by_suqare")
 def bar_unit_price_analysis_by_square():
@@ -66,6 +67,8 @@ def show_all_analysis_chart():
     
     #获取按面积区间的单价分析数据
     unit_price_analysis_by_square = dbc.unit_price_analysis_by_square(df,False)
+    #获取按室区分的单价分析数据
+    unit_price_analysis_by_layout = dbc.unit_price_analysis_by_layout(df,False)
     #获取苏州各小区二手房房价TOP10
     unit_price_analysis_by_estate = dbc.unit_price_analysis_by_estate(df,False)
     #获取不同建筑年份的待售房屋数
@@ -86,6 +89,7 @@ def show_all_analysis_chart():
     
     return render_template("show_analysis_chart.html",
                             unit_price_analysis_by_square_option = unit_price_analysis_by_square.dump_options(),
+                            unit_price_analysis_by_layout_option = unit_price_analysis_by_layout.dump_options(),
                             unit_price_analysis_by_estate_option = unit_price_analysis_by_estate.dump_options(),
                             sale_estate_analysis_by_year_option = sale_estate_analysis_by_year.dump_options(),
                             unit_price_analysis_by_histogram_option = unit_price_analysis_by_histogram.dump_options(),

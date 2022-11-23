@@ -8,8 +8,6 @@ from pyecharts.charts import Bar,Pie,Scatter,WordCloud,Map
 import numpy as np
 import jieba
 import jieba.analyse
-from pyecharts.render import make_snapshot
-from snapshot_selenium import snapshot
     
 def cal_square_district(row):
     if row['面积'] <= 60:
@@ -24,25 +22,60 @@ def cal_square_district(row):
         return '[150,-]'
     return '[未知]'    
 
-def total_price_analysis_by_square(df):
+def order_layout_ascending(row):
+    if row['室'] == '1室':
+        return 0
+    if row['室'] == '2室':
+        return 1
+    if row['室'] == '3室':
+        return 2
+    if row['室'] == '4室':
+        return 3
+    if row['室'] == '5室':
+        return 4
+    if row['室'] == '6室':
+        return 5
+
+def unit_price_analysis_by_layout(df,isembed):
     #增加一列[面积区间]
     df['面积区间'] = df.apply(cal_square_district,args=(),axis=1)
     #获取要分析的数据行和列
-    analysis_df = df.loc[:,['面积区间','总价']]
-    analysis_df.loc[:,'面积区间'] = analysis_df.loc[:,'面积区间'].astype('str')
+    analysis_df = df.loc[:,['室','均价']]
+    analysis_df.loc[:,'室'] = analysis_df.loc[:,'室'].astype('str')
     #对面积区间列group by，然后按分组计算总价和均价的平均值
-    group = analysis_df.groupby('面积区间')
+    group = analysis_df.groupby('室',as_index=False)
     group_df = group.mean()
-    group_df.loc[:,'总价'] = group_df.loc[:,'总价'].astype('int')
+    group_df.loc[:,'均价'] = group_df.loc[:,'均价'].astype('int')
+    #给室这个字段排个序
+    group_df['order'] = group_df.apply(order_layout_ascending,axis=1)
+    group_df.sort_values('order',ascending=True, inplace=True)
     
     bar = (
         Bar()
-        .add_xaxis(group_df.index.tolist())
-        .add_yaxis("总价均价",group_df["总价"].tolist())
-        .set_global_opts(title_opts=opts.TitleOpts(title="苏州二手房按面积区间的房屋总价"))
+        .add_xaxis(group_df['室'].tolist())
+        .add_yaxis("单价均价",group_df["均价"].tolist())
+        .set_global_opts(title_opts=opts.TitleOpts(title="苏州二手房按户型的房屋单价"),
+                         legend_opts=opts.LegendOpts(is_show=False))
     )
     
-    return bar.render_embed()
+    #判断是否单独显示，还是和其他图表一起显示
+    if isembed:
+        return bar.render_embed()
+    else:
+        return bar
+
+
+def order_square_ascending(row):
+    if row['面积区间'] == '[0,60]':
+        return 0
+    if row['面积区间'] == '[60,90]':
+        return 1
+    if row['面积区间'] == '[90,120]':
+        return 2
+    if row['面积区间'] == '[120,150]':
+        return 3
+    if row['面积区间'] == '[150,-]':
+        return 4
 
 def unit_price_analysis_by_square(df,isembed):
     #增加一列[面积区间]
@@ -51,13 +84,16 @@ def unit_price_analysis_by_square(df,isembed):
     analysis_df = df.loc[:,['面积区间','均价']]
     analysis_df.loc[:,'面积区间'] = analysis_df.loc[:,'面积区间'].astype('str')
     #对面积区间列group by，然后按分组计算总价和均价的平均值
-    group = analysis_df.groupby('面积区间')
+    group = analysis_df.groupby('面积区间',as_index=False)
     group_df = group.mean()
     group_df.loc[:,'均价'] = group_df.loc[:,'均价'].astype('int')
+    #把面积区间按从小到大排个序
+    group_df['order'] = group_df.apply(order_square_ascending,axis=1)
+    group_df.sort_values('order',ascending=True, inplace=True)
     
     bar = (
         Bar()
-        .add_xaxis(group_df.index.tolist())
+        .add_xaxis(group_df['面积区间'].tolist())
         .add_yaxis("单价均价",group_df["均价"].tolist())
         .set_global_opts(
             title_opts=opts.TitleOpts(title="苏州二手房按面积区间的房屋单价"),
