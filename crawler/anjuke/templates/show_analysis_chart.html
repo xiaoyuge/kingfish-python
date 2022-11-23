@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>苏州二手房数据分析报告</title>
+    <script src="/static/echarts.min.js"></script>
+    <script src="/static/echarts-wordcloud.min.js"></script>
+</head>
+<body>
+    <h1 align="center">苏州二手房数据分析报告</h1>
+    <h2>1.苏州二手房按面积区间的房屋单价</h2>
+    <div id="unit_price_analysis_by_square" style="width:1200px;height:600px"> </div>
+    <script type="text/javascript">
+        var unit_price_analysis_by_square_chart = echarts.init(document.getElementById('unit_price_analysis_by_square'));
+        var option = {{ unit_price_analysis_by_square_option | safe }};
+        unit_price_analysis_by_square_chart.setOption(option)
+    </script>
+     <h2>2.苏州各小区二手房房价TOP10</h2>
+     <div id="unit_price_analysis_by_estate" style="width:1200px;height:600px"> </div>
+     <script type="text/javascript">
+         var unit_price_analysis_by_estate_chart = echarts.init(document.getElementById('unit_price_analysis_by_estate'));
+         var option = {{ unit_price_analysis_by_estate_option | safe }};
+         unit_price_analysis_by_estate_chart.setOption(option)
+     </script>
+      <h2>3.苏州二手房不同建筑年份的待售数量</h2>
+      <div id="sale_estate_analysis_by_year" style="width:1200px;height:600px"> </div>
+      <script type="text/javascript">
+          var sale_estate_analysis_by_year_chart = echarts.init(document.getElementById('sale_estate_analysis_by_year'));
+          var option = {{ sale_estate_analysis_by_year_option | safe }};
+          sale_estate_analysis_by_year_chart.setOption(option)
+      </script>
+     <h2>4.苏州二手房房价-单价分布-直方图</h2>
+     <div id="unit_price_analysis_by_histogram" style="width:1200px;height:600px"> </div>
+     <script type="text/javascript">
+         var unit_price_analysis_by_histogram_chart = echarts.init(document.getElementById('unit_price_analysis_by_histogram'));
+         var option = {{ unit_price_analysis_by_histogram_option | safe }};
+         unit_price_analysis_by_histogram_chart.setOption(option)
+     </script>
+    <h2>5.苏州二手房房价-总价分布-直方图</h2>
+    <div id="total_price_analysis_by_histogram" style="width:1200px;height:600px"> </div>
+    <script type="text/javascript">
+        var total_price_analysis_by_histogram_chart = echarts.init(document.getElementById('total_price_analysis_by_histogram'));
+        var option = {{ total_price_analysis_by_histogram_option | safe }};
+        total_price_analysis_by_histogram_chart.setOption(option)
+    </script>
+    <h2>6.苏州二手房面积-单价关系图</h2>
+    <div id="unit_price_analysis_by_scatter" style="width:1200px;height:600px"> </div>
+    <script type="text/javascript">
+        var unit_price_analysis_by_scatter_chart = echarts.init(document.getElementById('unit_price_analysis_by_scatter'));
+        var option = {{ unit_price_analysis_by_scatter_option | safe }};
+        unit_price_analysis_by_scatter_chart.setOption(option)
+    </script>
+    <h2>7.苏州二手房销售热度词</h2>
+    <div><img src="/static/{{hot_word_analysis_by_wordcloud_png}}" style="width:1200px;height:600px"/></div>
+    <h2>8.苏州各区域二手房房价</h2>
+    <div><img src="/static/{{unit_price_analysis_by_map_png}}" style="width:1200px;height:600px"/></div>
+</body>
+</html>

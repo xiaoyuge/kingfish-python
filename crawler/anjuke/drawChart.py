@@ -8,7 +8,8 @@ from pyecharts.charts import Bar,Pie,Scatter,WordCloud,Map
 import numpy as np
 import jieba
 import jieba.analyse
-
+from pyecharts.render import make_snapshot
+from snapshot_selenium import snapshot
     
 def cal_square_district(row):
     if row['面积'] <= 60:
@@ -43,7 +44,7 @@ def total_price_analysis_by_square(df):
     
     return bar.render_embed()
 
-def unit_price_analysis_by_square(df):
+def unit_price_analysis_by_square(df,isembed):
     #增加一列[面积区间]
     df['面积区间'] = df.apply(cal_square_district,args=(),axis=1)
     #获取要分析的数据行和列
@@ -58,12 +59,18 @@ def unit_price_analysis_by_square(df):
         Bar()
         .add_xaxis(group_df.index.tolist())
         .add_yaxis("单价均价",group_df["均价"].tolist())
-        .set_global_opts(title_opts=opts.TitleOpts(title="苏州二手房按面积区间的房屋单价"))
+        .set_global_opts(
+            title_opts=opts.TitleOpts(title="苏州二手房按面积区间的房屋单价"),
+            legend_opts=opts.LegendOpts(is_show=False))
     )
     
-    return bar.render_embed()
+    #判断是否单独显示，还是和其他图表一起显示
+    if isembed:
+        return bar.render_embed()
+    else:
+        return bar
 
-def unit_price_analysis_by_estate(df):
+def unit_price_analysis_by_estate(df,isembed):
     #获取要分析的数据列
     analysis_df = df.loc[:,['小区名称','均价']]
     analysis_df.loc[:,'小区名称'] = analysis_df.loc[:,'小区名称'].astype('str')
@@ -84,10 +91,16 @@ def unit_price_analysis_by_estate(df):
         .add_yaxis("房价单价",top10_df['均价'].tolist())
         .reversal_axis()
         .set_series_opts(label_opts=opts.LabelOpts(position="right"))
-        .set_global_opts(title_opts=opts.TitleOpts(title="苏州各小区二手房房价TOP10"),xaxis_opts=opts.AxisOpts(axislabel_opts={'interval':'0'}))
+        .set_global_opts(title_opts=opts.TitleOpts(title="苏州各小区二手房房价TOP10"),
+                         xaxis_opts=opts.AxisOpts(axislabel_opts={'interval':'0'}),
+                         legend_opts=opts.LegendOpts(is_show=False))
     )
     
-    return bar.render_embed()
+     #判断是否单独显示，还是和其他图表一起显示
+    if isembed:
+        return bar.render_embed()
+    else:
+        return bar
 
 def unit_price_analysis_by_district(df):
     #获取要分析的数据列
@@ -114,7 +127,7 @@ def unit_price_analysis_by_district(df):
 def add_sale_estate_col(row):
     return 0
 
-def sale_estate_analysis_by_year(df):
+def sale_estate_analysis_by_year(df,isembed):
     df.loc[:,'待售房屋数'] = df.apply(add_sale_estate_col,axis=1)
     analysis_df = df.loc[:,['建筑年份','待售房屋数']]
     analysis_df.dropna(inplace=True)
@@ -135,9 +148,13 @@ def sale_estate_analysis_by_year(df):
             title_textstyle_opts=opts.TextStyleOpts(color='black', font_size=16)),
             legend_opts=opts.LegendOpts(is_show=False))
 
-    return pie.render_embed()
+    #判断是否单独显示，还是和其他图表一起显示
+    if isembed:
+        return pie.render_embed()
+    else:
+        return pie
 
-def unit_price_analysis_by_histogram(df):
+def unit_price_analysis_by_histogram(df,isembed):
     hist,bin_edges = np.histogram(df['均价'],bins=100)
     
     bar = (
@@ -150,10 +167,14 @@ def unit_price_analysis_by_histogram(df):
         )
     )
     
-    return bar.render_embed()
+     #判断是否单独显示，还是和其他图表一起显示
+    if isembed:
+        return bar.render_embed()
+    else:
+        return bar
 
 
-def total_price_analysis_by_histogram(df):
+def total_price_analysis_by_histogram(df,isembed):
     hist,bin_edges = np.histogram(df['总价'],bins=100)
     
     bar = (
@@ -166,15 +187,20 @@ def total_price_analysis_by_histogram(df):
         )
     )
     
-    return bar.render_embed()
+    #判断是否单独显示，还是和其他图表一起显示
+    if isembed:
+        return bar.render_embed()
+    else:
+        return bar
 
-def unit_price_analysis_by_scatter(df):
-     df.sort_values('面积',ascending=True, inplace=True)
+def unit_price_analysis_by_scatter(df,isembed):
+    
+    df.sort_values('面积',ascending=True, inplace=True)
      
-     square = df['面积'].to_list()
-     unit_price = df['均价'].to_list()
+    square = df['面积'].to_list()
+    unit_price = df['均价'].to_list()
      
-     scatter = (
+    scatter = (
          Scatter()
          .add_xaxis(xaxis_data=square)
          .add_yaxis(
@@ -190,10 +216,14 @@ def unit_price_analysis_by_scatter(df):
          )
      )
      
-     return scatter.render_embed()
+    #判断是否单独显示，还是和其他图表一起显示
+    if isembed:
+        return scatter.render_embed()
+    else:
+        return scatter
  
  
-def hot_word_analysis_by_wordcloud(df):
+def hot_word_analysis_by_wordcloud(df,isembed):
     txt = ''
     for index,row in df.iterrows():
         txt = txt+ str(row['待售房屋']) + ';'+ str(row['标签']) + '\n'
@@ -208,11 +238,18 @@ def hot_word_analysis_by_wordcloud(df):
             title='苏州二手房销售热度词',
             title_textstyle_opts=opts.TextStyleOpts(font_size=23),
             pos_left='center'
+            )
         )
     )
-    )
     
-    return word_cloud.render_embed()
+    #判断是否单独显示，还是和其他图表一起显示
+    if isembed:
+        return word_cloud.render_embed()
+    else:
+        png_name = 'hot_word_analysis_by_wordcloud.png'
+        make_snapshot(snapshot, word_cloud.render(), f"crawler/anjuke/static/{png_name}")
+        return png_name
+    
     
 def transform_name(row):
     district_name = row['区'].strip()
@@ -222,7 +259,7 @@ def transform_name(row):
         district_name = district_name + '市'
     return district_name
     
-def unit_price_analysis_by_map(df):
+def unit_price_analysis_by_map(df,isembed):
     data = []
     #获取要分析的数据列
     analysis_df = df.loc[:,['区','均价']]
@@ -230,7 +267,7 @@ def unit_price_analysis_by_map(df):
     group_df = analysis_df.groupby('区',as_index=False)
     #根据分组对均价列求平均值
     group_df = group_df.mean('均价')
-    print(group_df)
+    #print(group_df)
     #将区的名字做一下转换，为下面的地图匹配做准备
     group_df['区'] = group_df.apply(transform_name,axis=1)
     group_df.loc[:,'均价'] = group_df.loc[:,'均价'].astype('int')
@@ -243,8 +280,15 @@ def unit_price_analysis_by_map(df):
         Map()
         .add('苏州各区域二手房房价',data,'苏州')
         .set_global_opts(
-            title_opts=opts.TitleOpts(title='苏州各区域二手房房价地图'),
-            visualmap_opts=opts.VisualMapOpts(max_=26000)
+            title_opts=opts.TitleOpts(title='苏州各区域二手房房价地图',pos_left='center'),
+            visualmap_opts=opts.VisualMapOpts(max_=26000),
+            legend_opts=opts.LegendOpts(is_show=False)
         )
     )
-    return map.render_embed()
+     #判断是否单独显示，还是和其他图表一起显示
+    if isembed:
+        return map.render_embed()
+    else:
+        png_name = 'unit_price_analysis_by_map.png'
+        make_snapshot(snapshot, map.render(), f"crawler/anjuke/static/{png_name}")
+        return png_name
