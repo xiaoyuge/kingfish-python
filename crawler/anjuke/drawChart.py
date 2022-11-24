@@ -222,11 +222,15 @@ def add_sale_estate_col(row):
     return 0
 
 def sale_estate_analysis_by_year(df,isembed):
+    #增加一列待售房屋数，初始值均为0
     df.loc[:,'待售房屋数'] = df.apply(add_sale_estate_col,axis=1)
+    #获取要用作数据分析的两列：建筑年份和待售房屋数
     analysis_df = df.loc[:,['建筑年份','待售房屋数']]
+    #因为建筑年份列有空值，先预处理一下
     analysis_df.dropna(inplace=True)
-    
+    #按照建筑年份进行分组
     group = analysis_df.groupby('建筑年份',as_index=False)
+    #对每个分组进行统计计数
     group_df = group.count()
     group_df.loc[:,'待售房屋数'] = group_df.loc[:,'待售房屋数'].astype('int')
     
