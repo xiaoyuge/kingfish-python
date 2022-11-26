@@ -217,7 +217,7 @@ if __name__ == '__main__':
     delta_loi_q = Queue()
     demand_supply_q = Queue()
    
-    #因为我的本CPU只有双核，这里起两个进程，一个计算Delta和LOI，一个计算Demand和Supply
+    #这里起两个进程，一个计算Delta和LOI，一个计算Demand和Supply
     p_cal_delta_loi = Process(target=p_clear_and_cal_delta_loi,args=(delta_loi_q,))
     p_cal_demand_supply = Process(target=p_clear_and_cal_demand_supply,args=(demand_supply_q,))
     
@@ -231,7 +231,7 @@ if __name__ == '__main__':
     p_cal_demand_supply.join()
     
     cal_end = time.time()
-    print(f"ds_format python 脚本（使用多进程apply）内存计算总共 time cost is :{cal_end - cal_start} seconds") 
+    print(f"ds_format python 脚本（使用多进程apply）读取数据+内存计算总共 time cost is :{cal_end - cal_start} seconds") 
     
     #将ds_delta_loi合并到ds_demand_supply
     merge_start = time.time()
