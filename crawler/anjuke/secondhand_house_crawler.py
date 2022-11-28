@@ -1,5 +1,6 @@
 """
 爬取安居客网站苏州的二手房数据
+启动方法：进入/anjuke目录下，执行python secondhand_house_crawler.py
 """
 
 import requests
@@ -63,7 +64,7 @@ def craw_anjuke_suzhou(craw_url,proxy):
         'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36'
     }
     
-    with open('crawler/anjuke/data/suzhouSecondHouse.csv','a') as fout:
+    with open('data/suzhouSecondHouse.csv','a') as fout:    
         #有代理用代理，没代理直接爬
         if proxy is None:
             r = requests.get(url=craw_url,headers=headers,timeout=3)
@@ -133,7 +134,7 @@ def craw_anjuke_suzhou(craw_url,proxy):
 if __name__ == '__main__':
     
     #先将标题写入结果数据文件
-    with open('crawler/anjuke/data/suzhouSecondHouse.csv','w') as fout:
+    with open('data/suzhouSecondHouse.csv','w') as fout:
         fout.write("%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s\n"%('待售房屋','室','厅','卫','面积','面积单位','朝向','楼层','建筑年份','小区名称','区','镇','道路','标签','总价','总价单位','均价','均价单位'))
     
     #假设爬取crawler_pages页，生成待爬取的url，放入url池管理起来

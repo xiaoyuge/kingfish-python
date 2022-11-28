@@ -1,5 +1,6 @@
 """
 启动一个web网站，展示不同的分析数据图表
+启动方法：进入/anjuke目录下，执行python app.py
 """
 from flask import Flask,render_template
 import drawChart as dbc
@@ -7,13 +8,13 @@ import pandas as pd
 
 app = Flask(__name__)
 
-#读取excel
-#fpath = 'crawler/anjuke/data/suzhouSecondHouse-2022-11-22-200页.xlsx'
+#读取excel，这个是备份的历史爬取的200页二手房数据，如果后续程序爬取数据出问题，可直接使用该数据
+#fpath = 'data/suzhouSecondHouse-2022-11-22-200页.xlsx'
 #df = pd.read_excel(fpath,sheet_name="Sheet1",header=[0],engine='openpyxl')
 #df.drop_duplicates(keep='first',inplace=True) 
 
 #读取csv
-fpath = 'crawler/anjuke/data/suzhouSecondHouse.csv'
+fpath = 'data/suzhouSecondHouse.csv'
 df = pd.read_csv(fpath,header=[0],sep=';')
 df.drop_duplicates(keep='first',inplace=True) 
 
