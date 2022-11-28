@@ -7,9 +7,14 @@ import pandas as pd
 
 app = Flask(__name__)
 
-#读取要分析的数据
-fpath = 'crawler/anjuke/data/suzhouSecondHouse-2022-11-22-200页.xlsx'
-df = pd.read_excel(fpath,sheet_name="Sheet1",header=[0],engine='openpyxl')
+#读取excel
+#fpath = 'crawler/anjuke/data/suzhouSecondHouse-2022-11-22-200页.xlsx'
+#df = pd.read_excel(fpath,sheet_name="Sheet1",header=[0],engine='openpyxl')
+#df.drop_duplicates(keep='first',inplace=True) 
+
+#读取csv
+fpath = 'crawler/anjuke/data/suzhouSecondHouse.csv'
+df = pd.read_csv(fpath,header=[0],sep=';')
 df.drop_duplicates(keep='first',inplace=True) 
 
 @app.route("/unit_price_analysis_by_layout")
