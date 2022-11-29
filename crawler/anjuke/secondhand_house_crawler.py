@@ -11,12 +11,6 @@ from crawlUrlManager import CrawlerUrlManager
 
 def get_proxies():
     proxy_list = []
-    #proxy_list = [{'http': 'http://27.159.142.62:40042', 'https': 'http://27.159.142.62:40042'},
-                  #{'http': 'http://121.230.208.242:40041', 'http': 'http://121.230.208.242:40041'},
-                  #{'http': 'http://27.159.142.62:40042', 'https': 'http://27.159.142.62:40042'},
-                  #{'http': 'http://121.230.208.242:40041', 'http': 'http://121.230.208.242:40041'},
-                  #{'http': 'http://27.159.142.62:40042', 'https': 'http://27.159.142.62:40042'},
-                  #{'http': 'http://121.230.208.242:40041', 'http': 'http://121.230.208.242:40041'}]
     proxy_url = 'http://api.tianqiip.com/getip?secret=zmwapiifw1q2ad7l&num=1&type=json&port=1&time=3&mr=1&sign=9a3585376ca017b008a9a34d6b1f19de'
     try:    
         datas = requests.get(proxy_url).json()
