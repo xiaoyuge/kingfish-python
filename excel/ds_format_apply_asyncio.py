@@ -4,6 +4,7 @@
 该实现使用Pandas的函数apply()来遍历DataFrame，并且开启多线程来加速计算
 但是该场景是一个CPU密集型场景，python多线程因为GIL的原因，并不能利用到多核加速
 所以，本脚本尝试用协程读取excel，看看是否能够提升读性能
+结论：pd.read_excel是同步阻塞io，所以即使用asyncio还是会阻塞，不会真异步，性能无提升
 """
 
 import pandas as pd
