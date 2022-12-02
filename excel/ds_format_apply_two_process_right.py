@@ -123,7 +123,7 @@ def p_clear_and_cal_delta_and_loi():
     #然后计算Delta和LOI
     cal_delta_loi_start = time.time()
     df_dict['ds_df'][('Current week','BOH')] = df_dict['ds_df'].apply(Cal_Delta_Loi_Iter_In_Ds,axis=1)
-    cal_delta_loi_end = time.time
+    cal_delta_loi_end = time.time()
     print(f"进程-{os.getpid()}计算Delta和LOI列的值 time cost is :{cal_delta_loi_end - cal_delta_loi_start} seconds")
         
 

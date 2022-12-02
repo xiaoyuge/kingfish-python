@@ -1,5 +1,6 @@
 """
 爬取安居客网站苏州的二手房数据
+启动方法：进入/anjuke目录下，执行python secondhand_house_crawler.py
 """
 
 import requests
@@ -10,12 +11,6 @@ from crawlUrlManager import CrawlerUrlManager
 
 def get_proxies():
     proxy_list = []
-    #proxy_list = [{'http': 'http://27.159.142.62:40042', 'https': 'http://27.159.142.62:40042'},
-                  #{'http': 'http://121.230.208.242:40041', 'http': 'http://121.230.208.242:40041'},
-                  #{'http': 'http://27.159.142.62:40042', 'https': 'http://27.159.142.62:40042'},
-                  #{'http': 'http://121.230.208.242:40041', 'http': 'http://121.230.208.242:40041'},
-                  #{'http': 'http://27.159.142.62:40042', 'https': 'http://27.159.142.62:40042'},
-                  #{'http': 'http://121.230.208.242:40041', 'http': 'http://121.230.208.242:40041'}]
     proxy_url = 'http://api.tianqiip.com/getip?secret=zmwapiifw1q2ad7l&num=1&type=json&port=1&time=3&mr=1&sign=9a3585376ca017b008a9a34d6b1f19de'
     try:    
         datas = requests.get(proxy_url).json()
@@ -51,7 +46,7 @@ def craw_anjuke_suzhou(craw_url,proxy):
         'cache-control': 'no-cache',
         'cookie': 'sessid=52E9DCA6-EF00-3B81-DB4B-92501A00C897; aQQ_ajkguid=E28EFACC-BD44-DCB3-36AD-44C7F4C59F54; twe=2; ajk-appVersion=; seo_source_type=0; fzq_h=a11c708eee2f58b50c57db78180c25a0_1668935822035_47858592090d4ccb84ebb0951dc167df_1780979444; id58=CrIgxGN58I+ph40vUiLbAg==; ctid=19; fzq_js_anjuke_ershoufang_pc=35248d391b15e8fa346ef7d1fcd298a6_1668958842229_24; obtain_by=1; xxzl_cid=4474178988384322b9f12c2b9ff082ea; xxzl_deviceid=dWfUPC2sWkeSUujJ+hW52AvyRDziPV06903sSUCgTiZF8LD/+0Xcwtu2EnNcFBmC',
         'pragma': 'no-cache',
-        'referer': 'https://suzhou.anjuke.com/sale/p5/?from=HomePage_TopBar',
+        'referer': 'https://suzhou.anjuke.com/sale/?from=navigation',
         'sec-ch-ua': '"Google Chrome";v="107", "Chromium";v="107", "Not=A?Brand";v="24"',
         'sec-ch-ua-mobile': '?0',
         'sec-ch-ua-platform': "macOS",
@@ -63,7 +58,7 @@ def craw_anjuke_suzhou(craw_url,proxy):
         'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/107.0.0.0 Safari/537.36'
     }
     
-    with open('crawler/anjuke/data/suzhouSecondHouse.csv','a') as fout:
+    with open('data/suzhouSecondHouse.csv','a') as fout:    
         #有代理用代理，没代理直接爬
         if proxy is None:
             r = requests.get(url=craw_url,headers=headers,timeout=3)
@@ -133,7 +128,7 @@ def craw_anjuke_suzhou(craw_url,proxy):
 if __name__ == '__main__':
     
     #先将标题写入结果数据文件
-    with open('crawler/anjuke/data/suzhouSecondHouse.csv','w') as fout:
+    with open('data/suzhouSecondHouse.csv','w') as fout:
         fout.write("%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s\n"%('待售房屋','室','厅','卫','面积','面积单位','朝向','楼层','建筑年份','小区名称','区','镇','道路','标签','总价','总价单位','均价','均价单位'))
     
     #假设爬取crawler_pages页，生成待爬取的url，放入url池管理起来
