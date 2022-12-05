@@ -41,7 +41,7 @@ def read_excel():
     #把CP和DS两个sheet的数据分别读入pandas的dataframe
     global cp_df
     global ds_df
-    #启动两个线程并行读取excel的数据
+    #启动两个进程并行读取excel的数据
     cp_df_queue = Queue()
     read_cp_df_process = Process(target=p_read_cp_df,args=(cp_df_queue,))
     read_cp_df_process.start()

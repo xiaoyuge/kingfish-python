@@ -33,7 +33,6 @@ def t_read_ds_df():
     print(f"{threading.current_thread().getName()}读取excel文件ds sheet time cost is :{t_read_ds_df_end - t_read_ds_df_start} seconds")
 
 def read_excel():
-    #要处理的文件路径
     read_excel_start = time.time()
     #把CP和DS两个sheet的数据分别读入pandas的dataframe
     #启动两个线程并行读取excel的数据
