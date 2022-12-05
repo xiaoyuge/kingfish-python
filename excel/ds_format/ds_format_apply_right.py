@@ -10,9 +10,11 @@ import pandas as pd
 import xlwings as xw
 import time
 import math
+import openpyxl
 
 #要处理的文件路径
 fpath = "data/DS_format.xlsm"
+#fpath = "DS_format.xlsm"#打包exe的时候改成该路径
 
 read_excel_start = time.time()
 #把CP和DS两个sheet的数据分别读入pandas的dataframe
