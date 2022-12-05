@@ -1,10 +1,8 @@
 """
 @author kingfish
 这个代码来源于真实的需求，见/data/joyce/需求文档.md
-该实现使用Pandas的函数apply()来遍历DataFrame，并且开启多进程来加速计算
-本方案不用多进程间通信的方式，改为多个进程分开计算，然后内存直接合并，再输出到文件的方式
-同样的代码在macos上执行没问题，在win上执行报错，因此不用manager来管理同步，改用queue
-使用queue需要注意，queue.put调用一次后，需要get后才能再次put，而且如果不是在process.join之前调用get，
+该实现使用Pandas的函数apply()来遍历DataFrame，并且用多线程加速io，用多进程加速计算
+用queue实现多进程间通讯，使用queue需要注意，queue.put调用一次后，需要get后才能再次put，而且如果不是在process.join之前调用get，
 那么会一直阻塞
 """
 
