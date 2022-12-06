@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>所有用户查询</title>
+</head>
+<body>
+    <h1>所有用户查询</h1>
+    <div>
+        <table border="1px">
+            <tr style="background-color:#ee0000">
+                <th>姓名</th>
+                <th>性别</th>
+                <th>年龄</th>
+                <th>邮箱</th>
+            </tr>
+            {%for data in datas%}
+                <tr>
+                    <td><a href="/show_user_detail/{{data[0]}}">{{data[1]}}</a></td>
+                    <td>{{data[2]}}</td>
+                    <td>{{data[3]}}</td>
+                    <td>{{data[4]}}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

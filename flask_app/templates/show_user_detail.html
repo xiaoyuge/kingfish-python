@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>用户详细信息</title>
+</head>
+<body>
+    <h1>用户详细信息：</h1>
+    <div>
+            <table border="1">
+                <tbody>
+                    {%for data in datas%}
+                    <tr>
+                        <th>用户名</th>
+                        <td>{{data[1]}}</td>
+                    </tr>
+                    <tr>
+                        <th>性别</th>
+                        <td>{{data[2]}}</td>
+                    </tr>
+                    <tr>
+                        <th>年龄</th>
+                        <td>{{data[3]}}</td>
+                    </tr>
+                    <tr>
+                        <th>邮箱</th>
+                        <td>{{data[4]}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+    </div>
+</body>
+</html>
