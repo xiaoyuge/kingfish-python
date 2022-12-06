@@ -1,6 +1,6 @@
 """
 @author kingfish
-db访问
+mysql访问
 """
 import pymysql
 import pprint
