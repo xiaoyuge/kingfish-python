@@ -7,14 +7,16 @@
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "justMyCode": true
+            "justMyCode": true,
+            "cwd": "${fileDirname}"
         },
         {
             "name": "Python: File",
             "type": "python",
             "request": "launch",
             "program": "${file}",
-            "justMyCode": true
+            "justMyCode": true,
+            "cwd": "${fileDirname}"
         }
     ]
 }

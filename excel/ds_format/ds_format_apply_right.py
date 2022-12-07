@@ -43,14 +43,19 @@ ds_df[('Total','Capabity')] = ds_df.apply(handle_nan_item_group_by_row,axis=1)
 clear_delta_loi_start = time.time()
 #清空DS表的Delta和LOI列的值
 def clear_Delta_Loi(row):
-    if row[('Total','Capabity.1')] == 'Delta':
-        print(f"清除{row[('Total','Capabity')]}的{row[('Total','Capabity.1')]}的值")
+    item_group = row[('Total','Capabity')]
+    capabity_1 = row[('Total','Capabity.1')]
+    boh = row[('Current week','BOH')]
+    
+    if capabity_1 == 'Delta' and item_group.strip() != 'Total' and item_group.strip() != '1Gb  Eqv.':
+        print(f"清除{item_group}的{capabity_1}的值")
         return 0
         
-    if row[('Total','Capabity.1')] == 'LOI':
-        print(f"清除{row[('Total','Capabity')]}的{row[('Total','Capabity.1')]}的值")
+    if capabity_1 == 'LOI' and item_group.strip() != 'Total' and item_group.strip() != '1Gb  Eqv.':
+        print(f"清除{item_group}的{capabity_1}的值")
         return 0
-        
+    
+    return boh
     
 ds_df[('Current week','BOH')] = ds_df.apply(clear_Delta_Loi,axis=1)
 
@@ -72,8 +77,10 @@ def Cal_Delta_Loi_Iter_In_Ds(ds_row):
     ds_item_group = ds_row[('Total','Capabity')]
     #获取DS表的Capabity.1的值，用于判断是delta还是loi
     ds_total_capabity1 = ds_row[('Total','Capabity.1')]
+    #获取boh值，如果不是delta或loi，直接返回该值
+    boh_val = ds_row[('Current week','BOH')]
     
-    if ds_total_capabity1 == 'Delta':
+    if ds_total_capabity1 == 'Delta' and ds_item_group.strip() != 'Total' and ds_item_group.strip() != '1Gb  Eqv.':
         return_delta_val = handle_nan(ds_row[('Current week','BOH')])
         #从cp_df获取item_group相等的一组数据
         selected_cp_df = cp_df.loc[cp_df['Item Group']==ds_item_group,:]
@@ -87,7 +94,7 @@ def Cal_Delta_Loi_Iter_In_Ds(ds_row):
                 print(f"item_group={ds_item_group}的Delta={ return_delta_val}")
         return return_delta_val
         
-    if ds_total_capabity1 == 'LOI':
+    if ds_total_capabity1 == 'LOI' and ds_item_group.strip() != 'Total' and ds_item_group.strip() != '1Gb  Eqv.':
         return_LOI_val = handle_nan(ds_row[('Current week','BOH')])
         #从cp_df获取item_group相等的一组数据
         selected_cp_df = cp_df.loc[cp_df['Item Group']==ds_item_group,:]
@@ -99,6 +106,8 @@ def Cal_Delta_Loi_Iter_In_Ds(ds_row):
                 return_LOI_val = return_LOI_val + pd.to_numeric(LOI_value,errors='coerce')+ pd.to_numeric(MRP_LOI_value,errors='coerce')
                 print(f"item_group={ds_item_group}的LOI={ return_LOI_val}")
         return return_LOI_val
+    
+    return boh_val
 
 #计算Dela和LOI的值
 ds_df[('Current week','BOH')] = ds_df.apply(Cal_Delta_Loi_Iter_In_Ds,axis=1)
@@ -112,50 +121,60 @@ print(f"计算DS表的Delta和LOI列的值 time cost is :{cal_delta_loi_end - ca
 
 clear_demand_supply_start = time.time()
 
-def clear_demand_supply(ds_row,ds_datetime):
+def clear_demand_supply(ds_row,ds_month,ds_datetime):
     ds_item_group = ds_row[('Total','Capabity')]
     Capabity_1 = ds_row[('Total','Capabity.1')]
-    if Capabity_1 == 'Demand' or Capabity_1 == 'Supply':
-        print(f'清空{ds_item_group}的{Capabity_1}的日期{ds_datetime}的值')
+    if (Capabity_1 == 'Demand' or Capabity_1 == 'Supply') and (ds_item_group.strip() != 'Total' and ds_item_group.strip() != '1Gb  Eqv.'):
+        print(f'清空{ds_item_group}的{Capabity_1}的日期{ds_month}:{ds_datetime}的值')
         return 0
+    else:
+        return ds_row[(f'{ds_month}',f'{ds_datetime}')]
 
 #清除DS表Demand和Supply各个日期的值
 #根据DS和CP相同的日期，计算Demand和Supply值
-for i in range(5,len(ds_df.columns)):
+for i in range(4,len(ds_df.columns)):
     ds_datetime = ds_df.columns.get_level_values(1)[i]
     ds_month = ds_df.columns.get_level_values(0)[i]
-    if type(ds_datetime) == str and ds_datetime != "" and (ds_datetime in cp_df.columns):
-        ds_df[(f'{ds_month}',f'{ds_datetime}')] = ds_df.apply(clear_demand_supply,axis=1,args=(ds_datetime,))
+    #获取cp表的日期列
+    cp_datetime_columns = cp_df.columns[53:]
+    if type(ds_datetime) == str and ds_datetime != "" and (ds_datetime in cp_datetime_columns):
+        ds_df[(f'{ds_month}',f'{ds_datetime}')] = ds_df.apply(clear_demand_supply,axis=1,args=(ds_month,ds_datetime))
 
 clear_demand_supply_end = time.time()
 print(f"清空DS表的Demand和Supply的值 time cost is :{clear_demand_supply_end - clear_demand_supply_start} seconds")    
 
 cal_demand_supply_start = time.time()
 
-def cal_demand_supply_by_datetime(ds_row,ds_datetime):
+def cal_demand_supply_by_datetime(ds_row,ds_month,ds_datetime):
     ds_item_group = ds_row[('Total','Capabity')]
     Capabity_1 = ds_row[('Total','Capabity.1')]
-    if Capabity_1 == 'Demand':
+    
+    if Capabity_1 == 'Demand' and ds_item_group.strip() != 'Total' and ds_item_group.strip() != '1Gb  Eqv.':
         selected_cp_df = cp_df.loc[(cp_df['Item Group']==ds_item_group) & (cp_df['Measure']=='Total Publish Demand'),:]
         return_damand_val = 0
         for index_cp_df,cp_df_row in selected_cp_df.iterrows():
             return_damand_val = return_damand_val + cp_df_row[ds_datetime]
-        print(f"item_group={ds_item_group}的{Capabity_1}的日期为{ds_datetime}的值={return_damand_val}")
+        print(f"item_group={ds_item_group}的{Capabity_1}的日期为{ds_month}:{ds_datetime}的值={return_damand_val}")
         return return_damand_val
-    if Capabity_1 == 'Supply':
+    
+    if Capabity_1 == 'Supply' and ds_item_group.strip() != 'Total' and ds_item_group.strip() != '1Gb  Eqv.':
         selected_cp_df = cp_df.loc[(cp_df['Item Group']==ds_item_group) & ((cp_df['Measure']=='Total Commit') | (cp_df['Measure']=='Total Risk Commit')),:]
         return_supply_val = 0
         for index_cp_df,cp_df_row in selected_cp_df.iterrows():
             return_supply_val = return_supply_val + cp_df_row[ds_datetime]
-        print(f"item_group={ds_item_group}的{Capabity_1}的日期为{ds_datetime}的值={return_supply_val}")
+        print(f"item_group={ds_item_group}的{Capabity_1}的日期为{ds_month}:{ds_datetime}的值={return_supply_val}")
         return return_supply_val
+    
+    return ds_row[(f'{ds_month}',f'{ds_datetime}')]
 
 #根据DS和CP相同的日期，计算Demand和Supply值
-for i in range(5,len(ds_df.columns)):
+for i in range(4,len(ds_df.columns)):
     ds_datetime = ds_df.columns.get_level_values(1)[i]
     ds_month = ds_df.columns.get_level_values(0)[i]
-    if type(ds_datetime) == str and ds_datetime != "" and (ds_datetime in cp_df.columns):
-        ds_df[(f'{ds_month}',f'{ds_datetime}')] = ds_df.apply(cal_demand_supply_by_datetime,axis=1,args=(ds_datetime,))
+    #获取cp表的日期列
+    cp_datetime_columns = cp_df.columns[53:]
+    if type(ds_datetime) == str and ds_datetime != "" and (ds_datetime in cp_datetime_columns):
+        ds_df[(f'{ds_month}',f'{ds_datetime}')] = ds_df.apply(cal_demand_supply_by_datetime,axis=1,args=(ds_month,ds_datetime))
 
 cal_demand_supply_end = time.time()
 print(f"计算DS表的Demand和Supply的值 time cost is :{cal_demand_supply_end - cal_demand_supply_start} seconds")
