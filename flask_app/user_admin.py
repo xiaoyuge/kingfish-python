@@ -3,8 +3,11 @@
 用户管理web应用
 """
 
-from flask import Flask,render_template,request
+import datetime
+import os
+from flask import Flask,render_template,request,send_from_directory
 import db
+import xlwt
 
 app = Flask(__name__)
 
@@ -43,6 +46,39 @@ def show_user_detail(id):
     datas = db.query_data(sql)
     print(datas)
     return render_template('show_user_detail.html',datas=datas)
+
+def generate_excel_file(data_dir, file_name):
+    fpath = os.path.join(data_dir,file_name)
+    workbook = xlwt.Workbook(encoding='utf8')
+    worksheet = workbook.add_sheet("user")
+    
+    #先写表头
+    for idx,name in enumerate(['id','name','sex','age','email']):
+        worksheet.write(0,idx,name)
+    
+    #再写数据
+    datas = db.query_data('select * from user')    
+    for idx,data in enumerate(datas):
+        worksheet.write(idx+1,0,data[0])
+        worksheet.write(idx+1,1,data[1])
+        worksheet.write(idx+1,2,data[2])
+        worksheet.write(idx+1,3,data[3])
+        worksheet.write(idx+1,4,data[4])
+    
+    workbook.save(fpath)
+
+@app.route('/download_user_excel')
+def download_user_excel():
+    
+    #要下载文件的目录和文件名
+    data_dir = os.path.join(app.root_path,"downloads")
+    now_time = datetime.datetime.now().strftime('%Y%m%d_%H%M%S')
+    file_name = f"user_{now_time}.xls"
+
+    #生成excel文件
+    generate_excel_file(data_dir, file_name)
+    
+    return send_from_directory(data_dir, file_name,as_attachment=True)
 
 if __name__ == '__main__':
     app.run()
