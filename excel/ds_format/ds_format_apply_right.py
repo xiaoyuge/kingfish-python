@@ -11,6 +11,7 @@ import xlwings as xw
 import time
 import math
 import openpyxl
+import datetime
 
 #要处理的文件路径
 fpath = "data/DS_format.xlsm"
@@ -19,7 +20,11 @@ fpath = "data/DS_format.xlsm"
 read_excel_start = time.time()
 #把CP和DS两个sheet的数据分别读入pandas的dataframe
 cp_df = pd.read_excel(fpath,sheet_name="CP",header=[0])
-ds_df = pd.read_excel(fpath,sheet_name="DS",header=[0,1])
+ds_df = pd.read_excel(fpath,sheet_name="DS",header=[0,1],dtype=str)
+#找到DS中Total所在的行，只计算Total所在行之前的所有行，因为Total往后的行有公式，用df写入会覆盖公式
+row = ds_df.loc[ds_df[('Total','Capabity')]=='Total ']
+total_row_index = row.index.values[0]
+ds_df = ds_df.loc[0:total_row_index -1 ]
 read_excel_end = time.time()
 print(f"读取excel文件 time cost is :{read_excel_end - read_excel_start} seconds")
 
@@ -134,11 +139,11 @@ def clear_demand_supply(ds_row,ds_month,ds_datetime):
 #根据DS和CP相同的日期，计算Demand和Supply值
 for i in range(4,len(ds_df.columns)):
     ds_datetime = ds_df.columns.get_level_values(1)[i]
-    ds_month = ds_df.columns.get_level_values(0)[i]
+    iter_ds_month = ds_df.columns.get_level_values(0)[i]
     #获取cp表的日期列
     cp_datetime_columns = cp_df.columns[53:]
     if type(ds_datetime) == str and ds_datetime != "" and (ds_datetime in cp_datetime_columns):
-        ds_df[(f'{ds_month}',f'{ds_datetime}')] = ds_df.apply(clear_demand_supply,axis=1,args=(ds_month,ds_datetime))
+        ds_df[(f'{iter_ds_month}',f'{ds_datetime}')] = ds_df.apply(clear_demand_supply,axis=1,args=(iter_ds_month,ds_datetime))
 
 clear_demand_supply_end = time.time()
 print(f"清空DS表的Demand和Supply的值 time cost is :{clear_demand_supply_end - clear_demand_supply_start} seconds")    
@@ -170,11 +175,11 @@ def cal_demand_supply_by_datetime(ds_row,ds_month,ds_datetime):
 #根据DS和CP相同的日期，计算Demand和Supply值
 for i in range(4,len(ds_df.columns)):
     ds_datetime = ds_df.columns.get_level_values(1)[i]
-    ds_month = ds_df.columns.get_level_values(0)[i]
+    iter_ds_month = ds_df.columns.get_level_values(0)[i]
     #获取cp表的日期列
     cp_datetime_columns = cp_df.columns[53:]
     if type(ds_datetime) == str and ds_datetime != "" and (ds_datetime in cp_datetime_columns):
-        ds_df[(f'{ds_month}',f'{ds_datetime}')] = ds_df.apply(cal_demand_supply_by_datetime,axis=1,args=(ds_month,ds_datetime))
+        ds_df[(f'{iter_ds_month}',f'{ds_datetime}')] = ds_df.apply(cal_demand_supply_by_datetime,axis=1,args=(iter_ds_month,ds_datetime))
 
 cal_demand_supply_end = time.time()
 print(f"计算DS表的Demand和Supply的值 time cost is :{cal_demand_supply_end - cal_demand_supply_start} seconds")
@@ -187,7 +192,75 @@ save_excel_start = time.time()
 app = xw.App(visible=False,add_book=False)
 
 ds_format_workbook = app.books.open(fpath)
-ds_format_workbook.sheets["DS"].range("A1").expand().options(index=False).value = ds_df 
+ds_worksheet = ds_format_workbook.sheets["DS"]
+
+"""该块代码尝试遍历dataframe然后按单元格写入对应的值，但是用xlwings操作单元格频繁写入非常慢（40分钟），不可接受，放弃
+但保留该块代码以供瞻仰
+#根据ds_df来写excel，只写该写的单元格
+for row_idx,row in ds_df.iterrows():
+    total_capabity_val = row[('Total','Capabity')].strip()
+    total_capabity1_val = row[('Total','Capabity.1')].strip()
+    #Total和1Gb  Eqv.所在的行不写
+    if total_capabity_val!= 'Total' and total_capabity_val != '1Gb  Eqv.':
+        #给Delta和LOI赋值
+        if total_capabity1_val == 'LOI' or total_capabity1_val == 'Delta':
+            ds_worksheet.range((row_idx + 3 ,3)).value = row[('Current week','BOH')]
+            print(f"ds_sheet的第{row_idx + 3}行第3列被设置为{row[('Current week','BOH')]}") 
+        #给Demand和Supply赋值
+        if total_capabity1_val == 'Demand' or total_capabity1_val == 'Supply':
+            cp_datetime_columns = cp_df.columns[53:]
+            for col_idx in range(4,len(ds_df.columns)):
+                ds_datetime = ds_df.columns.get_level_values(1)[col_idx]
+                ds_month = ds_df.columns.get_level_values(0)[col_idx]
+                if type(ds_datetime) == str and ds_datetime != 'TTL' and ds_datetime != 'Total' and (ds_datetime in cp_datetime_columns):
+                    ds_worksheet.range((row_idx + 3,col_idx + 1)).value = row[(f'{ds_month}',f'{ds_datetime}')]
+                    print(f"ds_sheet的第{row_idx + 3}行第{col_idx + 1}列被设置为{row[(f'{ds_month}',f'{ds_datetime}')]}") 
+                elif type(ds_datetime) == datetime.datetime and (ds_datetime in cp_datetime_columns):
+                    ds_worksheet.range((row_idx + 3,col_idx + 1)).value = row[(f'{ds_month}',ds_datetime)]     
+                    print(f"ds_sheet的第{row_idx + 3}行第{col_idx + 1}列被设置为{row[(f'{ds_month}',ds_datetime)]}")             
+"""   
+
+"""这段代码打算按excel的区域，来给excel批量赋值，结果败在了日期类型的表头上
+last_row_idx = int(total_row_index+1)
+#赋值Delta和LOI
+ds_worksheet.range((3,3),(last_row_idx,3)).value = ds_df[('Current week','BOH')].to_list()
+
+#赋值Demand和Supply
+for col_idx in range(4,len(ds_df.columns)):
+    ds_datetime = ds_df.columns.get_level_values(1)[col_idx]
+    iter_ds_month = ds_df.columns.get_level_values(0)[col_idx]
+    #找到日期列
+    if type(ds_datetime) == str and (ds_datetime == 'TTL' or ds_datetime == 'Total'):
+        continue
+    #找到后获取日期列的列索引值作为起始索引值
+    start_col_idx = col_idx
+    #start_ds_datetime = ds_df.columns.get_level_values(1)[start_col_idx]
+    #start_ds_month = ds_df.columns.get_level_values(0)[start_col_idx]
+    df_loc_col_str = '['
+    #df_loc_col_str = df_loc_col_str + f"('{start_ds_month}','{start_ds_datetime}'),"
+    #从起始日期列，往后找到最后一个不是TTL或Total的日期列，作为末尾日期列，确定范围
+    for iter_col_idx in range(start_col_idx,len(ds_df.columns)):
+        iter_ds_datetime = ds_df.columns.get_level_values(1)[iter_col_idx]
+        iter_ds_month = ds_df.columns.get_level_values(0)[iter_col_idx]
+        if type(iter_ds_datetime) == str and (iter_ds_datetime == 'TTL' or iter_ds_datetime == 'Total'):
+            end_col_idx = iter_col_idx -1 
+            end_ds_datetime = ds_df.columns.get_level_values(1)[end_col_idx]
+            end_ds_month = ds_df.columns.get_level_values(0)[end_col_idx]
+            df_loc_col_str = df_loc_col_str + ']'
+            #给excel赋值
+            ds_worksheet.range((3,start_col_idx+1),(last_row_idx,end_col_idx+1)).value = ds_df.loc[0:last_row_idx,f"{df_loc_col_str}"]
+            #从末尾列往后循环
+            col_idx = end_col_idx + 1
+        else:
+            if type(iter_ds_datetime) == str:
+                df_loc_col_str = df_loc_col_str + f"('{iter_ds_month}','{iter_ds_datetime}'),"  
+            elif type(iter_ds_datetime) == datetime.datetime :
+                df_loc_col_str = df_loc_col_str + f"('{iter_ds_month}',{iter_ds_datetime})," 
+"""
+
+#直接把ds_df完整赋值给excel，会导致excel原有的公式被值覆盖，因为之前的代码只读取了total之前的行，所以total以及total往后的行
+#的公式不会背覆盖，但是日期列中的total和ttl还是会被覆盖，没有完美解决
+ds_worksheet.range("A1").expand().options(index=False).value = ds_df 
 
 ds_format_workbook.save()
 ds_format_workbook.close()
