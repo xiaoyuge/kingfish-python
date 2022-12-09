@@ -20,7 +20,7 @@ fpath = "data/DS_format.xlsm"
 read_excel_start = time.time()
 #把CP和DS两个sheet的数据分别读入pandas的dataframe
 cp_df = pd.read_excel(fpath,sheet_name="CP",header=[0])
-ds_df = pd.read_excel(fpath,sheet_name="DS",header=[0,1],dtype=str)
+ds_df = pd.read_excel(fpath,sheet_name="DS",header=[0,1])
 #找到DS中Total所在的行，只计算Total所在行之前的所有行，因为Total往后的行有公式，用df写入会覆盖公式
 row = ds_df.loc[ds_df[('Total','Capabity')]=='Total ']
 total_row_index = row.index.values[0]
@@ -220,7 +220,8 @@ for row_idx,row in ds_df.iterrows():
                     print(f"ds_sheet的第{row_idx + 3}行第{col_idx + 1}列被设置为{row[(f'{ds_month}',ds_datetime)]}")             
 """   
 
-"""这段代码打算按excel的区域，来给excel批量赋值，结果败在了日期类型的表头上
+""" 
+#这段代码打算按excel的区域，来给excel批量赋值，结果败在了日期类型的表头上
 last_row_idx = int(total_row_index+1)
 #赋值Delta和LOI
 ds_worksheet.range((3,3),(last_row_idx,3)).value = ds_df[('Current week','BOH')].to_list()
@@ -249,14 +250,12 @@ for col_idx in range(4,len(ds_df.columns)):
             df_loc_col_str = df_loc_col_str + ']'
             #给excel赋值
             ds_worksheet.range((3,start_col_idx+1),(last_row_idx,end_col_idx+1)).value = ds_df.loc[0:last_row_idx,f"{df_loc_col_str}"]
+            print(f"DS表从第3行第{start_col_idx+1}列~第{last_row_idx}第{end_col_idx+1}列被赋值")
             #从末尾列往后循环
             col_idx = end_col_idx + 1
         else:
-            if type(iter_ds_datetime) == str:
-                df_loc_col_str = df_loc_col_str + f"('{iter_ds_month}','{iter_ds_datetime}'),"  
-            elif type(iter_ds_datetime) == datetime.datetime :
-                df_loc_col_str = df_loc_col_str + f"('{iter_ds_month}',{iter_ds_datetime})," 
-"""
+            df_loc_col_str = df_loc_col_str + f"('{iter_ds_month}','{iter_ds_datetime}'),"   
+""" 
 
 #直接把ds_df完整赋值给excel，会导致excel原有的公式被值覆盖，因为之前的代码只读取了total之前的行，所以total以及total往后的行
 #的公式不会背覆盖，但是日期列中的total和ttl还是会被覆盖，没有完美解决

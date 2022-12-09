@@ -18,12 +18,44 @@ fpath = "data/DS_format.xlsm"
 #fpath = "DS_format.xlsm"#打包exe的时候改成该路径
 
 read_excel_start = time.time()
-#把CP和DS两个sheet的数据分别读入pandas的dataframe
+#把CP和DS两个sheet的数据分别读入pandas的dataframe，对于formula会直接读取结果，导致会丢掉formula
 cp_df = pd.read_excel(fpath,sheet_name="CP",header=[0])
 ds_df = pd.read_excel(fpath,sheet_name="DS",header=[0,1])
-ds_format_workbook = openpyxl.load_workbook(fpath,data_only=False)
-ds_wooksheet = ds_format_workbook['DS']
-ds_df =  pd.DataFrame(ds_wooksheet.values)
+
+#尝试用openpyxl读excel到dataframe，发现没有办法设置多级表头，但是可以读取的时候保留formula（data_only=False）参数
+#ds_format_workbook = openpyxl.load_workbook(fpath,data_only=False)
+#ds_wooksheet = ds_format_workbook['DS']
+#ds_df =  pd.DataFrame(ds_wooksheet.values)
+
+#使用xlwings来读取formula
+app = xw.App(visible=False,add_book=False)
+ds_format_workbook = app.books.open(fpath)
+ds_worksheet = ds_format_workbook.sheets["DS"]
+
+#保留excel中的formula
+#找到DS中Total所在的行，Total之后的行都是formula
+row = ds_df.loc[ds_df[('Total','Capabity')]=='Total ']
+total_row_index = row.index.values[0]
+#获取对应excel的行号(dataframe把两层表头当做索引，从数据行开始计数，而且从0开始计数。excel从表头就开始计数，而且从1开始计数)
+excel_total_row_idx = int(total_row_index+2)
+#获取excel最后一行的索引
+excel_last_row_idx = ds_worksheet.used_range.rows.count
+#保留按日期计算的各列的formula
+I_col_formula = ds_worksheet.range(f'I3:I{excel_total_row_idx}').formula
+N_col_formula = ds_worksheet.range(f'N3:N{excel_total_row_idx}').formula
+T_col_formula = ds_worksheet.range(f'T3:T{excel_total_row_idx}').formula
+U_col_formula = ds_worksheet.range(f'U3:U{excel_total_row_idx}').formula
+Z_col_formula = ds_worksheet.range(f'Z3:Z{excel_total_row_idx}').formula
+AE_col_formula = ds_worksheet.range(f'AE3:AE{excel_total_row_idx}').formula
+AK_col_formula = ds_worksheet.range(f'AK3:AK{excel_total_row_idx}').formula
+AL_col_formula = ds_worksheet.range(f'AL3:AL{excel_total_row_idx}').formula
+#保留Total行开始一直到末尾所有行的formula
+total_to_last_formula = ds_worksheet.range(f'A{excel_total_row_idx+1}:AL{excel_last_row_idx}').formula
+
+#下面两行代码是用xlwings读取所有数据到dataframe，对于有合并单元格的情况，只能这么写，否则会读不到完整数据，本脚本用不上，留在这里以备后用
+#last_cell = ds_worksheet.used_range.last_cell
+#ds_df = ds_worksheet.range((1,1),(last_cell.row,last_cell.column)).options(pd.DataFrame,index=False,header=2,dates=datetime.date).value
+
 read_excel_end = time.time()
 print(f"读取excel文件 time cost is :{read_excel_end - read_excel_start} seconds")
 
@@ -187,37 +219,19 @@ print(f"ds_format python 脚本（使用apply）内存计算总共 time cost is 
 
 
 save_excel_start = time.time()
-#保存结果到excel       
-app = xw.App(visible=False,add_book=False)
-
-ds_format_workbook = app.books.open(fpath)
-ds_worksheet = ds_format_workbook.sheets["DS"]
-
-#根据ds_df来写excel，只写该写的单元格
-for row_idx,row in ds_df.iterrows():
-    total_capabity_val = row[('Total','Capabity')].strip()
-    total_capabity1_val = row[('Total','Capabity.1')].strip()
-    #Total和1Gb  Eqv.所在的行不写
-    if total_capabity_val!= 'Total' and total_capabity_val != '1Gb  Eqv.':
-        #给Delta和LOI赋值
-        if total_capabity1_val == 'LOI' or total_capabity1_val == 'Delta':
-            ds_worksheet.range((row_idx + 3 ,3)).value = row[('Current week','BOH')]
-            print(f"ds_sheet的第{row_idx + 3}行第3列被设置为{row[('Current week','BOH')]}") 
-        #给Demand和Supply赋值
-        if total_capabity1_val == 'Demand' or total_capabity1_val == 'Supply':
-            cp_datetime_columns = cp_df.columns[53:]
-            for col_idx in range(4,len(ds_df.columns)):
-                ds_datetime = ds_df.columns.get_level_values(1)[col_idx]
-                ds_month = ds_df.columns.get_level_values(0)[col_idx]
-                if type(ds_datetime) == str and ds_datetime != 'TTL' and ds_datetime != 'Total' and (ds_datetime in cp_datetime_columns):
-                    ds_worksheet.range((row_idx + 3,col_idx + 1)).value = row[(f'{ds_month}',f'{ds_datetime}')]
-                    print(f"ds_sheet的第{row_idx + 3}行第{col_idx + 1}列被设置为{row[(f'{ds_month}',f'{ds_datetime}')]}") 
-                elif type(ds_datetime) == datetime.datetime and (ds_datetime in cp_datetime_columns):
-                    ds_worksheet.range((row_idx + 3,col_idx + 1)).value = row[(f'{ds_month}',ds_datetime)]     
-                    print(f"ds_sheet的第{row_idx + 3}行第{col_idx + 1}列被设置为{row[(f'{ds_month}',ds_datetime)]}")             
-      
+#保存结果到excel                 
 #直接把ds_df完整赋值给excel，会导致excel原有的公式被值覆盖
-#worksheet.range("A1").expand().options(index=False).value = ds_df 
+ds_worksheet.range("A1").expand().options(index=False).value = ds_df 
+#用之前保留的formulas，重置公式
+ds_worksheet.range(f'I3:I{excel_total_row_idx}').formula = I_col_formula
+ds_worksheet.range(f'N3:N{excel_total_row_idx}').formula = N_col_formula
+ds_worksheet.range(f'T3:T{excel_total_row_idx}').formula = T_col_formula
+ds_worksheet.range(f'U3:U{excel_total_row_idx}').formula = U_col_formula
+ds_worksheet.range(f'Z3:Z{excel_total_row_idx}').formula = Z_col_formula
+ds_worksheet.range(f'AE3:AE{excel_total_row_idx}').formula = AE_col_formula
+ds_worksheet.range(f'AK3:AK{excel_total_row_idx}').formula = AK_col_formula
+ds_worksheet.range(f'AL3:AL{excel_total_row_idx}').formula = AL_col_formula
+ds_worksheet.range(f'A{excel_total_row_idx+1}:AL{excel_last_row_idx}').formula = total_to_last_formula
 
 ds_format_workbook.save()
 ds_format_workbook.close()
