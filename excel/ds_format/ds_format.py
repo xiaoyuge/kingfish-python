@@ -49,6 +49,9 @@ Z_col_formula = ds_worksheet.range(f'Z3:Z{excel_total_row_idx}').formula
 AE_col_formula = ds_worksheet.range(f'AE3:AE{excel_total_row_idx}').formula
 AK_col_formula = ds_worksheet.range(f'AK3:AK{excel_total_row_idx}').formula
 AL_col_formula = ds_worksheet.range(f'AL3:AL{excel_total_row_idx}').formula
+#保留最后两列的formula
+AN_col_formula = ds_worksheet.range(f'AN3:AN{excel_last_row_idx}').formula
+AO_col_formula = ds_worksheet.range(f'AO3:AO{excel_last_row_idx}').formula
 #保留Total行开始一直到末尾所有行的formula
 total_to_last_formula = ds_worksheet.range(f'A{excel_total_row_idx+1}:AL{excel_last_row_idx}').formula
 
@@ -231,6 +234,8 @@ ds_worksheet.range(f'Z3:Z{excel_total_row_idx}').formula = Z_col_formula
 ds_worksheet.range(f'AE3:AE{excel_total_row_idx}').formula = AE_col_formula
 ds_worksheet.range(f'AK3:AK{excel_total_row_idx}').formula = AK_col_formula
 ds_worksheet.range(f'AL3:AL{excel_total_row_idx}').formula = AL_col_formula
+ds_worksheet.range(f'AN3:AN{excel_last_row_idx}').formula = AN_col_formula
+ds_worksheet.range(f'AO3:AO{excel_last_row_idx}').formula = AO_col_formula
 ds_worksheet.range(f'A{excel_total_row_idx+1}:AL{excel_last_row_idx}').formula = total_to_last_formula
 
 ds_format_workbook.save()
