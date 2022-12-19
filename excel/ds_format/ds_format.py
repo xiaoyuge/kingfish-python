@@ -189,10 +189,23 @@ def cal_demand_supply_by_datetime(ds_row,ds_month,ds_datetime):
     Capabity_1 = ds_row[('Total','Capabity.1')]
     
     if Capabity_1 == 'Demand' and ds_item_group.strip() != 'Total' and ds_item_group.strip() != '1Gb  Eqv.':
-        selected_cp_df = cp_df.loc[(cp_df['Item Group']==ds_item_group) & (cp_df['Measure']=='Total Publish Demand'),:]
+        selected_cp_df = cp_df.loc[(cp_df['Item Group']==ds_item_group) & ((cp_df['Measure']=='Total Gross Demand') | (cp_df['Measure']=='Total Hedge(IBP)')),:]
         return_damand_val = 0
         for index_cp_df,cp_df_row in selected_cp_df.iterrows():
             return_damand_val = return_damand_val + cp_df_row[ds_datetime]
+        #如果日期是CP的第一个日期，则还要减去OOI的值
+        cp_datetime_columns = cp_df.columns[53:]
+        if ds_datetime == cp_datetime_columns[0]:
+            demand_item_group_site_set = set()
+            for index_cp_df,cp_df_row in selected_cp_df.iterrows():
+                cp_item_group = cp_df_row['Item Group']
+                cp_siteid = cp_df_row['SITEID']
+                key = cp_item_group + '-'+ cp_siteid
+                #同一个item_group和siteid只扣减一次
+                if (key in demand_item_group_site_set) == False: 
+                    demand_item_group_site_set.add(key)   
+                    return_damand_val = return_damand_val - cp_df_row['MRP (OOI)']
+            demand_item_group_site_set.clear()
         print(f"item_group={ds_item_group}的{Capabity_1}的日期为{ds_month}:{ds_datetime}的值={return_damand_val}")
         return return_damand_val
     
