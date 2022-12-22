@@ -139,10 +139,10 @@ def Cal_Delta_Loi_Iter_In_Ds(ds_row):
         selected_cp_df = cp_df.loc[cp_df['Item Group']==ds_item_group,:]
         for cp_df_index,cp_df_row in selected_cp_df.iterrows():
             key = cp_df_row['Item Group'] + '-' + cp_df_row['SITEID']
-            if (key in delta_item_group_site_set) == False:
-                LOI_value = handle_nan(ds_row[('Current week','BOH')])
+            if (key in loi_item_group_site_set) == False:
+                loi_item_group_site_set.add(key)
                 MRP_LOI_value = handle_nan(cp_df_row['MRP (LOI)'])
-                return_LOI_val = return_LOI_val + pd.to_numeric(LOI_value,errors='coerce')+ pd.to_numeric(MRP_LOI_value,errors='coerce')
+                return_LOI_val = return_LOI_val + pd.to_numeric(MRP_LOI_value,errors='coerce')
                 print(f"item_group={ds_item_group}的LOI={ return_LOI_val}")
         return return_LOI_val
     
