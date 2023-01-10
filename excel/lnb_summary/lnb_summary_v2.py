@@ -22,6 +22,17 @@ summary_df = pd.read_excel(fpath,sheet_name="LNB summary",header=[0,1])
 sd_df = pd.read_excel(fpath,sheet_name="SD",header=[0,1])
 ob_df = pd.read_excel(fpath,sheet_name="OB",header=[0,1])
 read_excel_end = time.time()
+
+#使用xlwings来读取formula
+app = xw.App(visible=False,add_book=False)
+LNB_summary_workbook = app.books.open(fpath)
+LNB_summary_worksheet = LNB_summary_workbook.sheets["LNB summary"]
+#保留excel中的formula
+#获取excel最后一行的索引
+excel_last_row_idx = LNB_summary_worksheet.used_range.rows.count
+#保留最后两列的formula
+AN_col_formula = LNB_summary_worksheet.range(f'AN3:AN{excel_last_row_idx}').formula
+AO_col_formula = LNB_summary_worksheet.range(f'AO3:AO{excel_last_row_idx}').formula
 print(f"读取excel文件 time cost is :{read_excel_end - read_excel_start} seconds")
 
 
@@ -190,13 +201,13 @@ print(f"ds_format python 脚本（使用apply）内存计算总共 time cost is 
 
 save_excel_start = time.time()
 #保存结果到excel       
-app = xw.App(visible=False,add_book=False)
+LNB_summary_worksheet.range("A1").expand().options(index=False).value = summary_df
+#用之前保留的formulas，重置公式
+LNB_summary_worksheet.range(f'AN3:AN{excel_last_row_idx}').formula = AN_col_formula
+LNB_summary_worksheet.range(f'AO3:AO{excel_last_row_idx}').formula = AO_col_formula
 
-ds_format_workbook = app.books.open(fpath)
-ds_format_workbook.sheets["LNB summary"].range("A1").expand().options(index=False).value = summary_df
-
-ds_format_workbook.save()
-ds_format_workbook.close()
+LNB_summary_workbook.save()
+LNB_summary_workbook.close()
 app.quit()
 save_excel_end = time.time()
 print(f"保存结果到excel time cost is :{save_excel_end - save_excel_start} seconds") 
