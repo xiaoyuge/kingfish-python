@@ -4,8 +4,7 @@ import requests
 import json
 
 openai.organization = "org-EB9Hewj27svx8CRq6TB0RKa3"
-openai.api_key = "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"
-##os.getenv("OPENAI_API_KEY")
+openai.api_key = os.getenv("OPENAI_API_KEY")
 model_list = openai.Model.list()
 ## print(model_list)
 
@@ -13,7 +12,7 @@ model_list = openai.Model.list()
 openai_url = "https://api.openai.com/v1/chat/completions"
 headers = {
     'Content-Type':'application/json',
-    'Authorization':'Bearer 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'
+    'Authorization':f'Bearer {openai.api_key}'
 }
 datas = {
      "model": "gpt-3.5-turbo",
