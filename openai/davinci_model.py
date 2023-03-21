@@ -3,6 +3,8 @@ import openai
 import requests
 import json
 
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
 #尝试请求一下api
 openai_url = "https://api.openai.com/v1/completions"
 headers = {

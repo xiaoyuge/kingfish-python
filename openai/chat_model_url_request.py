@@ -8,11 +8,7 @@ Temperature is a value between 0 and 1 that essentially lets you control how con
 when making these predictions. Lowering temperature means it will take fewer risks, and completions will 
 be more accurate and deterministic. Increasing temperature will result in more diverse completions.
 """
-
-openai.organization = "org-EB9Hewj27svx8CRq6TB0RKa3"
 openai.api_key = os.getenv("OPENAI_API_KEY")
-model_list = openai.Model.list()
-## print(model_list)
 
 #尝试请求一下api
 openai_url = "https://api.openai.com/v1/chat/completions"
