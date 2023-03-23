@@ -18,7 +18,7 @@ headers = {
 }
 datas = {
      "model": "gpt-3.5-turbo",
-     "messages": [{"role": "user", "content": "我想训练一个法律行业的基于chatGPT的微调模型，应该怎么做"}],
+     "messages": [{"role": "user", "content": "帮我用python写一个贪吃蛇游戏的代码"}],
      "temperature": 1
 }
 json_data = json.dumps(datas)
