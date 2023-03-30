@@ -14,7 +14,7 @@ import openpyxl
 import datetime
 
 #要处理的文件路径
-fpath = "data/DS_format.xlsm"
+fpath = "data/DS_format_20230330.xlsm"
 #fpath = "DS_format.xlsm"#打包exe的时候改成该路径
 
 read_excel_start = time.time()
@@ -124,7 +124,7 @@ def Cal_Delta_Loi_Iter_In_Ds(ds_row):
         #从cp_df获取item_group相等的一组数据
         selected_cp_df = cp_df.loc[cp_df['Item Group']==ds_item_group,:]
         for cp_df_index,cp_df_row in selected_cp_df.iterrows():
-            key = cp_df_row['Item Group'] + '-' + cp_df_row['SITEID']
+            key = cp_df_row['Item Group'] + '-' + cp_df_row['SITEID'] + '-' + cp_df_row['BU']
             if (key in delta_item_group_site_set) == False:
                 delta_item_group_site_set.add(key)
                 MRP_LOI_value = handle_nan((cp_df_row['MRP (LOI)']))
@@ -138,7 +138,7 @@ def Cal_Delta_Loi_Iter_In_Ds(ds_row):
         #从cp_df获取item_group相等的一组数据
         selected_cp_df = cp_df.loc[cp_df['Item Group']==ds_item_group,:]
         for cp_df_index,cp_df_row in selected_cp_df.iterrows():
-            key = cp_df_row['Item Group'] + '-' + cp_df_row['SITEID']
+            key = cp_df_row['Item Group'] + '-' + cp_df_row['SITEID']+ '-' + cp_df_row['BU']
             if (key in loi_item_group_site_set) == False:
                 loi_item_group_site_set.add(key)
                 MRP_LOI_value = handle_nan(cp_df_row['MRP (LOI)'])
@@ -200,7 +200,8 @@ def cal_demand_supply_by_datetime(ds_row,ds_month,ds_datetime):
             for index_cp_df,cp_df_row in selected_cp_df.iterrows():
                 cp_item_group = cp_df_row['Item Group']
                 cp_siteid = cp_df_row['SITEID']
-                key = cp_item_group + '-'+ cp_siteid
+                cp_bu = cp_df_row['BU']
+                key = cp_item_group + '-'+ cp_siteid + '-' + cp_bu
                 #同一个item_group和siteid只扣减一次
                 if (key in demand_item_group_site_set) == False: 
                     demand_item_group_site_set.add(key)   
