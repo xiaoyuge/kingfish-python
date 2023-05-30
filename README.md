@@ -4,7 +4,7 @@
 
 - OpenAI(API使用、Fine Tuning等)
 - Llama Index(Embedding)
-- Langchian（vicuna embedding）
+- Langchain（vicuna embedding）
 - excel办公自动化
 - 爬虫
 - 数据分析
