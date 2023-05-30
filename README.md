@@ -2,9 +2,9 @@
 
 ## **Python示例代码和个人项目代码，包括不限于：**
 
-- OpenAI API使用
-- Fine Tuning
-- GPT Index(Embedding)
+- OpenAI(API使用、Fine Tuning等)
+- Llama Index(Embedding)
+- Langchian（vicuna embedding）
 - excel办公自动化
 - 爬虫
 - 数据分析
