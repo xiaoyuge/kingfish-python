@@ -4,10 +4,13 @@ from langchain.text_splitter import CharacterTextSplitter
 from langchain import OpenAI,VectorDBQA
 from langchain.document_loaders import DirectoryLoader
 from langchain.chains import RetrievalQA
+import os
 
 # 设置环境变量
 #export OPENAI_API_BASE=http://region-9.seetacloud.com:45277/v1
 #export OPENAI_API_KEY=EMPTY
+os.environ["OPENAI_API_BASE"] = "http://region-9.seetacloud.com:45277/v1"
+os.environ["OPENAI_API_KEY"] = "EMPTY"
 
 # 加载文件夹中的所有txt类型的文件
 #loader = DirectoryLoader('/Users/joyce/kingfish-python/kingfish-python/langchain/data', glob='**/*.docx')
