@@ -31,5 +31,14 @@ docsearch = Chroma.from_documents(split_docs, embeddings)
 # 创建问答对象
 qa = VectorDBQA.from_chain_type(llm=OpenAI(model="text-embedding-ada-002"), chain_type="refine", vectorstore=docsearch,return_source_documents=False)
 # 进行问答
-result = qa({"query": "王兴渝工作时间最长的公司是哪家？"})
-print(result)
+#result = qa({"query": "王兴渝工作时间最长的公司是哪家？"})
+#print(result)
+
+questions = [
+             "王兴渝的最高学历是？", 
+             "王兴渝工作时间最长的公司是哪家？", 
+            ]
+
+for query in questions:
+    print("Query: ", query)
+    print("Ans: ",qa({"query": query}))
