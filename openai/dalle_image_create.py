@@ -1,7 +1,7 @@
 import openai
 
 response = openai.Image.create(
-  prompt="青春煮酒",
+  prompt="江南小酒馆的内景、布满中式白酒瓷酒瓶的酒柜、中式的古典吧台、简洁，幽暗",
   n=2,
   size="1024x1024"
 )
