@@ -211,25 +211,30 @@ def cal_demand_supply_by_datetime(ds_row,ds_month,ds_datetime):
         return return_damand_val
     
     if Capabity_1 == 'Supply' and ds_item_group.strip() != 'Total' and ds_item_group.strip() != '1Gb  Eqv.':
-        selected_cp_df = cp_df.loc[(cp_df['Item Group']==ds_item_group) & ((cp_df['Measure']=='Total Commit') | (cp_df['Measure']=='Total Risk Commit')),:]
+        selected_cp_df = cp_df.loc[(cp_df['Item Group']==ds_item_group) & ((cp_df['Measure']=='Total Commit') | (cp_df['Measure']=='Total Risk Commit') | (cp_df['Measure']=='Commit')),:]
         return_supply_val = 0
+        # 将Messsure=Total Commit or Total Risk Commit的对应日期值相加，不加Messure=Commit的日期值
         for index_cp_df,cp_df_row in selected_cp_df.iterrows():
+            if cp_df_row['Measure'] == 'Commit':
+                continue
             return_supply_val = return_supply_val + cp_df_row[ds_datetime]
         
-        #如果日期是CP的第一个日期，则还要加上MRP intransit列的值
+        #如果日期是CP的第一个日期，则还要加上Messure=commit的MRP intransit列的值
         cp_datetime_columns = cp_df.columns[60:]
         if ds_datetime == cp_datetime_columns[0]:
-            supply_item_group_site_set = set()
+            #supply_item_group_site_set = set()
             for index_cp_df,cp_df_row in selected_cp_df.iterrows():
-                cp_item_group = cp_df_row['Item Group']
-                cp_siteid = cp_df_row['SITEID']
-                cp_bu = cp_df_row['BU']
-                key = cp_item_group + '-'+ cp_siteid + '-' + cp_bu
-                #同一个item_group和siteid只扣减一次
-                if (key in supply_item_group_site_set) == False: 
-                    supply_item_group_site_set.add(key)   
+                if cp_df_row['Measure'] == 'Commit':
                     return_supply_val = return_supply_val + handle_nan(cp_df_row['MRP Intransit'])
-            supply_item_group_site_set.clear()
+                    #cp_item_group = cp_df_row['Item Group']
+                    #cp_siteid = cp_df_row['SITEID']
+                    #cp_bu = cp_df_row['BU']
+                    #key = cp_item_group + '-'+ cp_siteid + '-' + cp_bu
+                    #同一个item_group和siteid只加一次
+                    #if (key in supply_item_group_site_set) == False: 
+                        #supply_item_group_site_set.add(key)   
+                        #return_supply_val = return_supply_val + handle_nan(cp_df_row['MRP Intransit'])
+            #supply_item_group_site_set.clear()
         
         print(f"item_group={ds_item_group}的{Capabity_1}的日期为{ds_month}:{ds_datetime}的值={return_supply_val}")
         return return_supply_val

@@ -117,7 +117,7 @@ def Cal_C_Delta_Loi_Iter_In_Row(sum_row,sd_df,ob_df):
 def Cal_D_Delta_Iter_In_Row(sum_row,sd_df,ob_df):
     sum_item_group = sum_row[('Total','Capabity')]
     sum_b_value = sum_row[('Total','Capabity.1')]
-    sum_c_value = sum_row[('Current week','BOH')]
+    sum_d_value = sum_row[('last Q ','Rolling')]
 
     if sum_b_value == 'Delta':
         sd_delta = 0
@@ -131,7 +131,7 @@ def Cal_D_Delta_Iter_In_Row(sum_row,sd_df,ob_df):
             ob_delta = selected_ob_row[('last Q ','Rolling')]
         return handle_nan(sd_delta) + handle_nan(ob_delta)
     
-    return sum_c_value
+    return sum_d_value
 
 #计算C列的Dela和LOI的值
 cal_c_delta_loi_start = time.time()
