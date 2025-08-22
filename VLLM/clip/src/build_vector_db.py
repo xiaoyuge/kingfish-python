@@ -94,7 +94,7 @@ def process_images(collection, image_paths):
     vectors = []
     paths = []
     processed_count = 0
-    failed_count = 
+    failed_count = 0
     
     # 使用 tqdm 显示进度条
     for image_path in tqdm(image_paths, desc="Processing images"):
